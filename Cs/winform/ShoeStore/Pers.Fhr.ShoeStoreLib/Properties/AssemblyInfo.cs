@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过以下
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("ShoeLib")]
+[assembly: AssemblyTitle("Pers.Fhr.ShoeStoreLib")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("ShoeLib")]
+[assembly: AssemblyProduct("Pers.Fhr.ShoeStoreLib")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("c8a58466-9455-418d-8524-35c41fe87594")]
+[assembly: Guid("4e2eca90-4484-46bd-a039-783ca2aab2ca")]
 
 // 程序集的版本信息由下面四个值组成: 
 //
