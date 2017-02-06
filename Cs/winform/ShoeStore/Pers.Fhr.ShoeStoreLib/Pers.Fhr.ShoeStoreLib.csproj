@@ -55,19 +55,37 @@
   <ItemGroup>
     <Compile Include="Component\Config.cs" />
     <Compile Include="Component\ConfigDeal.cs" />
+    <Compile Include="Component\ListUtil.cs" />
     <Compile Include="Component\ObjectRefletUtil.cs" />
     <Compile Include="Component\PrimaryKeyAttribute.cs" />
     <Compile Include="Context\ContextFactory.cs" />
     <Compile Include="Context\MyContext.cs" />
+    <Compile Include="EntityManager\CustomerManager.cs" />
     <Compile Include="EntityManager\EntityBaseManager.cs" />
+    <Compile Include="EntityManager\EntityManagerFactory.cs" />
     <Compile Include="EntityManager\IEntityManager.cs" />
+    <Compile Include="EntityManager\RegionManager.cs" />
+    <Compile Include="EntityManager\SaleManager.cs" />
+    <Compile Include="EntityManager\SeasonManager.cs" />
+    <Compile Include="EntityManager\ShoeManager.cs" />
+    <Compile Include="EntityManager\StockCompanyManager.cs" />
+    <Compile Include="EntityManager\StockManager.cs" />
+    <Compile Include="EntityManager\StoreManager.cs" />
+    <Compile Include="Entity\Customer.cs" />
     <Compile Include="Entity\Region.cs" />
+    <Compile Include="Entity\Sale.cs" />
     <Compile Include="Entity\Season.cs" />
+    <Compile Include="Entity\Shoe.cs" />
+    <Compile Include="Entity\Stock.cs" />
+    <Compile Include="Entity\StockCompany.cs" />
+    <Compile Include="Entity\Store.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Impl\ScoreCheapNonStrategey.cs" />
+    <Compile Include="Service\Impl\ScoreEarnNoramlStrategey.cs" />
+    <Compile Include="Service\ScoreCheapStrategey.cs" />
+    <Compile Include="Service\ScoreEarnStrategey.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Service\Impl\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pers.Fhr.ShoeStoreLib.Component;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace Pers.Fhr.ShoeStoreLib.Entity
     /// </summary>
     class Region
     {
+        [PrimaryKeyAttribute]
         public Int32 RegionId { get; set; }
 
         public string RegionName { get; set; }

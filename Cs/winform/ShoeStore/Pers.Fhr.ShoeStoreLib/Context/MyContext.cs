@@ -16,6 +16,21 @@ namespace Pers.Fhr.ShoeStoreLib.Context
     {
         public DbSet<Season> Seasons { get; set; }
 
+        public DbSet<Customer> Customers { get; set; }
+
+        public DbSet<Region> Regions { get; set; }
+
+        public DbSet<Sale> Sales { get; set; }
+
+        public DbSet<Shoe> Shoes { get; set; }
+
+        public DbSet<Stock> Stocks { get; set; }
+
+        public DbSet<StockCompany> StockCompanys { get; set; }
+
+        public DbSet<Store> Stores { get; set; }
+
+
         private MyContext():base("ConnectDB")
         {
 

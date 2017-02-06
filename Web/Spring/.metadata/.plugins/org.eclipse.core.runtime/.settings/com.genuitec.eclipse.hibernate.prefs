@@ -1,2 +1,6 @@
+com.genuitec.eclipse.hibernate.GEN_ABSTRACT=false
+com.genuitec.eclipse.hibernate.GEN_DAO=true
+com.genuitec.eclipse.hibernate.JAVA_FOLDER=/ShoeStore/src
+com.genuitec.eclipse.hibernate.JAVA_PACKAGE=com.fhr.shoestore.model
 eclipse.preferences.version=1
 me.pref.version=4.1

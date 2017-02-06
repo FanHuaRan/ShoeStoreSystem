@@ -14,7 +14,7 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
     /// 实体访问泛型基类
     /// 2016/12/26 fhr
     /// </summary>
-    class EntityBaseService<T>:IEntityService<T>  where T:class
+    class EntityBaseManager<T> : IEntityManager<T> where T : class
     {
         protected MyContext context = ContextFactory.GetContext();
         public void Delete(T obj)

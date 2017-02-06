@@ -160,6 +160,20 @@
         <url>jdbc:hsqldb:&lt;databaseName&gt;</url>
     </Bean>
     <Bean Class="net.sourceforge.squirrel_sql.fw.sql.SQLDriver">
+        <driverClassName>com.mysql.jdbc.Driver</driverClassName>
+        <identifier Class="net.sourceforge.squirrel_sql.fw.id.UidIdentifier">
+            <string>1ecbc1b2:15a1161149d:-7f6f</string>
+        </identifier>
+        <jarFileName/>
+        <jarFileNames Indexed="true">
+            <Bean Class="net.sourceforge.squirrel_sql.fw.util.beanwrapper.StringWrapper">
+                <string>E:\&#x9879;&#x76ee;\ShoeStoreSystem\Web\Spring\ShoeStore\WebRoot\WEB-INF\lib\mysql-connector-java-5.1.22-bin.jar</string>
+            </Bean>
+        </jarFileNames>
+        <name>MySQL Connector/J0</name>
+        <url>jdbc:mysql://&lt;hostname&gt;[&lt;:3306&gt;]/&lt;dbname&gt;</url>
+    </Bean>
+    <Bean Class="net.sourceforge.squirrel_sql.fw.sql.SQLDriver">
         <driverClassName>org.apache.derby.jdbc.ClientDriver</driverClassName>
         <identifier Class="net.sourceforge.squirrel_sql.fw.id.UidIdentifier">
             <string>-29698fd9:159c04e2aea:-7fde</string>

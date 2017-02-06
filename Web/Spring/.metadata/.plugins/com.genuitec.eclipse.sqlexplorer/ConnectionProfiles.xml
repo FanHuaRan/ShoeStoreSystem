@@ -2,6 +2,22 @@
     <Bean Class="com.genuitec.eclipse.sqlexplorer.utils.ConnectionProfile">
         <activate>false</activate>
         <driverIdentifier Class="net.sourceforge.squirrel_sql.fw.id.UidIdentifier">
+            <string>1ecbc1b2:15a1161149d:-7f6f</string>
+        </driverIdentifier>
+        <identifier Class="net.sourceforge.squirrel_sql.fw.id.UidIdentifier">
+            <string>1ecbc1b2:15a1161149d:-7f92</string>
+        </identifier>
+        <name>com.mysql.jdbc.Driver</name>
+        <password encryption="true">xxC4WatvheY=</password>
+        <promptForPassword>false</promptForPassword>
+        <schema Indexed="true"/>
+        <schemaDisplayPolicy>0</schemaDisplayPolicy>
+        <url>jdbc:mysql://localhost:3306/shoe</url>
+        <userName>root</userName>
+    </Bean>
+    <Bean Class="com.genuitec.eclipse.sqlexplorer.utils.ConnectionProfile">
+        <activate>false</activate>
+        <driverIdentifier Class="net.sourceforge.squirrel_sql.fw.id.UidIdentifier">
             <string>-29698fd9:159c04e2aea:-7fde</string>
         </driverIdentifier>
         <identifier Class="net.sourceforge.squirrel_sql.fw.id.UidIdentifier">
