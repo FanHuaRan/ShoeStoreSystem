@@ -1,0 +1,5 @@
+package com.fhr.shoestore.controller;
+
+public class HomeController {
+
+}

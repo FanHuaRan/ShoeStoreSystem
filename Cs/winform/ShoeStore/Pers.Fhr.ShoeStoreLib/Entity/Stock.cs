@@ -19,5 +19,12 @@ namespace Pers.Fhr.ShoeStoreLib.Entity
         public DateTime StockTime { get; set; }
 
         public Int32 StockCount { get; set; }
+
+        public Stock()
+        {
+            stock.StockCompanyId = DealStockCompany(StockCompanyName);
+            stock.StockCount = shoes.Count;
+            stock.StockTime = dateTime;
+        }
     }
 }

@@ -31,6 +31,14 @@ namespace Pers.Fhr.ShoeStoreLib.Entity
 
         public byte IsSell { get; set; }
 
+        public float OriginMoney { get; set; }
+
+        public byte Gender { get; set; }
+
         public float? SellPrice { get; set; }
+
+        public Stock Stock{get;set;}
+
+        public Sale Sale { get; set; }
     }
 }

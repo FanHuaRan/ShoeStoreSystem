@@ -13,6 +13,13 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
     /// </summary>
     class SeasonManager : EntityBaseManager<Season>, IEntityManager<Season>
     {
+        public Season FindBySeasonName(string seasonName)
+        {
+            Season season = context.Seasons
+                .Where(p => p.SeasonName == seasonName)
+                .FirstOrDefault();
+            return season;
+        }
         private SeasonManager()
             : base()
         {

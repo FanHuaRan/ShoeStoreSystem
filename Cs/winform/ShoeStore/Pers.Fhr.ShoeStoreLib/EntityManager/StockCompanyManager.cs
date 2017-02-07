@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace Pers.Fhr.ShoeStoreLib.EntityManager
 {
+    /// <summary>
+    /// StockCompany管理类
+    /// 2017/02/07 fhr
+    /// </summary>
     class StockCompanyManager : EntityBaseManager<StockCompany>, IEntityManager<StockCompany>
     {
         private StockCompanyManager()

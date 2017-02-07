@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Pers.Fhr.ShoeStoreLib.EntityManager
 {
+    /// <summary>
+    /// Store管理类
+    /// </summary>
     class StoreManager : EntityBaseManager<Store>, IEntityManager<Store>
     {
         private StoreManager()

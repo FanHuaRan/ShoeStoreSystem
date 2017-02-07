@@ -1,3 +1,5 @@
 INDEX VERSION 1.127
 E:\项目\ShoeStoreSystem\Web\Spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3724630089.index
 \ShoeStore\src
+E:\项目\ShoeStoreSystem\Web\Spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\23695784.index
+\ShoeStore\src

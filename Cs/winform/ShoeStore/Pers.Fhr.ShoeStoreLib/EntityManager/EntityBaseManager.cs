@@ -16,7 +16,7 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
     /// </summary>
     class EntityBaseManager<T> : IEntityManager<T> where T : class
     {
-        protected MyContext context = ContextFactory.GetContext();
+        protected readonly MyContext context = ContextFactory.GetContext();
         public void Delete(T obj)
         {
             context.Set<T>().Remove(obj);
@@ -68,6 +68,28 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
         public T FindById(long id)
         {
             return context.Set<T>().Find(id);
+        }
+        /// <summary>
+        /// 自定义的组合查询
+        /// </summary>
+        /// <param name="delegates"></param>
+        /// <returns></returns>
+        public IList<T> SimpleCompositeFind(params Func<T, bool>[] delegates)
+        {
+            return context.Set<T>()
+                .Where(p => isRight(p, delegates))
+                .ToList() as IList<T>;
+        }
+        private bool isRight(T obj, params Func<T, bool> []delegates)
+        {
+            foreach (var v in delegates)
+            {
+                if (!v(obj))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }
