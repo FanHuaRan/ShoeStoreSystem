@@ -13,33 +13,14 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
     /// </summary>
     class ScoreEarnNoramlStrategey
         : IScoreEarnStrategey
-        , ISingleDP<ScoreEarnNoramlStrategey>
     {
-        private ScoreEarnNoramlStrategey()
+        public ScoreEarnNoramlStrategey()
         {
 
         }
         public float EarnScore(Entity.Customer customer, Entity.Sale sale)
         {
             return sale.TotalPrice / 10;
-        }
-        private ScoreEarnNoramlStrategey instance;
-        public ScoreEarnNoramlStrategey Instance
-        {
-            get
-            {
-                CreateSingleInstance();
-                return instance;
-            }
-        }
-
-        public ScoreEarnNoramlStrategey CreateSingleInstance()
-        {
-            if (instance == null)
-            {
-                instance = new ScoreEarnNoramlStrategey();
-            }
-            return instance;
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Pers.Fhr.ShoeStoreLib.Entity
     /// 区域实体
     /// 2017/2/4 fhr
     /// </summary>
-    class Region
+   public class Region
     {
         [PrimaryKeyAttribute]
         public Int32 RegionId { get; set; }
@@ -27,8 +27,9 @@ namespace Pers.Fhr.ShoeStoreLib.Entity
             this.RegionAddress = regionAddress;
         }
         public Region(string regionName, string regionAddress)
+            : this(-1, regionName, regionAddress)
         {
-            this(-1, regionName, regionAddress);
+           
         }
     }
 }

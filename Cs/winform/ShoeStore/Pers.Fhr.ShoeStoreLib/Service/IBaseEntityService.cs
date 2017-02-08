@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Pers.Fhr.ShoeStoreLib.Service
 {
-    interface IBaseEntityService<T> where T:class
+    public interface IBaseEntityService<T> where T:class
     {
         IList<T> FindAll();
 

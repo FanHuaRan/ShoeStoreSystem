@@ -1,4 +1,5 @@
 ﻿using Pers.Fhr.ShoeStoreLib.Entity;
+using Pers.Fhr.ShoeStoreLib.EntityManager;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,38 +17,31 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
     {
         private readonly IShoeService shoeService;
         private readonly IStockCompanyService stockCompanyService;
-        private StockService(IShoeService shoeService, IStockService stockService, IStockCompanyService stockCompanyService)
+        public StockService(StockManager stockManager,IShoeService shoeService, IStockCompanyService stockCompanyService)
         {
+            this.entityManager = stockManager;
             this.shoeService = shoeService;
             this.stockCompanyService = stockCompanyService;
         }
         public Stock Stock(DateTime dateTime, string StockCompanyName, IList<Shoe> shoes)
         {
-           Stock stock=new Stock();
-           stock.StockCompanyId = DealStockCompany(StockCompanyName);
-           stock.StockCount = shoes.Count;
-           stock.StockTime = dateTime;
+           Stock tempStock=new Stock(DealStockCompany(StockCompanyName),dateTime, shoes.Count);
+           Stock stock = this.Update(tempStock);
+           DealShoes(shoes, stock);
+           return stock;
         }
         private int DealStockCompany(string StockCompanyName)
         {
-            StockCompany company=this.stockCompanyService.FindStockCompanyByName(StockCompanyName);
-            if (company == null)
-            {
-                StockCompany tempCompany = new StockCompany(-1, StockCompanyName);
-                company=this.stockCompanyService.Save(company);
-            }
+            StockCompany company = stockCompanyService.PutIfAbsent(StockCompanyName);
             return company.StockCompanyId;
         }
         private void DealShoes(IList<Shoe> shoes,Stock stock)
         {
-        }
-        public override StockService CreateSingleInstance()
-        {
-            if (instance == null)
+            foreach (var shoe in shoes)
             {
-                instance = new StockService();
+                shoe.StockId = stock.StockId;
+                this.shoeService.Save(shoe);
             }
-            return instance;
         }
     }
 }

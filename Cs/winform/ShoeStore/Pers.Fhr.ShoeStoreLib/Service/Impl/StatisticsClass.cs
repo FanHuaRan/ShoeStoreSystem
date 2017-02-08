@@ -12,7 +12,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
     /// <summary>
     /// 统计实现
     /// </summary>
-    class StatisticsClass : IStatisticsService, ISingleDP<StatisticsClass>
+    class StatisticsClass : IStatisticsService
     {
         private readonly ShoeManager shoeManager;
 
@@ -76,27 +76,9 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
         {
             return Shoes.Sum(p => p.SellPrice).Value;
         }
-        private StatisticsClass(ShoeManager shoeManager)
+        public StatisticsClass(ShoeManager shoeManager)
         {
             this.shoeManager = shoeManager;
-        }
-        private StatisticsClass instance;
-        public StatisticsClass Instance
-        {
-            get
-            {
-                CreateSingleInstance();
-                return instance;
-            }
-        }
-
-        public StatisticsClass CreateSingleInstance()
-        {
-            if (instance == null)
-            {
-                instance = new StatisticsClass(ShoeManager.Instance);
-            }
-            return instance;
         }
     }
 }

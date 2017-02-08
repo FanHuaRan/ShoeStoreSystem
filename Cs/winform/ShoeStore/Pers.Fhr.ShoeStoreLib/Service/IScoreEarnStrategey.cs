@@ -11,7 +11,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service
     /// 客户积分累积策略接口
     /// 2017/2/5 fhr
     /// </summary>
-    interface IScoreEarnStrategey
+    public interface IScoreEarnStrategey
     {
         float EarnScore(Customer customer, Sale sale);
 

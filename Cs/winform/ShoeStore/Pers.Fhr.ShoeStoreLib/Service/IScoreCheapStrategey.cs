@@ -11,7 +11,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service
     /// 客户积分优惠策略接口
     /// 2017/2/5 fhr
     /// </summary>
-    interface IScoreCheapStrategey
+    public interface IScoreCheapStrategey
     {
         float CheapMoney(Customer customer, Sale sale);
     }

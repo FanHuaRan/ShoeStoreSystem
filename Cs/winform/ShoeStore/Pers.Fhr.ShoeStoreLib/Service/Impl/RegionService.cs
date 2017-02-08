@@ -13,7 +13,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
     /// </summary>
     class RegionService : AbstractEntityBaseClass<Region, RegionService>, IRegionService
     {
-        private RegionService(RegionManager regionManager)
+        public RegionService(RegionManager regionManager)
         {
             this.entityManager = regionManager;
         }
@@ -21,14 +21,6 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
         {
             RegionManager regionManager = this.entityManager as RegionManager;
             return regionManager.FindRegionByName(regionName);
-        }
-        public override RegionService CreateSingleInstance()
-        {
-            if (this.instance == null)
-            {
-                this.instance = new RegionService(RegionManager.Instance);
-            }
-            return this.instance;
         }
     }
 }

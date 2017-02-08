@@ -10,7 +10,7 @@ namespace Pers.Fhr.ShoeStoreLib.Entity
     /// 进货
     /// 2017/2/5 fhr
     /// </summary>
-    class Stock
+    public class Stock
     {
         public Int64 StockId { get; set; }
 
@@ -20,11 +20,17 @@ namespace Pers.Fhr.ShoeStoreLib.Entity
 
         public Int32 StockCount { get; set; }
 
-        public Stock()
+        public Stock(Int64 stockId, Int32 stockCompanyId, DateTime stockTime, Int32 stockCount)
         {
-            stock.StockCompanyId = DealStockCompany(StockCompanyName);
-            stock.StockCount = shoes.Count;
-            stock.StockTime = dateTime;
+            this.StockId = stockId;
+            this.StockCompanyId = stockCompanyId;
+            this.StockTime = stockTime;
+            this.StockCount = stockCount;
+        }
+        public Stock(Int32 stockCompanyId, DateTime stockTime, Int32 stockCount)
+            : this(-1, stockCompanyId, stockTime, stockCount)
+        {
+
         }
     }
 }

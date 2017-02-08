@@ -12,6 +12,8 @@ namespace Pers.Fhr.ShoeStoreLib.Service
     /// </summary>
     public interface ICustomerService : IBaseEntityService<Customer>
     {
+        Customer PutIfAbsent(string phone);
 
+        Customer FindByPhone(string phone);
     }
 }

@@ -11,7 +11,7 @@ namespace Pers.Fhr.ShoeStoreLib.Entity
     /// 鞋信息
     /// 2017/2/5 fhr
     /// </summary>
-    class Shoe
+   public class Shoe
     {
         [PrimaryKeyAttribute]
         public Int64 ShoeId { get; set; }

@@ -15,17 +15,25 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
         : AbstractEntityBaseClass<Customer, CustomerService>,
         ICustomerService
     {
-        private CustomerService(CustomerManager customerManager):base()
+        public CustomerService(CustomerManager customerManager):base()
         {
             this.entityManager = customerManager;
         }
-        public override CustomerService CreateSingleInstance()
+        public Customer PutIfAbsent(string phone)
         {
-            if (this.instance == null)
+            Customer customer = FindByPhone(phone);
+            if (customer == null)
             {
-                this.instance= new CustomerService(CustomerManager.Instance);
+                Customer tempCustomer = new Customer(phone,0f);
+                customer = this.entityManager.Insert(tempCustomer);
             }
-            return instance;
+            return customer;
+        }
+
+        public Customer FindByPhone(string phone)
+        {
+            CustomerManager manager = this.entityManager as CustomerManager;
+            return manager.FindCustomersByPhone(phone);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service
     /// <summary>
     /// 统计接口
     /// </summary>
-    interface IStatisticsService
+    public interface IStatisticsService
     {
         /// <summary>
         /// 统计总成本

@@ -20,19 +20,11 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
                 ToList()
                 as IList<Customer>;
         }
-        public IList<Customer> FindCustomersByName(string name)
+        public Customer FindCustomersByPhone(string phone)
         {
             return this.context.Customers.
-                Where(p => p.CustomerName==name).
-                ToList()
-                as IList<Customer>;
-        }
-        public IList<Customer> FindCustomersByPhone(string phone)
-        {
-            return this.context.Customers.
-                Where(p => p.Phone == phone).
-                ToList()
-                as IList<Customer>;
+                Where(p => p.Phone == phone)
+                .FirstOrDefault();
         }
         private CustomerManager():base()
         {

@@ -10,7 +10,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
 {
     class SeasonService : AbstractEntityBaseClass<Season, SeasonService>, ISeasonService
     {
-        private SeasonService(SeasonManager seansonManager)
+        public SeasonService(SeasonManager seansonManager)
         {
             this.entityManager = seansonManager;
         }
@@ -18,14 +18,6 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
         {
             SeasonManager seansonManager = this.entityManager as SeasonManager;
             return seansonManager.FindBySeasonName(seasonName);
-        }
-        public  SeasonService CreateSingleInstance()
-        {
-            if (this.instance == null)
-            {
-                this.instance= new SeasonService(SeasonManager.Instance);
-            }
-            return instance;
         }
     }
 }

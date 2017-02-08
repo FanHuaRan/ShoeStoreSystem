@@ -10,8 +10,9 @@ namespace Pers.Fhr.ShoeStoreLib.Service
     /// <summary>
     /// 鞋子基本服务
     /// </summary>
-    public interface IShoeService
+    public interface IShoeService:IBaseEntityService<Shoe>
     {
+        /*
         /// <summary>
         /// 录入鞋信息
         /// </summary>
@@ -30,5 +31,6 @@ namespace Pers.Fhr.ShoeStoreLib.Service
         /// <param name="shoeId"></param>
         /// <returns></returns>
         bool DeleteShoe(Int64 shoeId);
+         * */
     }
 }

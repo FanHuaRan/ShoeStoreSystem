@@ -13,6 +13,13 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
     /// </summary>
     class StockCompanyManager : EntityBaseManager<StockCompany>, IEntityManager<StockCompany>
     {
+        public StockCompany FindStockCompanyByName(string stockCompanyName)
+        {
+            StockCompany company = this.context.StockCompanys
+                .Where(p => p.StockCompanyName == stockCompanyName)
+                .FirstOrDefault();
+            return company;
+        }
         private StockCompanyManager()
             : base()
         {

@@ -1,12 +1,12 @@
 ﻿using Pers.Fhr.ShoeStoreLib.Context;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Pers.Fhr.ShoeStoreLib.Component;
+using System.Data.Entity;
 
 namespace Pers.Fhr.ShoeStoreLib.EntityManager
 {

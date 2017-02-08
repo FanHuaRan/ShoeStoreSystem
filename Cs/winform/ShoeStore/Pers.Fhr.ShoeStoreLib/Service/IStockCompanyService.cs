@@ -12,7 +12,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service
     /// </summary>
     public interface IStockCompanyService : IBaseEntityService<StockCompany>
     {
-
+        StockCompany PutIfAbsent(string stockCompanyName);
         StockCompany FindStockCompanyByName(string stockCompanyName);
     }
 }

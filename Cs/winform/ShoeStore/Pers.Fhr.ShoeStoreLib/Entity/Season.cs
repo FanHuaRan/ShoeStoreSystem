@@ -11,7 +11,7 @@ namespace Pers.Fhr.ShoeStoreLib.Entity
     /// 季节实体
     /// 2017/2/4 fhr
     /// </summary>
-    class Season
+    public class Season
     {
         [PrimaryKeyAttribute]
         public Int32 SeasonId { get; set; }

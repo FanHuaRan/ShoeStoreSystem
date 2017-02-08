@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Pers.Fhr.ShoeStoreLib.Service
 {
     class AbstractEntityBaseClass<T,V>
-        :IBaseEntityService<T>,ISingleDP<V> 
+        :IBaseEntityService<T>
         where T:class
     {
         protected IEntityManager<T> entityManager = null;
@@ -34,9 +34,10 @@ namespace Pers.Fhr.ShoeStoreLib.Service
         {
             entityManager.DeleteById(id);
         }
-        #region 单例逻辑
-        protected V instance = default(V);
-        public virtual V Instance
+        #region 单例逻辑 错误
+        /*
+        protected static V instance = default(V);
+        public static virtual V Instance
         {
             get
             {
@@ -45,12 +46,11 @@ namespace Pers.Fhr.ShoeStoreLib.Service
             }
         }
 
-
-        public abstract V CreateSingleInstance()
+        public static abstract V CreateSingleInstance()
         {
             throw new NotImplementedException();
         }
-
+        */
         #endregion
     }
 }

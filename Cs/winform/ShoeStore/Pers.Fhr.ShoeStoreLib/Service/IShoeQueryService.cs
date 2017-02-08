@@ -6,7 +6,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service
     /// <summary>
     /// 鞋子查询接口
     /// </summary>
-    interface IShoeQueryService
+   public interface IShoeQueryService
     {
         /// <summary>
         /// 查看所有鞋子
