@@ -35,22 +35,11 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
                     Where(p => p.SaleTime <= maxTime && p.SaleTime>=minTime).ToList()
                     as List<Sale>;
         }
-        private SaleManager()
+        public SaleManager()
             : base()
         {
             
         }
-        private static SaleManager instance = null;
-        public static SaleManager Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new SaleManager();
-                }
-                return instance;
-            }
-        }
+     
     }
 }

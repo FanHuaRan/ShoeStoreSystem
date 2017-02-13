@@ -14,7 +14,7 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
     /// 实体访问泛型基类
     /// 2016/12/26 fhr
     /// </summary>
-    class EntityBaseManager<T> : IEntityManager<T> where T : class
+    class EntityBaseManager<T> :IEntityManager<T> where T : class
     {
         protected readonly MyContext context = ContextFactory.GetContext();
         public void Delete(T obj)
@@ -90,6 +90,11 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
                 }
             }
             return true;
+        }
+
+        public void Dispose()
+        {
+            context.Dispose();
         }
     }
 }

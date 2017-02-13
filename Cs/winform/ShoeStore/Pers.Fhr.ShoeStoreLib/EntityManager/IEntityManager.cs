@@ -10,7 +10,7 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
     /// 实体访问基本接口
     /// 2016/12/26 fhr
     /// </summary>
-    interface IEntityManager<T>
+    interface IEntityManager<T> :IDisposable
     {
         T FindById(Int64 id);
         void Delete(T obj);

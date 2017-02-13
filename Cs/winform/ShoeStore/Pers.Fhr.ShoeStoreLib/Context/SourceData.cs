@@ -1,20 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Pers.Fhr.ShoeStoreLib.Context
 {
-    /// <summary>
-    /// 实体上下文工厂
-    /// 2016/2/4 fhr
-    /// </summary>
-    class ContextFactory
+     class SourceData :DropCreateDatabaseIfModelChanges<MyContext>
     {
-        public static MyContext GetContext()
+        protected override void Seed(MyContext context)
         {
-            return new MyContext();
+            //
+            base.Seed(context);
         }
     }
 }

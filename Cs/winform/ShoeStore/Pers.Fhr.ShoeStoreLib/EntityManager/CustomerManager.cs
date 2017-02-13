@@ -26,21 +26,9 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
                 Where(p => p.Phone == phone)
                 .FirstOrDefault();
         }
-        private CustomerManager():base()
+        public CustomerManager():base()
         {
 
-        }
-        private static CustomerManager instance = null;
-        public static CustomerManager Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new CustomerManager();
-                }
-                return instance;
-            }
         }
     }
 }

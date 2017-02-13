@@ -61,22 +61,10 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
                 && p.Sale.Customer.Phone == phone)
               .ToList();
         }
-        private ShoeManager()
+        public ShoeManager()
             : base()
         {
 
-        }
-        private static ShoeManager instance = null;
-        public static ShoeManager Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new ShoeManager();
-                }
-                return instance;
-            }
         }
     }
 }

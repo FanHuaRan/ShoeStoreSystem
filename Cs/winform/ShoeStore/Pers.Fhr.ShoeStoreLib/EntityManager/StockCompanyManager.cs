@@ -20,22 +20,10 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
                 .FirstOrDefault();
             return company;
         }
-        private StockCompanyManager()
+        public StockCompanyManager()
             : base()
         {
 
-        }
-        private static StockCompanyManager instance = null;
-        public static StockCompanyManager Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new StockCompanyManager();
-                }
-                return instance;
-            }
         }
     }
 }

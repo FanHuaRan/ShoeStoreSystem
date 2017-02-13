@@ -14,12 +14,12 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Fac
     {
         public ICustomerService CreateCustomerService()
         {
-            return new CustomerService(CustomerManager.Instance);
+            return new CustomerService(new CustomerManager());
         }
 
         public IRegionService CreateRegionService()
         {
-            return new RegionService(RegionManager.Instance);
+            return new RegionService(new RegionManager());
         }
 
         public IScoreCheapStrategey CreateScoreCheapNonStrategey()
@@ -34,42 +34,42 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Fac
 
         public ISeasonService CreateSeasonService()
         {
-            return new SeasonService(SeasonManager.Instance);
+            return new SeasonService(new SeasonManager());
         }
 
         public  ISellShoeService CreateSellShoeService()
         {
-            return new SellShoeService(SaleManager.Instance, CreateShoeService(), CreateCustomerService());
+            return new SellShoeService(new SaleManager(), CreateShoeService(), CreateCustomerService());
         }
 
         public IShoeQueryService CreateShoeQueryService()
         {
-            return new ShoeService(ShoeManager.Instance);
+            return new ShoeService(new ShoeManager());
         }
 
         public IShoeService CreateShoeService()
         {
-            return new ShoeService(ShoeManager.Instance);
+            return new ShoeService(new ShoeManager());
         }
 
         public IStatisticsService CreateStatisticsService()
         {
-            return new StatisticsClass(ShoeManager.Instance);
+            return new StatisticsClass(new ShoeManager());
         }
 
         public IStockCompanyService CreateStockCompanyService()
         {
-            return new StockCompanyService(StockCompanyManager.Instance);
+            return new StockCompanyService(new StockCompanyManager());
         }
 
         public IStockService CreateStockService()
         {
-            return new StockService(StockManager.Instance, CreateShoeService(), CreateStockCompanyService());
+            return new StockService(new StockManager(), CreateShoeService(), CreateStockCompanyService());
         }
 
         public IStoreService CreateStoreService()
         {
-            return new StoreService(StoreManager.Instance);
+            return new StoreService(new StoreManager());
         }
     }
 }

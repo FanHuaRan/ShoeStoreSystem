@@ -37,8 +37,10 @@ namespace Pers.Fhr.ShoeStoreLib.Entity
 
         public float? SellPrice { get; set; }
 
-        public Stock Stock{get;set;}
+        public virtual Stock Stock{get;set;}
 
-        public Sale Sale { get; set; }
+        public virtual Sale Sale { get; set; }
+        public virtual Season Season { get; set; }
+
     }
 }

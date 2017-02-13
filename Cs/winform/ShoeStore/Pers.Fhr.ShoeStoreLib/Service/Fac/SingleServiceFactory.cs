@@ -29,7 +29,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Fac
         {
             if (customerService==null)
             {
-                customerService=new CustomerService(CustomerManager.Instance);
+                customerService=new CustomerService(new CustomerManager());
             }
             return customerService;
         }
@@ -37,7 +37,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Fac
         {
             if (regionService == null)
             {
-                return new RegionService(RegionManager.Instance);
+                return new RegionService(new RegionManager());
             }
             return regionService;
         }
@@ -64,7 +64,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Fac
         {
             if(seasonService==null)
             {
-                seasonService=new SeasonService(SeasonManager.Instance);
+                seasonService=new SeasonService(new SeasonManager());
             }
             return seasonService; 
         }
@@ -73,7 +73,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Fac
         {
             if(sellShoeService==null)
             {
-                sellShoeService=new SellShoeService(SaleManager.Instance, CreateShoeService(), CreateCustomerService());
+                sellShoeService=new SellShoeService(new SaleManager(), CreateShoeService(), CreateCustomerService());
             }
             return sellShoeService;
         }
@@ -82,7 +82,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Fac
         {
             if(shoeQueryService==null)
             {
-               shoeQueryService = new ShoeService(ShoeManager.Instance);
+               shoeQueryService = new ShoeService(new ShoeManager());
             }
             return shoeQueryService;
         }
@@ -91,7 +91,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Fac
         {
             if (shoeService == null)
             {
-                shoeService = new ShoeService(ShoeManager.Instance);
+                shoeService = new ShoeService(new ShoeManager());
             }
             return shoeService;
         }
@@ -100,7 +100,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Fac
         {
             if (statisticsService == null)
             {
-                statisticsService = new StatisticsClass(ShoeManager.Instance);
+                statisticsService = new StatisticsClass(new ShoeManager());
             }
             return statisticsService;
         }
@@ -109,7 +109,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Fac
         {
             if (stockCompanyService == null)
             {
-                stockCompanyService = new StockCompanyService(StockCompanyManager.Instance);
+                stockCompanyService = new StockCompanyService(new StockCompanyManager());
             }
             return stockCompanyService;
         }
@@ -118,7 +118,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Fac
         {
             if (stockService == null)
             {
-                stockService = new StockService(StockManager.Instance, CreateShoeService(), CreateStockCompanyService());
+                stockService = new StockService(new StockManager(), CreateShoeService(), CreateStockCompanyService());
             }
             return stockService;
         }
@@ -127,7 +127,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Fac
         {
             if (storeService == null)
             {
-                storeService = new StoreService(StoreManager.Instance);
+                storeService = new StoreService(new StoreManager());
             }
             return storeService;
         }

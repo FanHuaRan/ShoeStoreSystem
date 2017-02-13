@@ -19,20 +19,10 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
                 Where(p => p.RegionName == name)
                 .FirstOrDefault();
         }
-        private RegionManager()
+        public RegionManager()
             : base()
         {
 
-        }
-        private static RegionManager instance = null;
-        public static RegionManager Instance
-        {
-            get
-            {
-                if (instance == null)
-                    instance = new RegionManager();
-                return instance;
-            }
         }
     }
 }

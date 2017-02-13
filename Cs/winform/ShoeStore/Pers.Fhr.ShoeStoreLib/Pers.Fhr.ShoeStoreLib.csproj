@@ -60,6 +60,7 @@
     <Compile Include="Component\PrimaryKeyAttribute.cs" />
     <Compile Include="Context\ContextFactory.cs" />
     <Compile Include="Context\MyContext.cs" />
+    <Compile Include="Context\SourceData.cs" />
     <Compile Include="EntityManager\CustomerManager.cs" />
     <Compile Include="EntityManager\EntityBaseManager.cs" />
     <Compile Include="EntityManager\EntityManagerFactory.cs" />
@@ -110,7 +111,20 @@
     <Compile Include="Service\IScoreEarnStrategey.cs" />
     <Compile Include="Service\IStoreService.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="bin\Debug\EntityFramework.dll" />
+    <Content Include="bin\Debug\EntityFramework.xml" />
+    <Content Include="bin\Debug\Pers.Fhr.ShoeStoreLib.dll" />
+    <Content Include="bin\Debug\Pers.Fhr.ShoeStoreLib.dll.CodeAnalysisLog.xml" />
+    <Content Include="bin\Debug\Pers.Fhr.ShoeStoreLib.pdb" />
+    <Content Include="bin\Debug\System.Data.SQLite.dll" />
+    <Content Include="bin\Debug\System.Data.SQLite.EF6.dll" />
+    <Content Include="bin\Debug\System.Data.SQLite.Linq.dll" />
+    <Content Include="bin\Debug\System.Data.SQLite.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Pers.Fhr.ShoeStoreLib.dll.lastcodeanalysissucceeded" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

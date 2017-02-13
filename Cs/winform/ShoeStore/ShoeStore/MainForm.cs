@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ShoeStore
 {
-    public partial class Form2 : Form
+    public partial class MainForm : Form
     {
-        public Form2()
+        public MainForm()
         {
             InitializeComponent();
         }

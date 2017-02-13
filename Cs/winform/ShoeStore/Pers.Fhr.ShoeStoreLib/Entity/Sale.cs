@@ -37,5 +37,6 @@ namespace Pers.Fhr.ShoeStoreLib.Entity
         {
 
         }
+        public virtual Customer Customer { get; set; }
     }
 }

@@ -12,22 +12,10 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
     /// </summary>
     class StoreManager : EntityBaseManager<Store>, IEntityManager<Store>
     {
-        private StoreManager()
+        public StoreManager()
             : base()
         {
 
-        }
-        private static StoreManager instance = null;
-        public static StoreManager Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new StoreManager();
-                }
-                return instance;
-            }
         }
     }
 }

@@ -20,22 +20,11 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
                 .FirstOrDefault();
             return season;
         }
-        private SeasonManager()
+        public SeasonManager()
             : base()
         {
 
         }
-        private static SeasonManager instance = null;
-        public static SeasonManager Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new SeasonManager();
-                }
-                return instance;
-            }
-        }
+      
     }
 }
