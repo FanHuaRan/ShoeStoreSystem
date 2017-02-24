@@ -72,7 +72,7 @@
     <Compile Include="EntityManager\StockCompanyManager.cs" />
     <Compile Include="EntityManager\StockManager.cs" />
     <Compile Include="EntityManager\StoreManager.cs" />
-    <Compile Include="Entity\Customer.cs" />
+    <Compile Include="Entity\SCustomer.cs" />
     <Compile Include="Entity\Region.cs" />
     <Compile Include="Entity\Sale.cs" />
     <Compile Include="Entity\Season.cs" />
