@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-E:\项目\ShoeStoreSystem\Cs\winform\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\
+E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\
 ShoeStoreMvvm
 none
 false
 DEBUG;TRACE
-E:\项目\ShoeStoreSystem\Cs\winform\ShoeStore\ShoeStoreMvvm\App.xaml
+E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\App.xaml
 61853338835
 
-76-900494359
-231062559969
+69-688675784
+23-229053358
 SellWindow.xaml;StatisticsWindow.xaml;StockWindow.xaml;StoreWindow.xaml;Views\CustomerView.xaml;MainWindow.xaml;
 
 False

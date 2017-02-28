@@ -1,6 +1,5 @@
-﻿using Pers.Fhr.ShoeStoreLib.Entity;
-using Pers.Fhr.ShoeStoreLib.EntityManager;
-using Pers.Fhr.ShoeStoreLib.Extension;
+﻿using Pers.Fhr.ShoeStoreLib.EntityManager;
+using ShoeStoreMvvm.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +12,11 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
     /// 销售服务
     /// </summary>
     class SellShoeService
-        :AbstractEntityBaseClass<Sale,SellShoeService>
+        :AbstractEntityBaseClass<Order>
          ,ISellShoeService
     {
-        
-        private readonly IShoeService shoeService;
+
+        private readonly IShoeItemService shoeItemService;
         private readonly ICustomerService customerService;
         public IScoreCheapStrategey ScoreCheapStrategey
         {
@@ -31,7 +30,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
             set;
         }
 
-        public Entity.Sale SellShoe(DateTime saleTime, List<Entity.Shoe> selledShoes, string phone)
+        public Order SellShoe(DateTime saleTime, List<ShoeItem> selledShoes, string phone)
         {
             float totalPrice=selledShoes.Sum(p=>p.SellPrice).Value;
             Customer customer=GetCustomer(phone);
@@ -39,7 +38,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
             if(customer!=null){
                 customerId=customer.CustomerId;
             }
-            Sale tempSale = new Sale(customerId, saleTime, totalPrice);
+            Order tempSale = new Order(customerId, saleTime, totalPrice);
             if(customer!=null)
             {
                 //没有扣积分。。。。
@@ -47,18 +46,18 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
                 tempSale.TotalPrice -= cheapMoney;
                 float addScore = ScoreEarnStrategey.EarnScore(customer, tempSale);
             }
-            Sale sale = this.entityManager.Insert(tempSale);
-            UpdateShoes(selledShoes, sale);
-            return sale;
+            Order order = this.entityManager.Insert(tempSale);
+            UpdateShoeItems(selledShoes, order);
+            return order;
         }
 
-        private void UpdateShoes(List<Entity.Shoe> selledShoes, Sale sale)
+        private void UpdateShoeItems(List<ShoeItem> selledShoes, Order order)
         {
             selledShoes.ForEach(shoe =>
             {
-                shoe.SaleId = sale.SaleId;
+                shoe.OrderId = order.OrderId;
                 shoe.IsSell = 1;
-                shoeService.Update(shoe);
+                shoeItemService.Update(shoe);
             });
         }
         private Customer GetCustomer(string phone)
@@ -74,10 +73,10 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
             }
             return customer;
         }
-        public SellShoeService(SaleManager saleManager,IShoeService shoeService, ICustomerService customerService)
+        public SellShoeService(OrderManager OorderManager, IShoeItemService shoeItemService, ICustomerService customerService)
         {
-            this.entityManager = saleManager;
-            this.shoeService = shoeService;
+            this.entityManager = OorderManager;
+            this.shoeItemService = shoeItemService;
             this.customerService = customerService;
         }
     }

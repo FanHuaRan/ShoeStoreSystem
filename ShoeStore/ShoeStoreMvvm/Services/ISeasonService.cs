@@ -1,12 +1,11 @@
 ﻿using ShoeStoreMvvm.Models;
-using ShoeStoreMvvm.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShoeStoreMvvm.Services
+namespace Pers.Fhr.ShoeStoreLib.Service
 {
     /// <summary>
     /// 季节服务

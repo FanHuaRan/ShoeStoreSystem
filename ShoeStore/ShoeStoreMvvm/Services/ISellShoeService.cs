@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShoeStoreMvvm.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,6 @@ namespace Pers.Fhr.ShoeStoreLib.Service
         /// 销售鞋子
         /// </summary>
         /// <returns></returns>
-        Sale SellShoe(DateTime saleTime, List<Shoe> selledShoes, string phone);
+        Order SellShoe(DateTime saleTime, List<ShoeItem> selledShoes, string phone);
     }
 }

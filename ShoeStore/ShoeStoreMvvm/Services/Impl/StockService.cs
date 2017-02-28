@@ -1,4 +1,4 @@
-﻿using Pers.Fhr.ShoeStoreLib.Entity;
+﻿using ShoeStoreMvvm.Models;
 using Pers.Fhr.ShoeStoreLib.EntityManager;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
     /// 进货服务
     /// </summary>
     class StockService
-        :AbstractEntityBaseClass<Stock,StockService>
+        :AbstractEntityBaseClass<Stock>
         ,IStockService
     {
         private readonly IShoeService shoeService;

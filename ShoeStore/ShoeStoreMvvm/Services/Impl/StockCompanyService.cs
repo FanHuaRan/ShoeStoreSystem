@@ -1,5 +1,5 @@
-﻿using Pers.Fhr.ShoeStoreLib.Entity;
-using Pers.Fhr.ShoeStoreLib.EntityManager;
+﻿using Pers.Fhr.ShoeStoreLib.EntityManager;
+using ShoeStoreMvvm.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
     /// 供货商基本服务
     /// </summary>
     class StockCompanyService
-        :AbstractEntityBaseClass<StockCompany,StockCompanyService>
+        :AbstractEntityBaseClass<StockCompany>
         ,IStockCompanyService
     {
     //      

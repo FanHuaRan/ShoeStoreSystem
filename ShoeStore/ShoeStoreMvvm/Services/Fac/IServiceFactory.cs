@@ -17,7 +17,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Fac
         IScoreEarnStrategey CreateScoreEarnNoramlStrategey();
         ISeasonService CreateSeasonService();
         ISellShoeService CreateSellShoeService();
-        IShoeQueryService CreateShoeQueryService();
+        IShoeItemQueryService CreateShoeQueryService();
         IShoeService CreateShoeService();
         IStatisticsService CreateStatisticsService();
         IStockCompanyService CreateStockCompanyService();

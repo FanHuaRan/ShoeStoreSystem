@@ -11,7 +11,6 @@ namespace Pers.Fhr.ShoeStoreLib.Context
     {
         protected override void Seed(MyContext context)
         {
-            //
             base.Seed(context);
         }
     }

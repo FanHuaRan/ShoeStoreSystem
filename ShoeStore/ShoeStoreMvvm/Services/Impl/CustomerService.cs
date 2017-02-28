@@ -1,4 +1,4 @@
-﻿using Pers.Fhr.ShoeStoreLib.Entity;
+﻿using ShoeStoreMvvm.Models;
 using Pers.Fhr.ShoeStoreLib.EntityManager;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
     /// CustomerService实现
     /// </summary>
     class CustomerService 
-        : AbstractEntityBaseClass<Customer, CustomerService>,
+        : AbstractEntityBaseClass<Customer>,
         ICustomerService
     {
         public CustomerService(CustomerManager customerManager):base()

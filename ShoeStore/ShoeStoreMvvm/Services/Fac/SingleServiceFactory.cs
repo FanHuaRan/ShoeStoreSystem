@@ -19,7 +19,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Fac
         private IScoreEarnStrategey scoreEarnStrategey = null;
         private ISeasonService seasonService = null;
         private ISellShoeService sellShoeService = null;
-        private IShoeQueryService shoeQueryService = null;
+        private IShoeItemQueryService shoeQueryService = null;
         private IShoeService shoeService = null;
         private IStatisticsService statisticsService = null;
         private IStockCompanyService stockCompanyService = null;
@@ -78,7 +78,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Fac
             return sellShoeService;
         }
 
-        public IShoeQueryService CreateShoeQueryService()
+        public IShoeItemQueryService CreateShoeQueryService()
         {
             if(shoeQueryService==null)
             {

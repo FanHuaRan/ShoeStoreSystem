@@ -1,6 +1,5 @@
-﻿using Pers.Fhr.ShoeStoreLib.Entity;
+﻿using ShoeStoreMvvm.Models;
 using Pers.Fhr.ShoeStoreLib.EntityManager;
-using Pers.Fhr.ShoeStoreLib.Extension;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,66 +14,67 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
     class StatisticsClass : IStatisticsService
     {
         private readonly ShoeManager shoeManager;
+        private readonly ShoeItemManager shoeItemManager;
 
         public float StatisticsTotalCountMoney()
         {
-          return  shoeManager.Shoes
+            return shoeItemManager.ShoeItems
               .Select(p=>p)
-              .Sum(p => p.OriginMoney);
+              .Sum(p => p.Shoe.OriginMoney);
         }
         public float StatisticsTotalSellMoney()
         {
-            return shoeManager.Shoes
+            return shoeItemManager.ShoeItems
              .Where(p => p.IsSell == 1)
-             .Sum(p => p.OriginMoney);
+             .Sum(p => p.Shoe.OriginMoney);
         }
 
         public float StatisticsTotalCountMoneyByMonth(int year, int month)
         {
             DateTime minTime = new DateTime(year, month, 01);
             DateTime maxTime = new DateTime(year, month + 1, 01);
-            return shoeManager.Shoes
-             .Where(p => p.Stock.StockTime >= minTime
-                      && p.Stock.StockTime < maxTime)
-                      .Sum(p => p.OriginMoney);
+            return shoeItemManager.ShoeItems
+             .Where(p => p.Shoe.Stock.StockTime >= minTime
+                      && p.Shoe.Stock.StockTime < maxTime)
+                      .Sum(p => p.Shoe.OriginMoney);
         }
 
         public float StatisticsTotalSellMoneyByMonth(int year, int month)
         {
             DateTime minTime = new DateTime(year, month, 01);
             DateTime maxTime = new DateTime(year, month + 1, 01);
-            return shoeManager.Shoes
+            return shoeItemManager.ShoeItems
              .Where(p => p.IsSell == 1
-                      && p.Sale.SaleTime >= minTime
-                      && p.Sale.SaleTime < maxTime)
-                      .Sum(p => p.OriginMoney);
+                      && p.Order.SaleTime >= minTime
+                      && p.Order.SaleTime < maxTime)
+                      .Sum(p => p.SellPrice) ?? 0;
         }
 
         public float StatisticsTotalCountMoneyByYear(int year)
         {
             DateTime minTime = new DateTime(year, 01, 01);
             DateTime maxTime = new DateTime(year+1, 01, 01);
-            return shoeManager.Shoes
+            return shoeItemManager.ShoeItems
              .Where(p => p.IsSell == 1
-                      && p.Sale.SaleTime >= minTime
-                      && p.Sale.SaleTime < maxTime)
-                      .Sum(p => p.OriginMoney);
+                      && p.Order.SaleTime >= minTime
+                      && p.Order.SaleTime < maxTime)
+                      .Sum(p => p.Shoe.Price);
         }
 
         public float StatisticsTotalSellMoneyByYear(int year)
         {
             DateTime minTime = new DateTime(year, 01, 01);
             DateTime maxTime = new DateTime(year + 1, 01, 01);
-            return shoeManager.Shoes
+            return shoeItemManager.ShoeItems
              .Where(p => p.IsSell == 1
-                      && p.Sale.SaleTime >= minTime
-                      && p.Sale.SaleTime < maxTime)
-                      .Sum(p => p.OriginMoney);
+                      && p.Order.SaleTime >= minTime
+                      && p.Order.SaleTime < maxTime)
+                      .Sum(p => p.SellPrice)??0;
         }
 
-        public float CountSellMoney(List<Entity.Shoe> Shoes)
+        public float CountSellMoney(List<ShoeItem> shoeItems)
         {
-            return Shoes.Sum(p => p.SellPrice).Value;
+            return shoeItems.Sum(p => p.SellPrice).Value;
         }
         public StatisticsClass(ShoeManager shoeManager)
         {

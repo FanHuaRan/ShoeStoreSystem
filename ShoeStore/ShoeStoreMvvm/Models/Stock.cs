@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimpleMvvmToolkit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,15 +11,33 @@ namespace ShoeStoreMvvm.Models
     /// 进货
     /// 2017/2/5 fhr
     /// </summary>
-    public class Stock
+    public class Stock:ModelBase<Stock>
     {
-        public Int64 StockId { get; set; }
+        private long stockId;
+        private int stockCompanyId;
+        private DateTime stockTime;
+        private int stockCount;
+        public Int64 StockId
+        {
+            get { return this.stockId; }
+            set { this.stockId = value; NotifyPropertyChanged(p => p.StockId); }
+        }
 
-        public Int32 StockCompanyId { get; set; }
-
-        public DateTime StockTime { get; set; }
-
-        public Int32 StockCount { get; set; }
+        public Int32 StockCompanyId
+        {
+            get { return this.stockCompanyId; }
+            set { this.stockCompanyId = value; NotifyPropertyChanged(p => p.StockCompanyId); }
+        }
+        public DateTime StockTime
+        {
+            get { return this.stockTime; }
+            set { this.stockTime = value; NotifyPropertyChanged(p => p.StockTime); }
+        }
+        public Int32 StockCount
+        {
+            get { return this.stockCount; }
+            set { this.stockCount = value; NotifyPropertyChanged(p => p.StockCount); }
+        }
 
         public Stock(Int64 stockId, Int32 stockCompanyId, DateTime stockTime, Int32 stockCount)
         {

@@ -1,4 +1,4 @@
-﻿using Pers.Fhr.ShoeStoreLib.Extension;
+﻿using ShoeStoreMvvm.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,13 +14,9 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
     class ScoreEarnNoramlStrategey
         : IScoreEarnStrategey
     {
-        public ScoreEarnNoramlStrategey()
+        public float EarnScore(Customer customer, Order order)
         {
-
-        }
-        public float EarnScore(Entity.Customer customer, Entity.Sale sale)
-        {
-            return sale.TotalPrice / 10;
+            return order.TotalPrice / 10;
         }
     }
 }

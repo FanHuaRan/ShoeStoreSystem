@@ -51,7 +51,7 @@ namespace ShoeStoreMvvm
         }
 
         // Create CustomerViewModel on demand
-        public CustomerViewModel CustomerViewModel
+      /*  public CustomerViewModel CustomerViewModel
         {
             get
             {
@@ -59,5 +59,6 @@ namespace ShoeStoreMvvm
                 return new CustomerViewModel(serviceAgent);
             }
         }
+       * */
     }
 }

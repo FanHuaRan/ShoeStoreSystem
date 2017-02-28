@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Pers.Fhr.ShoeStoreLib.Component;
-using Pers.Fhr.ShoeStoreLib.Entity;
+using ShoeStoreMvvm.Models;
 namespace Pers.Fhr.ShoeStoreLib.EntityManager
 {
     /// <summary>

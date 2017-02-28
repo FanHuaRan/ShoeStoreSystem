@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShoeStoreMvvm.Services
+namespace Pers.Fhr.ShoeStoreLib.Service
 {
     public interface IBaseEntityService<T> where T:class
     {

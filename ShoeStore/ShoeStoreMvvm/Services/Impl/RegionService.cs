@@ -1,5 +1,5 @@
-﻿using Pers.Fhr.ShoeStoreLib.Entity;
-using Pers.Fhr.ShoeStoreLib.EntityManager;
+﻿using Pers.Fhr.ShoeStoreLib.EntityManager;
+using ShoeStoreMvvm.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
     /// <summary>
     /// 区域服务类
     /// </summary>
-    class RegionService : AbstractEntityBaseClass<Region, RegionService>, IRegionService
+    class RegionService : AbstractEntityBaseClass<Region>, IRegionService
     {
         public RegionService(RegionManager regionManager)
         {

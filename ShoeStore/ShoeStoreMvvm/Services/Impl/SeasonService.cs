@@ -1,5 +1,5 @@
-﻿using Pers.Fhr.ShoeStoreLib.Entity;
-using Pers.Fhr.ShoeStoreLib.EntityManager;
+﻿using Pers.Fhr.ShoeStoreLib.EntityManager;
+using ShoeStoreMvvm.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Pers.Fhr.ShoeStoreLib.Service.Impl
 {
-    class SeasonService : AbstractEntityBaseClass<Season, SeasonService>, ISeasonService
+    class SeasonService : AbstractEntityBaseClass<Season>, ISeasonService
     {
         public SeasonService(SeasonManager seansonManager)
         {

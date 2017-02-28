@@ -1,4 +1,5 @@
 ﻿using Pers.Fhr.ShoeStoreLib.Component;
+using SimpleMvvmToolkit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,14 +12,30 @@ namespace ShoeStoreMvvm.Models
     /// 区域实体
     /// 2017/2/4 fhr
     /// </summary>
-   public class Region
+   public class Region:ModelBase<Region>
     {
+       private int regionId;
+       private string regionName;
+       private string regionAddress;
+
         [PrimaryKeyAttribute]
-        public Int32 RegionId { get; set; }
+       public Int32 RegionId
+       {
+           get { return this.regionId; }
+           set { this.regionId = value; NotifyPropertyChanged(p => p.RegionId); }
+       }
 
-        public string RegionName { get; set; }
+        public string RegionName
+        {
+            get { return this.regionName; }
+            set { this.regionName = value; NotifyPropertyChanged(p => p.RegionName); }
+        }
 
-        public string RegionAddress { get; set; }
+        public string RegionAddress
+        {
+            get { return this.regionAddress; }
+            set { this.regionAddress = value; NotifyPropertyChanged(p => p.RegionAddress); }
+        }
 
         public Region(Int32 regionId, string regionName, string regionAddress)
         {

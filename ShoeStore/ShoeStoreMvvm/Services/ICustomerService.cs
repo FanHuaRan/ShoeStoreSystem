@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShoeStoreMvvm.Services
+namespace Pers.Fhr.ShoeStoreLib.Service
 {
     /// <summary>
     /// 客户服务类

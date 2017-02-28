@@ -1,5 +1,5 @@
-﻿using Pers.Fhr.ShoeStoreLib.Entity;
-using Pers.Fhr.ShoeStoreLib.EntityManager;
+﻿using Pers.Fhr.ShoeStoreLib.EntityManager;
+using ShoeStoreMvvm.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
     /// 存储实现
     /// </summary>
     class StoreService
-        : AbstractEntityBaseClass<Store,StoreService>
+        : AbstractEntityBaseClass<Store>
         ,IStoreService
     {
         public StoreService(StoreManager storeManager)

@@ -1,4 +1,4 @@
-﻿using Pers.Fhr.ShoeStoreLib.Entity;
+﻿using ShoeStoreMvvm.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service
     /// </summary>
     public interface IScoreEarnStrategey
     {
-        float EarnScore(Customer customer, Sale sale);
+        float EarnScore(Customer customer, Order order);
 
     }
 }

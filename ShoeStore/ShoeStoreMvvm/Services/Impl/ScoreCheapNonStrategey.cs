@@ -1,4 +1,4 @@
-﻿using Pers.Fhr.ShoeStoreLib.Extension;
+﻿using ShoeStoreMvvm.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,13 +13,9 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
     /// </summary>
     class ScoreCheapNonStrategey : IScoreCheapStrategey
     {
-        public float CheapMoney(Entity.Customer customer, Entity.Sale sale)
+        public float CheapMoney(Customer customer, Order order)
         {
             return 0f;
-        }
-        public ScoreCheapNonStrategey()
-        {
-
         }
     }
 }

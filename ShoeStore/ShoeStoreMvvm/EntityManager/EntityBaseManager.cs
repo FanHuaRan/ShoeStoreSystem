@@ -80,6 +80,7 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
                 .Where(p => isRight(p, delegates))
                 .ToList() as IList<T>;
         }
+
         private bool isRight(T obj, params Func<T, bool> []delegates)
         {
             foreach (var v in delegates)

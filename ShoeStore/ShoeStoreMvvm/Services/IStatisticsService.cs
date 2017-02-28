@@ -1,10 +1,11 @@
-﻿using System;
+﻿using ShoeStoreMvvm.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShoeStoreMvvm.Services
+namespace Pers.Fhr.ShoeStoreLib.Service
 {
     /// <summary>
     /// 统计接口
@@ -52,6 +53,6 @@ namespace ShoeStoreMvvm.Services
         /// </summary>
         /// <param name="Shoes"></param>
         /// <returns></returns>
-        float CountSellMoney(List<Shoe> Shoes);
+        float CountSellMoney(List<ShoeItem> shoeItems);
     }
 }

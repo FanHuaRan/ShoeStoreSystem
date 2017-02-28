@@ -1,45 +1,45 @@
 ﻿using ShoeStoreMvvm.Models;
 using System;
 using System.Collections.Generic;
-namespace ShoeStoreMvvm.Services
+namespace Pers.Fhr.ShoeStoreLib.Service
 {
     /// <summary>
     /// 鞋子查询接口
     /// </summary>
-   public interface IShoeQueryService
+   public interface IShoeItemQueryService
     {
         /// <summary>
         /// 查看所有鞋子
         /// </summary>
         /// <returns></returns>
-        IList<Shoe> FindAllShoes();
+        IList<ShoeItem> FindAllShoeItems();
         /// <summary>
         /// 查看没有售出的鞋子
         /// </summary>
         /// <returns></returns>
-        IList<Shoe> FindNoSellShoes();
+        IList<ShoeItem> FindNoSellShoeItems();
         /// <summary>
         /// 查看已售出的鞋子
         /// </summary>
         /// <returns></returns>
-        IList<Shoe> FindSellShoes();
+        IList<ShoeItem> FindSellShoeItems();
         /// <summary>
         /// 根据年来查看已售出的鞋子
         /// </summary>
         /// <param name="year"></param>
         /// <returns></returns>
-        IList<Shoe> FindSellShoesByYear(int year);
+        IList<ShoeItem> FindSellShoeItemsByYear(int year);
         /// <summary>
         /// 根据月来查看已售出的鞋子
         /// </summary>
         /// <param name="year"></param>
         /// <param name="month"></param>
         /// <returns></returns>
-        IList<Shoe> FindSellShoesByMonth(int year, int month);
+        IList<ShoeItem> FindSellShoeItemsByMonth(int year, int month);
         /// <summary>
         /// 查看某人买的鞋子
         /// </summary>
         /// <returns></returns>
-        IList<Shoe> FindSellShoes(string phone);
+        IList<ShoeItem> FindSellShoeItems(string phone);
     }
 }

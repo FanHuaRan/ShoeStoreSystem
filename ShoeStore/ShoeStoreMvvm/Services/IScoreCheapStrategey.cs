@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShoeStoreMvvm.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,6 @@ namespace Pers.Fhr.ShoeStoreLib.Service
     /// </summary>
     public interface IScoreCheapStrategey
     {
-        float CheapMoney(Customer customer, Sale sale);
+        float CheapMoney(Customer customer, Order order);
     }
 }

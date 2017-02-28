@@ -42,7 +42,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Fac
             return new SellShoeService(new SaleManager(), CreateShoeService(), CreateCustomerService());
         }
 
-        public IShoeQueryService CreateShoeQueryService()
+        public IShoeItemQueryService CreateShoeQueryService()
         {
             return new ShoeService(new ShoeManager());
         }
