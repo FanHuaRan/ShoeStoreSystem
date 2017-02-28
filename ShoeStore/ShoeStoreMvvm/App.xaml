@@ -5,5 +5,21 @@
     <Application.Resources>
         <vm:ViewModelLocator xmlns:vm="clr-namespace:ShoeStoreMvvm"
                                    x:Key="Locator" />
+        <!--单色-->
+        <Style x:Key="MBtStyleG" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#26272B"></Setter>
+            <Setter Property="Height" Value="20"></Setter>
+            <Setter Property="Width" Value="30"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="BorderBrush" Value="Transparent"></Setter>
+            <Setter Property="BorderThickness" Value="0"></Setter>
+        </Style>
+        <!--单色-->
+        <Style x:Key="TitleStyle" TargetType="{x:Type Label}">
+            <Setter Property="Background" Value="#26272B"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+        </Style>
     </Application.Resources>
 </Application>

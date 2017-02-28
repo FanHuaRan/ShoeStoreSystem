@@ -16,6 +16,7 @@ namespace ShoeStoreMvvm.Models
         private float totalPrice;
         private int count;
         private Customer customer;
+
         [PrimaryKeyAttribute]
         public Int64 OrderId
         {

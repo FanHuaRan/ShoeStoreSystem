@@ -8,6 +8,7 @@ using SimpleMvvmToolkit;
 
 // Toolkit extension methods
 using SimpleMvvmToolkit.ModelExtensions;
+using System.Windows.Input;
 
 namespace ShoeStoreMvvm
 {
@@ -57,7 +58,36 @@ namespace ShoeStoreMvvm
         #region Methods
 
         // TODO: Add methods that will be called by the view
+        public void Exit()
+        {
+            if (MessageBox.Show("确定退出程序", "提示", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+            {
+                Environment.Exit(0);
+            }
+        }
+        #endregion
 
+        #region Commands
+        public ICommand minWindowCommand
+        {
+            get
+            {
+                return new DelegateCommand<Window>((window) =>
+                {
+                    window.WindowState = WindowState.Minimized;
+                });
+            }
+        }
+        public ICommand maxWindowCommand
+        {
+            get
+            {
+                return new DelegateCommand<Window>((window) =>
+                {
+                    window.WindowState = WindowState.Maximized;
+                });
+            }
+        }
         #endregion
 
         #region Completion Callbacks

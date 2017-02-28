@@ -89,6 +89,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Component\ObjectRefletUtil.cs" />
     <Compile Include="Component\PrimaryKeyAttribute.cs" />
     <Compile Include="Context\ContextFactory.cs" />

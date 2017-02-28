@@ -2,66 +2,62 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:my="clr-namespace:ShoeStoreMvvm"
-        Title="MainWindow" Height="600" Width="800"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+        Title="MainWindow" Height="1080" Width="1260"
+        x:Name="mainWindow"
         DataContext="{Binding Source={StaticResource Locator}, Path=MainPageViewModel}"
-        WindowStartupLocation="CenterScreen" 
         WindowState="Maximized"
-        ResizeMode = "NoResize" Opacity="0.89" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None" 
+        Background="#ffffff"   >
     <Window.Resources>
-        <Style x:Key="ImageStyle" TargetType="Image">
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Height" Value="150"></Setter>
-                    <Setter Property="Width" Value="150"></Setter>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
+         
     </Window.Resources>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50*"/>
-            <ColumnDefinition Width="300*"/>
-            <ColumnDefinition Width="50*"/>
-        </Grid.ColumnDefinitions>
+    <Grid Margin="0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="30*"/>
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="1" Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="13*"/>
-                <RowDefinition Height="200*"/>
-                <RowDefinition Height="13*"/>
-                <RowDefinition Height="200*"/>
-                <RowDefinition Height="13*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="13*"/>
-                <ColumnDefinition Width="195*"/>
-                <ColumnDefinition Width="13*"/>
-                <ColumnDefinition Width="195*"/>
-                <ColumnDefinition Width="13*"/>
-            </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="1" Grid.Row="1">
-                <Image  Source="E:\项目\ShoeStoreSystem\Cs\winform\ShoeStore\ShoeStoreMvvm\bin\Debug\Reources\images\propertyquery.png" Opacity="0.8" Height="100" Margin="43,0,0,0" Style="{StaticResource ImageStyle}"/>
-                <Label Content="Label"/>
+        <!--窗体头部 最大 最小 退出按钮-->
+        <Grid Grid.Row="0" Background="#26272b">
+            <StackPanel HorizontalAlignment="Left">
+                <Label Style="{StaticResource TitleStyle}">XXX名鞋系统</Label>
             </StackPanel>
-            <StackPanel Grid.Column="3" Grid.Row="1">
-                <Image  Source="E:\项目\ShoeStoreSystem\Cs\winform\ShoeStore\ShoeStoreMvvm\bin\Debug\Reources\images\propertyquery.png" Opacity="0.8" Height="196" Margin="43,0,0,0" Style="{StaticResource ImageStyle}"/>
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button Content="—" Style="{StaticResource MBtStyleG}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <i:InvokeCommandAction Command="{Binding minWindowCommand}" CommandParameter="{Binding ElementName=mainWindow}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+                <Button Content="口" Style="{StaticResource MBtStyleG}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <i:InvokeCommandAction Command="{Binding maxWindowCommand}" CommandParameter="{Binding ElementName=mainWindow}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+                <Button Content="X" Style="{StaticResource MBtStyleG}" 
+                        Background="Tomato">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <ei:CallMethodAction 
+                            TargetObject="{Binding}"
+                            MethodName="Exit" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <!--备用-->
+        <Grid Grid.Row="1">
+        </Grid>
+        <!--页面主容器-->
+        <Grid Name="ViewContiner" Grid.Row="2">
 
-                <Label Content="Label"/>
-
-            </StackPanel>
-            <StackPanel Grid.Column="1" Grid.Row="3">
-                <Image   Source="E:\项目\ShoeStoreSystem\Cs\winform\ShoeStore\ShoeStoreMvvm\bin\Debug\Reources\images\propertyquery.png" Opacity="0.8" Height="100" Margin="43,0,0,0"/>
-                <Label Content="Label"/>
-
-            </StackPanel>
-            <StackPanel Grid.Column="3" Grid.Row="3">
-                <Image   Source="E:\项目\ShoeStoreSystem\Cs\winform\ShoeStore\ShoeStoreMvvm\bin\Debug\Reources\images\propertyquery.png" Opacity="0.8" Height="196" Margin="43,0,0,0"/>
-                <Label Content="Label"/>
-            </StackPanel>
         </Grid>
     </Grid>
 </Window>
