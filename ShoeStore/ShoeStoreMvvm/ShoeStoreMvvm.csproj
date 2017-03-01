@@ -68,7 +68,9 @@
     <Reference Include="System.Data.SQLite.Linq">
       <HintPath>..\packages\System.Data.SQLite.Linq.1.0.104.0\lib\net451\System.Data.SQLite.Linq.dll</HintPath>
     </Reference>
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\SimpleMvvmToolkit.5.5.0.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -106,6 +108,7 @@
     <Compile Include="EntityManager\StockCompanyManager.cs" />
     <Compile Include="EntityManager\StockManager.cs" />
     <Compile Include="EntityManager\StoreManager.cs" />
+    <Compile Include="Models\ModuleClass.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Region.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -115,13 +118,12 @@
     <Compile Include="Models\Stock.cs" />
     <Compile Include="Models\StockCompany.cs" />
     <Compile Include="Models\Store.cs" />
-    <Compile Include="SellWindow.xaml.cs">
-      <DependentUpon>SellWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Services\AbstractEntityServiceBaseClass.cs" />
     <Compile Include="Services\IBaseEntityService.cs" />
     <Compile Include="Services\ICustomerService.cs" />
+    <Compile Include="Services\IModuleServiceAgent.cs" />
     <Compile Include="Services\Impl\CustomerService.cs" />
+    <Compile Include="Services\Impl\ModuleServiceAgent.cs" />
     <Compile Include="Services\Impl\RegionService.cs" />
     <Compile Include="Services\Impl\ScoreCheapNonStrategey.cs" />
     <Compile Include="Services\Impl\ScoreEarnNoramlStrategey.cs" />
@@ -145,37 +147,16 @@
     <Compile Include="Services\IStockCompanyService.cs" />
     <Compile Include="Services\IStockService.cs" />
     <Compile Include="Services\IStoreService.cs" />
-    <Compile Include="StatisticsWindow.xaml.cs">
-      <DependentUpon>StatisticsWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="StockWindow.xaml.cs">
-      <DependentUpon>StockWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="StoreWindow.xaml.cs">
-      <DependentUpon>StoreWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModels\StatisticsViewModel.cs" />
+    <Compile Include="ViewModels\SubSystemMenusViewModel.cs" />
     <Compile Include="Views\CustomerView.xaml.cs">
       <DependentUpon>CustomerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Locators\ViewModelLocator.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
-    <Page Include="SellWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="StatisticsWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="StockWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="StoreWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+    <Compile Include="Views\SubSystemMenusView.xaml.cs">
+      <DependentUpon>SubSystemMenusView.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\CustomerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -192,6 +173,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\SubSystemMenusView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -218,12 +203,97 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <Resource Include="Resources\Fonts\AftaSansThin-Italic.otf" />
+    <Resource Include="Resources\Fonts\AftaSansThin-Regular.otf" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\Fac\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\01 - 复制%282%29.png" />
+    <Resource Include="Resources\Images\01 - 复制%283%29.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\01 - 复制.png" />
+    <Resource Include="Resources\Images\01.png" />
+    <Resource Include="Resources\Images\0101 - 复制 - 复制%282%29.png" />
+    <Resource Include="Resources\Images\0101 - 复制 - 复制.png" />
+    <Resource Include="Resources\Images\0101 - 复制%282%29 - 复制.png" />
+    <Resource Include="Resources\Images\0101 - 复制%282%29.png" />
+    <Resource Include="Resources\Images\0101 - 复制%283%29.png" />
+    <Resource Include="Resources\Images\0101 - 复制.png" />
+    <Resource Include="Resources\Images\0101.png" />
+    <Resource Include="Resources\Images\0102 - 复制%282%29.png" />
+    <Resource Include="Resources\Images\0102 - 复制%283%29.png" />
+    <Resource Include="Resources\Images\0102 - 复制.png" />
+    <Resource Include="Resources\Images\0102.png" />
+    <Resource Include="Resources\Images\0103.png" />
+    <Resource Include="Resources\Images\0104.png" />
+    <Resource Include="Resources\Images\0105.png" />
+    <Resource Include="Resources\Images\0106.png" />
+    <Resource Include="Resources\Images\0107.png" />
+    <Resource Include="Resources\Images\0108.png" />
+    <Resource Include="Resources\Images\0201.png" />
+    <Resource Include="Resources\Images\0202.png" />
+    <Resource Include="Resources\Images\03.png" />
+    <Resource Include="Resources\Images\0301.png" />
+    <Resource Include="Resources\Images\0302.png" />
+    <Resource Include="Resources\Images\0303.png" />
+    <Resource Include="Resources\Images\0304.png" />
+    <Resource Include="Resources\Images\0308.png" />
+    <Resource Include="Resources\Images\0309.png" />
+    <Resource Include="Resources\Images\0312.png" />
+    <Resource Include="Resources\Images\0313.png" />
+    <Resource Include="Resources\Images\0314.png" />
+    <Resource Include="Resources\Images\0316.png" />
+    <Resource Include="Resources\Images\0318.png" />
+    <Resource Include="Resources\Images\04.png" />
+    <Resource Include="Resources\Images\0401.png" />
+    <Resource Include="Resources\Images\0402.png" />
+    <Resource Include="Resources\Images\0403.png" />
+    <Resource Include="Resources\Images\0404.png" />
+    <Resource Include="Resources\Images\0405.png" />
+    <Resource Include="Resources\Images\0406.png" />
+    <Resource Include="Resources\Images\0407.png" />
+    <Resource Include="Resources\Images\0408.png" />
+    <Resource Include="Resources\Images\05.png" />
+    <Resource Include="Resources\Images\0501.png" />
+    <Resource Include="Resources\Images\0502.png" />
+    <Resource Include="Resources\Images\0503.png" />
+    <Resource Include="Resources\Images\0504.png" />
+    <Resource Include="Resources\Images\0505.png" />
+    <Resource Include="Resources\Images\06.png" />
+    <Resource Include="Resources\Images\0601.png" />
+    <Resource Include="Resources\Images\0602.png" />
+    <Resource Include="Resources\Images\0603.png" />
+    <Resource Include="Resources\Images\0604.png" />
+    <Resource Include="Resources\Images\0605.png" />
+    <Resource Include="Resources\Images\0606.png" />
+    <Resource Include="Resources\Images\07.png" />
+    <Resource Include="Resources\Images\0701.png" />
+    <Resource Include="Resources\Images\0702.png" />
+    <Resource Include="Resources\Images\0703.png" />
+    <Resource Include="Resources\Images\0704.png" />
+    <Resource Include="Resources\Images\15.ico" />
+    <Resource Include="Resources\Images\15.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\20.png" />
+    <Resource Include="Resources\Images\2001.png" />
+    <Resource Include="Resources\Images\2002.png" />
+    <Resource Include="Resources\Images\2003.png" />
+    <Resource Include="Resources\Images\44%282%29.png" />
+    <Resource Include="Resources\Images\44.png" />
+    <Resource Include="Resources\Images\HighSymbol2.png" />
+    <Resource Include="Resources\Images\Loading.bmp" />
+    <Resource Include="Resources\Images\LowSymbol2.png" />
+    <Resource Include="Resources\Images\MAS.png" />
+    <Resource Include="Resources\Images\medical investment.png" />
+    <Resource Include="Resources\Images\NoPic.bmp" />
+    <Resource Include="Resources\Images\user.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.104.0\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.104.0\build\net451\System.Data.SQLite.Core.targets')" />

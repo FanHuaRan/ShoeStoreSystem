@@ -16,6 +16,8 @@ using System.Collections.ObjectModel;
 
 // Toolkit namespace
 using SimpleMvvmToolkit;
+using ShoeStoreMvvm.ViewModels;
+using ShoeStoreMvvm.Services.Impl;
 
 namespace ShoeStoreMvvm
 {
@@ -49,16 +51,9 @@ namespace ShoeStoreMvvm
         {
             get { return new MainPageViewModel(); }
         }
-
-        // Create CustomerViewModel on demand
-      /*  public CustomerViewModel CustomerViewModel
+        public SubSystemMenusViewModel SubSystemMenusViewModel
         {
-            get
-            {
-                ICustomerServiceAgent serviceAgent = new MockCustomerServiceAgent();
-                return new CustomerViewModel(serviceAgent);
-            }
+            get { return new SubSystemMenusViewModel(new ModuleServiceAgent()); }
         }
-       * */
     }
 }

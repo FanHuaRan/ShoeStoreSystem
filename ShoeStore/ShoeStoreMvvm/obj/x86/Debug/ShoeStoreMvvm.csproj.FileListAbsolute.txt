@@ -30,15 +30,7 @@ E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\bin\Debug\SimpleMvvm-Wpf.exe.c
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\SimpleMvvm-Wpf.exe
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\SimpleMvvm-Wpf.pdb
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\ShoeStoreMvvm.csprojResolveAssemblyReference.cache
-E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\SellWindow.baml
-E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\StatisticsWindow.baml
-E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\StockWindow.baml
-E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\StoreWindow.baml
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\Views\CustomerView.baml
-E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\SellWindow.g.cs
-E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\StatisticsWindow.g.cs
-E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\StockWindow.g.cs
-E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\StoreWindow.g.cs
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\Views\CustomerView.g.cs
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\MainWindow.g.cs
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\App.g.cs
@@ -70,3 +62,5 @@ E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\MainWindow.baml
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\SimpleMvvm-Wpf.g.resources
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\ShoeStoreMvvm.Properties.Resources.resources
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\ShoeStoreMvvm.csproj.GenerateResource.Cache
+E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\Views\SubSystemMenusView.baml
+E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\Views\SubSystemMenusView.g.cs
