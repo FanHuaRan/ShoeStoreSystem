@@ -17,8 +17,8 @@ namespace ShoeStoreMvvm.Models
         private string color;
         private float size;
         private float? sellPrice;
-        private Models.Shoe shoe;
-        private Models.Order order;
+        private virtual Shoe shoe;
+        private virtual Order order;
         [PrimaryKeyAttribute]
         public Int64 ShoeItemId
         {

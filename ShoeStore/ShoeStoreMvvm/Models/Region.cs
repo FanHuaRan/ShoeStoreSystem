@@ -17,6 +17,7 @@ namespace ShoeStoreMvvm.Models
        private int regionId;
        private string regionName;
        private string regionAddress;
+       private virtual List<Store> stores;
 
         [PrimaryKeyAttribute]
        public Int32 RegionId
@@ -36,7 +37,11 @@ namespace ShoeStoreMvvm.Models
             get { return this.regionAddress; }
             set { this.regionAddress = value; NotifyPropertyChanged(p => p.RegionAddress); }
         }
-
+        public  virtual List<Store> Stores
+        {
+            get { return this.stores; }
+            set { this.stores = value; NotifyPropertyChanged(p => p.Stores); }
+        }
         public Region(Int32 regionId, string regionName, string regionAddress)
         {
             this.RegionName = regionName;

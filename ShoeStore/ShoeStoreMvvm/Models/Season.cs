@@ -16,6 +16,8 @@ namespace ShoeStoreMvvm.Models
     {
         private int seasonId;
         private string seasonName;
+        private virtual List<Shoe> shoes;
+
         [PrimaryKeyAttribute]
         public Int32 SeasonId
         {
@@ -28,7 +30,11 @@ namespace ShoeStoreMvvm.Models
             get { return this.seasonName; }
             set { this.seasonName = value; NotifyPropertyChanged(p => p.SeasonName); }
         }
-
+        public virtual List<Shoe> Shoes
+        {
+            get { return this.shoes; }
+            set { this.shoes = value; NotifyPropertyChanged(p => p.Shoes); }
+        }
         public Season(Int32 seasonId, string seasonName)
         {
             this.SeasonId = seasonId;

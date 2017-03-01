@@ -20,8 +20,9 @@ namespace ShoeStoreMvvm.Models
         private float originMoney;
         private float price;
         private byte gender;
-        private Models.Stock stock;
-        private Models.Season season;
+        private Stock stock;
+        private Season season;
+        private virtual List<ShoeItem> shoeItems;
         public long shoeId { get; set; }
         [PrimaryKeyAttribute]
         public Int64 ShoeId
@@ -70,6 +71,11 @@ namespace ShoeStoreMvvm.Models
         {
             get { return this.season; }
             set { this.season = value; NotifyPropertyChanged(p => p.Season); }
+        }
+        public virtual List<ShoeItem> ShoeItems
+        {
+            get { return this.shoeItems; }
+            set { this.shoeItems = value; NotifyPropertyChanged(p => p.ShoeItems); }
         }
     }
 }

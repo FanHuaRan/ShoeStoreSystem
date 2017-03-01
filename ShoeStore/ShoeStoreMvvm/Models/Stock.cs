@@ -17,6 +17,7 @@ namespace ShoeStoreMvvm.Models
         private int stockCompanyId;
         private DateTime stockTime;
         private int stockCount;
+        private virtual StockCompany stockCompany;
         public Int64 StockId
         {
             get { return this.stockId; }
@@ -38,7 +39,11 @@ namespace ShoeStoreMvvm.Models
             get { return this.stockCount; }
             set { this.stockCount = value; NotifyPropertyChanged(p => p.StockCount); }
         }
-
+        public virtual StockCompany StockCompany
+        {
+            get { return this.stockCompany; }
+            set { this.stockCompany = value; NotifyPropertyChanged(p => p.StockCompany); }
+        }
         public Stock(Int64 stockId, Int32 stockCompanyId, DateTime stockTime, Int32 stockCount)
         {
             this.StockId = stockId;

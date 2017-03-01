@@ -16,6 +16,7 @@ namespace ShoeStoreMvvm.Models
     {
         private int stockCompanyId;
         private string stockCompanyName;
+        private virtual List<Stock> stocks;
         [PrimaryKeyAttribute]
         public Int32 StockCompanyId
         {
@@ -28,7 +29,11 @@ namespace ShoeStoreMvvm.Models
             get { return this.stockCompanyName; }
             set { this.stockCompanyName = value; NotifyPropertyChanged(p => p.StockCompanyName); }
         }
-
+       public virtual List<Stock> Stocks
+        {
+            get { return this.stocks; }
+            set { this.stocks = value; NotifyPropertyChanged(p => p.Stocks); }
+        }
         public StockCompany(Int32 stockCompanyId, string stockCompanyName)
         {
             this.StockCompanyId = stockCompanyId;

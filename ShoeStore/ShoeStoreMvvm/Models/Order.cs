@@ -16,6 +16,7 @@ namespace ShoeStoreMvvm.Models
         private float totalPrice;
         private int count;
         private Customer customer;
+        private ShoeItem shoeItems;
 
         [PrimaryKeyAttribute]
         public Int64 OrderId
@@ -48,7 +49,11 @@ namespace ShoeStoreMvvm.Models
             get { return this.customer; }
             set { this.customer = value; NotifyPropertyChanged(p => p.Customer); }
         }
-
+        public virtual ShoeItem ShoeItems
+        {
+            get { return this.shoeItems; }
+            set { this.shoeItems = value; NotifyPropertyChanged(p => p.ShoeItems); }
+        }
         public Order(long? customerId, DateTime saleTime, float totalPrice)
         {
             // TODO: Complete member initialization
