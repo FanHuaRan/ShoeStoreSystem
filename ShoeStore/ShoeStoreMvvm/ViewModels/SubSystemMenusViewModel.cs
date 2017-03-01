@@ -48,7 +48,9 @@ namespace ShoeStoreMvvm.ViewModels
                     {
                         return;
                     }
-                    ModuleClass module = listbox.SelectedItem as ModuleClass;
+                    var module = listbox.SelectedItem as ModuleClass;
+                   var userControl= Activator.CreateInstance( module.Type) as UserControl;
+                   ChangeView(userControl);
                 });
             }
         }
@@ -59,7 +61,15 @@ namespace ShoeStoreMvvm.ViewModels
         // TODO: Add properties using the mvvmprop code snippet
 
         // TODO: Add methods that will be called by the view
-
+        private void ChangeView(UserControl control)
+        {
+            var window = App.Current.MainWindow as MainWindow;
+            if (window == null)
+            {
+                return;
+            }
+            (window.DataContext as MainPageViewModel).ChangeView(control);
+        }
         // TODO: Optionally add callback methods for async calls to the service agent
         
         // Helper method to notify View of an error

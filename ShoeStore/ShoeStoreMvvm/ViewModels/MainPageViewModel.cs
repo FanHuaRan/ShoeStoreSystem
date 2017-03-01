@@ -9,7 +9,9 @@ using SimpleMvvmToolkit;
 // Toolkit extension methods
 using SimpleMvvmToolkit.ModelExtensions;
 using System.Windows.Input;
-
+using System.Windows.Controls;
+using ShoeStoreMvvm.Views;
+using System.Collections.Generic;
 namespace ShoeStoreMvvm
 {
     /// <summary>
@@ -20,6 +22,10 @@ namespace ShoeStoreMvvm
     /// </summary>
     public class MainPageViewModel : ViewModelBase<MainPageViewModel>
     {
+        #region Fields
+        private UserControl rootView = new SubSystemMenusView();
+        private Stack<UserControl> viewStack = new Stack<UserControl>();
+        #endregion
         #region Initialization and Cleanup
 
         // Default ctor
@@ -36,22 +42,6 @@ namespace ShoeStoreMvvm
 
         #region Properties
 
-        // Add properties using the mvvmprop code snippet
-
-        private string bannerText = "Hello Simple MVVM Toolkit";
-        public string BannerText
-        {
-            get
-            {
-                if (this.IsInDesignMode()) return "Banner";
-                return bannerText;
-            }
-            set
-            {
-                bannerText = value;
-                NotifyPropertyChanged(m => m.BannerText);
-            }
-        }
 
         #endregion
 
@@ -65,10 +55,24 @@ namespace ShoeStoreMvvm
                 Environment.Exit(0);
             }
         }
+        //切换当前控件
+        public void ChangeView(UserControl userControl)
+        {
+            var mainWindow = App.Current.MainWindow as MainWindow;
+            if (mainWindow == null)
+            {
+                return;
+            }
+            mainWindow.disPlayTopView.Visibility = userControl == rootView ? Visibility.Hidden : Visibility.Visible;
+            mainWindow.ViewContiner.Children.Clear();
+            mainWindow.ViewContiner.Children.Add(userControl);
+            userControl.Focus();
+            viewStack.Push(userControl);
+        }
         #endregion
 
         #region Commands
-        public ICommand minWindowCommand
+        public ICommand MinWindowCommand
         {
             get
             {
@@ -78,13 +82,40 @@ namespace ShoeStoreMvvm
                 });
             }
         }
-        public ICommand maxWindowCommand
+        public ICommand MaxWindowCommand
         {
             get
             {
                 return new DelegateCommand<Window>((window) =>
                 {
                     window.WindowState = WindowState.Maximized;
+                });
+            }
+        }
+        public ICommand ReturnCommand
+        {
+            get
+            {
+                return new DelegateCommand(() => {
+                    viewStack.Pop();
+                    if (viewStack.Count == 0)
+                    {
+                        ChangeView(rootView);
+                    }
+                    else
+                    {
+                        UserControl currentControl = viewStack.Pop();
+                        ChangeView(rootView);
+                    }
+                });
+            }
+        }
+        public ICommand LoadWindowCommand
+        {
+            get
+            {
+                return new DelegateCommand(() => {
+                    ChangeView(rootView);
                 });
             }
         }

@@ -11,6 +11,12 @@
         WindowStartupLocation="CenterScreen"
         WindowStyle="None" 
         Background="{StaticResource BackgroundBrush}">
+    <!--Load命令-->
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadWindowCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Window.Resources>
          
     </Window.Resources>
@@ -29,14 +35,14 @@
                 <Button Content="—" Style="{StaticResource MBtStyleG}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
-                            <i:InvokeCommandAction Command="{Binding minWindowCommand}" CommandParameter="{Binding ElementName=mainWindow}"/>
+                            <i:InvokeCommandAction Command="{Binding MinWindowCommand}" CommandParameter="{Binding ElementName=mainWindow}"/>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Button>
                 <Button Content="口" Style="{StaticResource MBtStyleG}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
-                            <i:InvokeCommandAction Command="{Binding maxWindowCommand}" CommandParameter="{Binding ElementName=mainWindow}"/>
+                            <i:InvokeCommandAction Command="{Binding MaxWindowCommand}" CommandParameter="{Binding ElementName=mainWindow}"/>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Button>
@@ -53,11 +59,34 @@
             </StackPanel>
         </Grid>
         <!--备用-->
-        <Grid Grid.Row="1">
+        <Grid x:Name="disPlayTopView" Grid.Row="1">
+            <Grid Margin="0,0,0,20" Background="{StaticResource BackgroundBrush}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="10"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button IsCancel="True" x:Name="GoBackBT" 
+                        Grid.Column="0"
+                        Height="40"
+                        Margin="5,7,8.2,-7" 
+                        Style="{StaticResource BackButtonStyle}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <i:InvokeCommandAction Command="{Binding ReturnCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+                <TextBlock x:Name="PageBlock" 
+                           Margin="0" Text="返回" 
+                           FontFamily="Microsoft Jhenghei" Grid.Column="2" 
+                           Style="{StaticResource PageHeaderTextStyle}">
+                </TextBlock>
+            </Grid>
         </Grid>
         <!--页面主容器-->
         <Grid Name="ViewContiner" Grid.Row="2">
-            <Views:SubSystemMenusView />
         </Grid>
     </Grid>
 </Window>
