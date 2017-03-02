@@ -18,7 +18,8 @@ namespace ShoeStoreMvvm.Services.Impl
                 new ModuleClass("进货管理","/Resources/Images/15.png",typeof(StockView)),
                  new ModuleClass("存货管理","/Resources/Images/15.png",typeof(StoreView)),
                   new ModuleClass("出售管理","/Resources/Images/15.png",typeof(SellOrderView)),
-                   new ModuleClass("查询统计","/Resources/Images/15.png",typeof(StatisticsView))
+                   new ModuleClass("查询统计","/Resources/Images/15.png",typeof(StatisticsView)),
+                    new ModuleClass("存储管理","/Resources/Images/15.png",typeof(ShoeItemMananageView))
             };
             return moduleList;
         }

@@ -22,7 +22,7 @@ namespace ShoeStoreMvvm.Models
         private byte gender;
         private Stock stock;
         private Season season;
-        private virtual List<ShoeItem> shoeItems;
+        private  List<ShoeItem> shoeItems;
         public long shoeId { get; set; }
         [PrimaryKeyAttribute]
         public Int64 ShoeId

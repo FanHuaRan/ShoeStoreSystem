@@ -16,7 +16,7 @@ namespace ShoeStoreMvvm.Models
     {
         private int stockCompanyId;
         private string stockCompanyName;
-        private virtual List<Stock> stocks;
+        private  List<Stock> stocks;
         [PrimaryKeyAttribute]
         public Int32 StockCompanyId
         {

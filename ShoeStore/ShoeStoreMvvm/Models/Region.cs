@@ -17,7 +17,7 @@ namespace ShoeStoreMvvm.Models
        private int regionId;
        private string regionName;
        private string regionAddress;
-       private virtual List<Store> stores;
+       private  List<Store> stores;
 
         [PrimaryKeyAttribute]
        public Int32 RegionId

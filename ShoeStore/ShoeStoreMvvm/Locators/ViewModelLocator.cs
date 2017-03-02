@@ -55,5 +55,9 @@ namespace ShoeStoreMvvm
         {
             get { return new SubSystemMenusViewModel(new ModuleServiceAgent()); }
         }
+        public ShoeItemMananageViewModel ShoeItemMananageViewModel
+        {
+            get { return new ShoeItemMananageViewModel(); }
+        }
     }
 }

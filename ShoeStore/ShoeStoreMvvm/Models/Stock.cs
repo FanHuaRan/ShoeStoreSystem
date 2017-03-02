@@ -17,7 +17,7 @@ namespace ShoeStoreMvvm.Models
         private int stockCompanyId;
         private DateTime stockTime;
         private int stockCount;
-        private virtual StockCompany stockCompany;
+        private  StockCompany stockCompany;
         public Int64 StockId
         {
             get { return this.stockId; }

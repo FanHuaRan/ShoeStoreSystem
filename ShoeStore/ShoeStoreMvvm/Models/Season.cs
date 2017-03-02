@@ -16,7 +16,7 @@ namespace ShoeStoreMvvm.Models
     {
         private int seasonId;
         private string seasonName;
-        private virtual List<Shoe> shoes;
+        private  List<Shoe> shoes;
 
         [PrimaryKeyAttribute]
         public Int32 SeasonId

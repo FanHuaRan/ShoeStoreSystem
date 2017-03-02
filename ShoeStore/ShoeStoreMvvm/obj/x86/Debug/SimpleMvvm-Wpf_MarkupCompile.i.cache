@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\App.xaml
-71065151710
+8-1310277415
 
-75-789485835
+772126876944
 251641440969
-Views\CustomerView.xaml;MainWindow.xaml;Views\SellOrderView.xaml;Views\StatisticsView.xaml;Views\StockView.xaml;Views\StoreView.xaml;Views\SubSystemMenusView.xaml;
+Views\CustomerView.xaml;MainWindow.xaml;Views\SellOrderView.xaml;Views\ShoeItemMananageView.xaml;Views\StatisticsView.xaml;Views\StockView.xaml;Views\StoreView.xaml;Views\SubSystemMenusView.xaml;
 
 True
 

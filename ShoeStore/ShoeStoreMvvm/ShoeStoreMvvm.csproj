@@ -147,6 +147,7 @@
     <Compile Include="Services\IStockCompanyService.cs" />
     <Compile Include="Services\IStockService.cs" />
     <Compile Include="Services\IStoreService.cs" />
+    <Compile Include="ViewModels\ShoeItemMananageViewModel.cs" />
     <Compile Include="ViewModels\StatisticsViewModel.cs" />
     <Compile Include="ViewModels\SubSystemMenusViewModel.cs" />
     <Compile Include="Views\CustomerView.xaml.cs">
@@ -156,6 +157,9 @@
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="Views\SellOrderView.xaml.cs">
       <DependentUpon>SellOrderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShoeItemMananageView.xaml.cs">
+      <DependentUpon>ShoeItemMananageView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\StatisticsView.xaml.cs">
       <DependentUpon>StatisticsView.xaml</DependentUpon>
@@ -186,6 +190,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\SellOrderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShoeItemMananageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
