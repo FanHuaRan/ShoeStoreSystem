@@ -17,7 +17,6 @@ namespace Pers.Fhr.ShoeStoreLib.Context
     /// </summary>
     class MyContext : DbContext
     {
-        public DbSet<Season> Seasons { get; set; }
 
         public DbSet<Customer> Customers { get; set; }
 
@@ -29,7 +28,6 @@ namespace Pers.Fhr.ShoeStoreLib.Context
 
         public DbSet<Stock> Stocks { get; set; }
 
-        public DbSet<StockCompany> StockCompanys { get; set; }
 
         public DbSet<Store> Stores { get; set; }
 

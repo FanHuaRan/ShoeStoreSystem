@@ -5,6 +5,10 @@ using System.Collections.ObjectModel;
 using ShoeStoreMvvm.Models;
 // Toolkit namespace
 using SimpleMvvmToolkit;
+using Pers.Fhr.ShoeStoreLib.Service;
+using Pers.Fhr.ShoeStoreLib.Service.Impl;
+using Pers.Fhr.ShoeStoreLib.EntityManager;
+using System.Collections.Generic;
 
 namespace ShoeStoreMvvm.ViewModels
 {
@@ -18,14 +22,14 @@ namespace ShoeStoreMvvm.ViewModels
     {
         #region Fiels
         private ObservableCollection<ShoeItem> shoeItems=new ObservableCollection<ShoeItem>();
-
+        private IShoeItemQueryService shoeItemQueryService = new ShoeItemServiceClass(new ShoeItemManager());
         #endregion
         // TODO: Add a member for IXxxServiceAgent
 
         // Default ctor
-        public ShoeItemMananageViewModel() { }
-
-        
+        public ShoeItemMananageViewModel() {
+            shoeItems = new ObservableCollection<ShoeItem>(shoeItemQueryService.FindAllShoeItems() as List<ShoeItem>);
+        }
 
         // TODO: Add events to notify the view or obtain data from the view
         public event EventHandler<NotificationEventArgs<Exception>> ErrorNotice;

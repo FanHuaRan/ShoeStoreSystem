@@ -10,6 +10,5 @@ namespace Pers.Fhr.ShoeStoreLib.Service
 {
     public interface IShoeItemService : IBaseEntityService<ShoeItem>
     {
-
     }
 }

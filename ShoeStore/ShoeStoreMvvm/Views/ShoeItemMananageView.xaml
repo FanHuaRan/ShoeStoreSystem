@@ -4,45 +4,142 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="1000"
+             d:DesignHeight="600" d:DesignWidth="1300"
              Background="{StaticResource BackgroundBrush}"
-             DataContext="{Binding Source={StaticResource Locator}, Path=ShoeItemMananageViewModel }">
+             DataContext="{Binding Source={StaticResource Locator}, Path=ShoeItemMananageViewModel}">
+    <UserControl.Resources>
+        <Style x:Key="ListViewItemStyle" TargetType="{x:Type ListViewItem}">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" MinWidth="200"></ColumnDefinition>
             <ColumnDefinition Width="4.5*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <Grid x:Name="searchDealGrid" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="16*"/>
+                <RowDefinition Height="21*"/>
+                <RowDefinition Height="12*"/>
+                <RowDefinition Height="13*"/>
+                <RowDefinition Height="11*"/>
+                <RowDefinition Height="17*"/>
+                <RowDefinition Height="11*"/>
+                <RowDefinition Height="19*"/>
+            </Grid.RowDefinitions>
+            <GroupBox Grid.Row ="0" Name="GroupBox5" BorderThickness="0">
+                <GroupBox.HeaderTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock  Text="款型:" ></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </GroupBox.HeaderTemplate>
+                <ComboBox  Name="DepName" HorizontalContentAlignment="Left" Height="30"  IsReadOnly="False"></ComboBox>
+            </GroupBox>
+            <GroupBox Grid.Row ="0"  BorderThickness="0">
+                <GroupBox.HeaderTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock  Text="款型:" ></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </GroupBox.HeaderTemplate>
+                <ComboBox   HorizontalContentAlignment="Left" Height="30"  IsReadOnly="False"></ComboBox>
+            </GroupBox>
+            <GroupBox Grid.Row ="1"  BorderThickness="0">
+                <GroupBox.HeaderTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock  Text="颜色:" ></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </GroupBox.HeaderTemplate>
+            </GroupBox>
+            <GroupBox Grid.Row ="2"  BorderThickness="0">
+                <GroupBox.HeaderTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock  Text="尺码:" ></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </GroupBox.HeaderTemplate>
+            </GroupBox>
+            <GroupBox Grid.Row ="3"  BorderThickness="0">
+                <GroupBox.HeaderTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock  Text="季节:" ></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </GroupBox.HeaderTemplate>
+            </GroupBox>
+            <GroupBox Grid.Row ="4"  BorderThickness="0">
+                <GroupBox.HeaderTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock  Text="试用性别:" ></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </GroupBox.HeaderTemplate>
+            </GroupBox>
+            <GroupBox Grid.Row ="4"  BorderThickness="0">
+                <GroupBox.HeaderTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock  Text="零售价格区间:" ></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </GroupBox.HeaderTemplate>
+            </GroupBox>
+        </Grid>
         <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="27*"/>
+                <ColumnDefinition Width="Auto" MinWidth="50"/>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="5*"/>
                 <RowDefinition Height="35*"/>
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
-            <ListView Grid.Row="1" Margin="0" 
+
+            <ListView Grid.Row="1" Grid.Column="0" Margin="0" 
                       ItemsSource="{Binding ShoeItems}"
-                      BorderThickness="0"
+                      BorderThickness="1"
                       Background="Transparent"
-                       SnapsToDevicePixels="True"                     
-                       SelectionMode="Single" >
+                      SnapsToDevicePixels="True"
+                      ScrollViewer.IsDeferredScrollingEnabled="True"
+                      SelectionMode="Single" 
+                      ItemContainerStyle="{DynamicResource  ListViewItemStyle}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="鞋编号" DisplayMemberBinding="{Binding Path=ShoeItemId}" Width="75"/>
-                        <GridViewColumn Header="货号" DisplayMemberBinding="{Binding Path=Shoe.ThingId}" Width="75"/>
+                        <GridViewColumn Header="鞋编号"  Width="75">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding ShoeItemId}" TextAlignment="Center" MinWidth="{Binding Path=ActualWidth,ElementName=column}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="货号" DisplayMemberBinding="{Binding Path=Shoe.ThingId}" Width="75" />
+                        <GridViewColumn Header="款型" DisplayMemberBinding="{Binding Path=Shoe.ShoeType}" Width="100"/>
                         <GridViewColumn Header="颜色" DisplayMemberBinding="{Binding Path=Color}" Width="75"/>
                         <GridViewColumn Header="尺码" DisplayMemberBinding="{Binding Path=Size}" Width="75"/>
-                        <GridViewColumn Header="适用性别" DisplayMemberBinding="{Binding [Season.SeasonName]}" Width="75"/>
-                        <GridViewColumn Header="季节" DisplayMemberBinding="{Binding ShoeItemId}" Width="75"/>
+                        <GridViewColumn Header="适用性别" DisplayMemberBinding="{Binding Path=Shoe.Gender,Converter={StaticResource genderCoverter}}" Width="75"/>
+                        <GridViewColumn Header="季节" DisplayMemberBinding="{Binding Path=Shoe.Season}" Width="75"/>
+                        <GridViewColumn Header="零售价" DisplayMemberBinding="{Binding Path=Shoe.Price}" Width="75"/>
                         <GridViewColumn Header="详细" Width="80">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Tag="{Binding }" HorizontalAlignment="Center" Style="{StaticResource NewDialogBtStyleG}"></Button>
+                                    <Button  HorizontalAlignment="Center" Style="{StaticResource NewDialogBtStyleG}"></Button>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
                         <GridViewColumn Header="删除" Width="40">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Tag="{Binding }" Height="30" Width="30" Background="Tomato" Content="x" Foreground="White">
+                                    <Button  Height="30" Width="30" Background="Tomato" Content="x" Foreground="White">
                                         <Button.Clip>
                                             <EllipseGeometry Center="15,15" RadiusX="8" RadiusY="8"></EllipseGeometry>
                                         </Button.Clip>

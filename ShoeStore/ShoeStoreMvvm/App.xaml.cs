@@ -12,5 +12,10 @@ namespace ShoeStoreMvvm
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+           // this.DispatcherUnhandledException += (sender, e1) => e1.Handled = true;
+        }
     }
 }

@@ -16,24 +16,24 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
         ,IStockService
     {
         private readonly IShoeService shoeService;
-        private readonly IStockCompanyService stockCompanyService;
-        public StockService(StockManager stockManager,IShoeService shoeService, IStockCompanyService stockCompanyService)
+        public StockService(StockManager stockManager,IShoeService shoeService)
         {
             this.entityManager = stockManager;
             this.shoeService = shoeService;
-            this.stockCompanyService = stockCompanyService;
         }
-        public Stock Stock(DateTime dateTime, string StockCompanyName, IList<Shoe> shoes)
+        /// <summary>
+        /// 存货还有问题 后期根据实际业务逻辑修改
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <param name="StockCompanyName"></param>
+        /// <param name="shoeItems"></param>
+        /// <returns></returns>
+        public Stock Stock(DateTime dateTime, string StockCompanyName, IList<ShoeItem> shoeItems)
         {
-           Stock tempStock=new Stock(DealStockCompany(StockCompanyName),dateTime, shoes.Count);
+            Stock tempStock = new Stock(dateTime, shoeItems.Count,StockCompanyName);
            Stock stock = this.Update(tempStock);
-           DealShoes(shoes, stock);
+           //DealShoes(shoeItems, stock);
            return stock;
-        }
-        private int DealStockCompany(string StockCompanyName)
-        {
-            StockCompany company = stockCompanyService.PutIfAbsent(StockCompanyName);
-            return company.StockCompanyId;
         }
         private void DealShoes(IList<Shoe> shoes,Stock stock)
         {

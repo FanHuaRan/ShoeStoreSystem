@@ -48,6 +48,9 @@
     <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\SimpleMvvmToolkit.5.5.0.0\lib\net45\Microsoft.Expression.Interactions.dll</HintPath>
     </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.3.6.1\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="SimpleMvvmToolkit-Common, Version=5.5.0.0, Culture=neutral, PublicKeyToken=20fad5ed49a0c3b4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\SimpleMvvmToolkit.5.5.0.0\lib\net45\SimpleMvvmToolkit-Common.dll</HintPath>
@@ -97,26 +100,23 @@
     <Compile Include="Context\ContextFactory.cs" />
     <Compile Include="Context\MyContext.cs" />
     <Compile Include="Context\SourceData.cs" />
+    <Compile Include="Converters\GenderCoverter.cs" />
     <Compile Include="EntityManager\CustomerManager.cs" />
     <Compile Include="EntityManager\EntityBaseManager.cs" />
     <Compile Include="EntityManager\IEntityManager.cs" />
     <Compile Include="EntityManager\OrderManager.cs" />
     <Compile Include="EntityManager\RegionManager.cs" />
-    <Compile Include="EntityManager\SeasonManager.cs" />
     <Compile Include="EntityManager\ShoeItemManager.cs" />
     <Compile Include="EntityManager\ShoeManager.cs" />
-    <Compile Include="EntityManager\StockCompanyManager.cs" />
     <Compile Include="EntityManager\StockManager.cs" />
     <Compile Include="EntityManager\StoreManager.cs" />
     <Compile Include="Models\ModuleClass.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Region.cs" />
     <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\Season.cs" />
     <Compile Include="Models\Shoe.cs" />
     <Compile Include="Models\ShoeItem.cs" />
     <Compile Include="Models\Stock.cs" />
-    <Compile Include="Models\StockCompany.cs" />
     <Compile Include="Models\Store.cs" />
     <Compile Include="Services\AbstractEntityServiceBaseClass.cs" />
     <Compile Include="Services\IBaseEntityService.cs" />
@@ -127,24 +127,20 @@
     <Compile Include="Services\Impl\RegionService.cs" />
     <Compile Include="Services\Impl\ScoreCheapNonStrategey.cs" />
     <Compile Include="Services\Impl\ScoreEarnNoramlStrategey.cs" />
-    <Compile Include="Services\Impl\SeasonService.cs" />
     <Compile Include="Services\Impl\SellShoeService.cs" />
     <Compile Include="Services\Impl\ShoeItemServiceClass.cs" />
     <Compile Include="Services\Impl\ShoeService.cs" />
     <Compile Include="Services\Impl\StatisticsClass.cs" />
-    <Compile Include="Services\Impl\StockCompanyService.cs" />
     <Compile Include="Services\Impl\StockService.cs" />
     <Compile Include="Services\Impl\StoreService.cs" />
     <Compile Include="Services\IRegionService.cs" />
     <Compile Include="Services\IScoreCheapStrategey.cs" />
     <Compile Include="Services\IScoreEarnStrategey.cs" />
-    <Compile Include="Services\ISeasonService.cs" />
     <Compile Include="Services\ISellShoeService.cs" />
     <Compile Include="Services\IShoeItemService.cs" />
     <Compile Include="Services\IShoeQueryService.cs" />
     <Compile Include="Services\IShoeService.cs" />
     <Compile Include="Services\IStatisticsService.cs" />
-    <Compile Include="Services\IStockCompanyService.cs" />
     <Compile Include="Services\IStockService.cs" />
     <Compile Include="Services\IStoreService.cs" />
     <Compile Include="ViewModels\ShoeItemMananageViewModel.cs" />

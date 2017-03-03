@@ -16,6 +16,6 @@ namespace Pers.Fhr.ShoeStoreLib.Service
         /// 进货
         /// </summary>
         /// <returns></returns>
-        Stock Stock(DateTime dateTime, string StockCompanyName,IList<Shoe> shoes);
+        Stock Stock(DateTime dateTime, string StockCompanyName, IList<ShoeItem> shoeItems);
     }
 }

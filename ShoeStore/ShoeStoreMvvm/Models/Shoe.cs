@@ -14,14 +14,14 @@ namespace ShoeStoreMvvm.Models
     /// </summary>
     public class Shoe : ModelBase<Shoe>
     {
-        private long seasonId;
         private long stockId;
         private int thingId;
         private float originMoney;
         private float price;
         private byte gender;
+        private string season;
         private Stock stock;
-        private Season season;
+        private string shoeType;
         private  List<ShoeItem> shoeItems;
         public long shoeId { get; set; }
         [PrimaryKeyAttribute]
@@ -29,11 +29,6 @@ namespace ShoeStoreMvvm.Models
         {
             get { return this.shoeId; }
             set { this.shoeId = value; NotifyPropertyChanged(p => p.ShoeId); }
-        }
-        public Int64 SeasonId
-        {
-            get { return this.seasonId; }
-            set { this.seasonId = value; NotifyPropertyChanged(p => p.SeasonId); }
         }
         public Int64 StockId
         {
@@ -62,15 +57,20 @@ namespace ShoeStoreMvvm.Models
             get { return this.gender; }
             set { this.gender = value; NotifyPropertyChanged(p => p.Gender); }
         }
+        public  string Season
+        {
+            get { return this.season; }
+            set { this.season = value; NotifyPropertyChanged(p => p.Season); }
+        }
+        public string ShoeType
+        {
+            get { return this.shoeType; }
+            set { this.shoeType = value; NotifyPropertyChanged(p => p.ShoeType); }
+        }
         public virtual Stock Stock
         {
             get { return this.stock; }
             set { this.stock = value; NotifyPropertyChanged(p => p.Stock); }
-        }
-        public virtual Season Season
-        {
-            get { return this.season; }
-            set { this.season = value; NotifyPropertyChanged(p => p.Season); }
         }
         public virtual List<ShoeItem> ShoeItems
         {
