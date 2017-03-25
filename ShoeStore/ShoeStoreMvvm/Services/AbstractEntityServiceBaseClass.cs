@@ -12,7 +12,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service
         where T:class
     {
         protected IEntityManager<T> entityManager = null;
-        public IList<T> FindAll()
+        public List<T> FindAll()
         {
             return entityManager.FindAll();
         }
@@ -33,23 +33,5 @@ namespace Pers.Fhr.ShoeStoreLib.Service
         {
             entityManager.DeleteById(id);
         }
-        #region 单例逻辑 错误
-        /*
-        protected static V instance = default(V);
-        public static virtual V Instance
-        {
-            get
-            {
-                CreateSingleInstance();
-                return instance;
-            }
-        }
-
-        public static abstract V CreateSingleInstance()
-        {
-            throw new NotImplementedException();
-        }
-        */
-        #endregion
     }
 }

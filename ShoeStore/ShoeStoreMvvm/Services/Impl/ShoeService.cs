@@ -15,7 +15,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
         : AbstractEntityBaseClass<Shoe>
         , IShoeService
     {
-        public IList<Shoe> FindAllShoes()
+        public List<Shoe> FindAllShoes()
         {
             return FindAll();
         }

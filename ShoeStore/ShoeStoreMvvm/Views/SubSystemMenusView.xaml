@@ -8,7 +8,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              DataContext="{Binding Source={StaticResource Locator}, Path=SubSystemMenusViewModel}">
+   
     <UserControl.Resources>
+       <!--几个画板-->
         <Storyboard x:Key="LoadedStoryboard" FillBehavior="HoldEnd" >
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity"  Storyboard.TargetName="BorderBT">
                 <SplineDoubleKeyFrame  KeyTime="00:00:00" Value="0"></SplineDoubleKeyFrame>
@@ -28,6 +30,7 @@
             </ColorAnimationUsingKeyFrames>
         </Storyboard>
         <!--MainWindowListBox-->
+        <!---每个菜单按钮的样式-->
         <Style x:Key="ListBoxItemStyle1" TargetType="{x:Type ListBoxItem}">
             <Setter Property="Template">
                 <Setter.Value>
@@ -65,6 +68,7 @@
             </Setter>
         </Style>
     </UserControl.Resources>
+    <!---菜单栏-->
     <ListBox x:Name="moduleListBox" BorderBrush="Transparent" ItemsSource="{Binding Path=ModuleList}"    
                      HorizontalAlignment="Center" VerticalAlignment="Center"
                      Background="{StaticResource BackgroundBrush}" ItemContainerStyle="{StaticResource ListBoxItemStyle1}">

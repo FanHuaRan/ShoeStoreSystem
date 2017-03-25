@@ -51,7 +51,7 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
             return oldObj;
         }
 
-        public  IList<T> FindAll()
+        public  List<T> FindAll()
         {
             return context.Set<T>().Select(p => p).ToList<T>();
         }
@@ -74,11 +74,11 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
         /// </summary>
         /// <param name="delegates"></param>
         /// <returns></returns>
-        public IList<T> SimpleCompositeFind(params Func<T, bool>[] delegates)
+        public List<T> SimpleCompositeFind(params Func<T, bool>[] delegates)
         {
             return context.Set<T>()
                 .Where(p => isRight(p, delegates))
-                .ToList() as IList<T>;
+                .ToList();
         }
 
         private bool isRight(T obj, params Func<T, bool> []delegates)

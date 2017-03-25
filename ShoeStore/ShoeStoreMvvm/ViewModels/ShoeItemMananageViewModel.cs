@@ -20,15 +20,19 @@ namespace ShoeStoreMvvm.ViewModels
     /// </summary>
     public class ShoeItemMananageViewModel : ViewModelBase<ShoeItemMananageViewModel>
     {
-        #region Fiels
+        #region Fields
         private ObservableCollection<ShoeItem> shoeItems=new ObservableCollection<ShoeItem>();
+        private ObservableCollection<string> shoeStyles = new ObservableCollection<string>();
+        private ObservableCollection<float> shoeSizes = new ObservableCollection<float>();
         private IShoeItemQueryService shoeItemQueryService = new ShoeItemServiceClass(new ShoeItemManager());
         #endregion
         // TODO: Add a member for IXxxServiceAgent
 
         // Default ctor
         public ShoeItemMananageViewModel() {
-            shoeItems = new ObservableCollection<ShoeItem>(shoeItemQueryService.FindAllShoeItems() as List<ShoeItem>);
+            List<ShoeItem> tempShoeItems=shoeItemQueryService.FindAllShoeItems();
+            //tempShoeItems.
+            shoeItems = new ObservableCollection<ShoeItem>(tempShoeItems);
         }
 
         // TODO: Add events to notify the view or obtain data from the view
@@ -39,6 +43,16 @@ namespace ShoeStoreMvvm.ViewModels
         {
             get { return this.shoeItems; }
             set { this.shoeItems = value; NotifyPropertyChanged(p => p.ShoeItems); }
+        }
+        public ObservableCollection<string> ShoeStyles
+        {
+            get { return this.shoeStyles; }
+            set { this.shoeStyles = value; NotifyPropertyChanged(p => p.ShoeStyles); }
+        }
+        public ObservableCollection<float> ShoeSizes
+        {
+            get { return this.shoeSizes; }
+            set { this.shoeSizes = value; NotifyPropertyChanged(p => p.ShoeSizes); }
         }
         // TODO: Add methods that will be called by the view
 

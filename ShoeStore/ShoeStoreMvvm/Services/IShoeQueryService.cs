@@ -12,34 +12,34 @@ namespace Pers.Fhr.ShoeStoreLib.Service
         /// 查看所有鞋子
         /// </summary>
         /// <returns></returns>
-        IList<ShoeItem> FindAllShoeItems();
+        List<ShoeItem> FindAllShoeItems();
         /// <summary>
         /// 查看没有售出的鞋子
         /// </summary>
         /// <returns></returns>
-        IList<ShoeItem> FindNoSellShoeItems();
+        List<ShoeItem> FindNoSellShoeItems();
         /// <summary>
         /// 查看已售出的鞋子
         /// </summary>
         /// <returns></returns>
-        IList<ShoeItem> FindSellShoeItems();
+        List<ShoeItem> FindSellShoeItems();
         /// <summary>
         /// 根据年来查看已售出的鞋子
         /// </summary>
         /// <param name="year"></param>
         /// <returns></returns>
-        IList<ShoeItem> FindSellShoeItemsByYear(int year);
+        List<ShoeItem> FindSellShoeItemsByYear(int year);
         /// <summary>
         /// 根据月来查看已售出的鞋子
         /// </summary>
         /// <param name="year"></param>
         /// <param name="month"></param>
         /// <returns></returns>
-        IList<ShoeItem> FindSellShoeItemsByMonth(int year, int month);
+        List<ShoeItem> FindSellShoeItemsByMonth(int year, int month);
         /// <summary>
         /// 查看某人买的鞋子
         /// </summary>
         /// <returns></returns>
-        IList<ShoeItem> FindSellShoeItems(string phone);
+        List<ShoeItem> FindSellShoeItems(string phone);
     }
 }

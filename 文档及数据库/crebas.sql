@@ -1,147 +1,144 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2017/2/6 12:34:22                            */
+/* Created on:     2017/3/11 23:47:24                           */
 /*==============================================================*/
 
 
-drop table if exists Customer;
+drop table if exists Announcement;
 
-drop table if exists Region;
+drop table if exists Authority;
 
-drop table if exists Sale;
+drop table if exists Good;
 
-drop table if exists Season;
+drop table if exists GoodCollect;
 
-drop table if exists Shoe;
+drop table if exists GoodComment;
 
-drop table if exists Stock;
+drop table if exists GoodType;
 
-drop table if exists StockCompany;
+drop table if exists ShRole;
 
-drop table if exists Store;
+drop table if exists ShUser;
 
 /*==============================================================*/
-/* Table: Customer                                              */
+/* Table: Announcement                                          */
 /*==============================================================*/
-create table Customer
+create table Announcement
 (
-   CustomerId           bigint not null auto_increment,
-   CustomerName         varchar(20) not null,
-   Phone                varchar(15) not null,
-   Score                float not null,
-   primary key (CustomerId)
-);
-
-alter table Customer comment '可以针对积分在销售表中增加触发器';
-
-/*==============================================================*/
-/* Table: Region                                                */
-/*==============================================================*/
-create table Region
-(
-   RegionId             int not null auto_increment,
-   RegionName           varchar(50) not null,
-   RegionAddress        varchar(50) not null,
-   primary key (RegionId)
+   AnnouncementId       int not null auto_increment,
+   AnnoContent          varchar(200) not null,
+   AnnoTime             datetime not null,
+   AnnounceTitle        varchar(25) not null,
+   primary key (AnnouncementId)
 );
 
 /*==============================================================*/
-/* Table: Sale                                                  */
+/* Table: Authority                                             */
 /*==============================================================*/
-create table Sale
+create table Authority
 (
-   SaleId               bigint not null auto_increment,
-   CustomerId           bigint,
-   Phone                varchar(15),
-   SaleTime             datetime not null,
-   TotalPrice           float,
-   primary key (SaleId)
+   AuthorityId          int not null auto_increment,
+   ShUserId             int not null,
+   ShRoleId             smallint not null,
+   primary key (AuthorityId)
 );
 
 /*==============================================================*/
-/* Table: Season                                                */
+/* Table: Good                                                  */
 /*==============================================================*/
-create table Season
+create table Good
 (
-   SeasonId             int not null auto_increment,
-   SeasonName           varchar(10) not null,
-   primary key (SeasonId)
-);
-
-alter table Season comment '并不是单纯的季节，而是包括全季、春夏等';
-
-/*==============================================================*/
-/* Table: Shoe                                                  */
-/*==============================================================*/
-create table Shoe
-(
-   ShoeId               bigint not null auto_increment,
-   SeasonId             int not null,
-   SaleId               bigint,
-   StockId              bigint,
-   ThingId              int not null,
-   Color                varchar(10) not null,
-   Size                 smallint not null,
-   Price                float not null,
+   GoodId               int not null auto_increment,
+   ShUserId             int not null,
+   GoodTypeId           int not null,
+   DesTime              timestamp not null,
+   Description          datetime not null,
+   ImageUrl             varchar(30) not null,
    IsSell               tinyint not null,
-   SellPrice            float,
-   primary key (ShoeId)
+   GoodPrice            float not null,
+   primary key (GoodId)
 );
 
-alter table Shoe comment 'IsSell:0 未售 1代售';
-
 /*==============================================================*/
-/* Table: Stock                                                 */
+/* Table: GoodCollect                                           */
 /*==============================================================*/
-create table Stock
+create table GoodCollect
 (
-   StockId              bigint not null auto_increment,
-   StockCompanyId       int not null,
-   StockTime            datetime not null,
-   StockCount           int not null,
-   primary key (StockId)
+   GoodCollectId        int not null auto_increment,
+   ShUserId             int not null,
+   GoodId               int not null,
+   primary key (GoodCollectId)
 );
 
 /*==============================================================*/
-/* Table: StockCompany                                          */
+/* Table: GoodComment                                           */
 /*==============================================================*/
-create table StockCompany
+create table GoodComment
 (
-   StockCompanyId       int not null auto_increment,
-   StockCompanyName     varchar(30) not null,
-   primary key (StockCompanyId)
+   GoodCommentId        int not null auto_increment,
+   GoodId               int not null,
+   ShUserId             int not null,
+   ComTime              datetime not null,
+   ComContent           varchar(50) not null,
+   primary key (GoodCommentId)
 );
 
 /*==============================================================*/
-/* Table: Store                                                 */
+/* Table: GoodType                                              */
 /*==============================================================*/
-create table Store
+create table GoodType
 (
-   StoreId              bigint not null auto_increment,
-   ShoeId               bigint not null,
-   RegionId             int not null,
-   MoreInfo             varchar(50),
-   primary key (StoreId)
+   GoodTypeId           int not null auto_increment,
+   GoodTypeName         varchar(20) not null,
+   primary key (GoodTypeId)
 );
 
-alter table Sale add constraint FK_Reference_5 foreign key (CustomerId)
-      references Customer (CustomerId) on delete restrict on update restrict;
+/*==============================================================*/
+/* Table: ShRole                                                */
+/*==============================================================*/
+create table ShRole
+(
+   ShRoleId             smallint not null auto_increment,
+   ShRoleName           varchar(10) not null,
+   primary key (ShRoleId)
+);
 
-alter table Shoe add constraint FK_Reference_3 foreign key (SeasonId)
-      references Season (SeasonId) on delete restrict on update restrict;
+/*==============================================================*/
+/* Table: ShUser                                                */
+/*==============================================================*/
+create table ShUser
+(
+   ShUserId             int not null auto_increment,
+   ShUserName           varchar(20) not null,
+   Password             varchar(20) not null,
+   Gender               smallint not null,
+   Introduce            varchar(50) not null,
+   Phone                varchar(15) not null,
+   Address              varchar(30) not null,
+   primary key (ShUserId)
+);
 
-alter table Shoe add constraint FK_Reference_4 foreign key (SaleId)
-      references Sale (SaleId) on delete restrict on update restrict;
+alter table Authority add constraint FK_Reference_1 foreign key (ShUserId)
+      references ShUser (ShUserId) on delete restrict on update restrict;
 
-alter table Shoe add constraint FK_Reference_7 foreign key (StockId)
-      references Stock (StockId) on delete restrict on update restrict;
+alter table Authority add constraint FK_Reference_2 foreign key (ShRoleId)
+      references ShRole (ShRoleId) on delete restrict on update restrict;
 
-alter table Stock add constraint FK_Reference_6 foreign key (StockCompanyId)
-      references StockCompany (StockCompanyId) on delete restrict on update restrict;
+alter table Good add constraint FK_Reference_5 foreign key (ShUserId)
+      references ShUser (ShUserId) on delete restrict on update restrict;
 
-alter table Store add constraint FK_Reference_1 foreign key (ShoeId)
-      references Shoe (ShoeId) on delete restrict on update restrict;
+alter table Good add constraint FK_Reference_6 foreign key (GoodTypeId)
+      references GoodType (GoodTypeId) on delete restrict on update restrict;
 
-alter table Store add constraint FK_Reference_2 foreign key (RegionId)
-      references Region (RegionId) on delete restrict on update restrict;
+alter table GoodCollect add constraint FK_Reference_3 foreign key (ShUserId)
+      references ShUser (ShUserId) on delete restrict on update restrict;
+
+alter table GoodCollect add constraint FK_Reference_4 foreign key (GoodId)
+      references Good (GoodId) on delete restrict on update restrict;
+
+alter table GoodComment add constraint FK_Reference_7 foreign key (GoodId)
+      references Good (GoodId) on delete restrict on update restrict;
+
+alter table GoodComment add constraint FK_Reference_8 foreign key (ShUserId)
+      references ShUser (ShUserId) on delete restrict on update restrict;
 

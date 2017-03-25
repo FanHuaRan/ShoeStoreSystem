@@ -18,7 +18,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
         {
             return this.entityManager as ShoeItemManager;
         }
-        public IList<ShoeItem> FindAllShoeItems()
+        public List<ShoeItem> FindAllShoeItems()
         {
             // return GetShoeItemManager().FindAll();
             return new List<ShoeItem>(){
@@ -36,27 +36,27 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
             };
         }
 
-        public IList<ShoeItem> FindNoSellShoeItems()
+        public List<ShoeItem> FindNoSellShoeItems()
         {
             return GetShoeItemManager().FindNoSellShoeItems();
         }
 
-        public IList<ShoeItem> FindSellShoeItems()
+        public List<ShoeItem> FindSellShoeItems()
         {
             return GetShoeItemManager().FindSellShoeItems();
         }
 
-        public IList<ShoeItem> FindSellShoeItemsByYear(int year)
+        public List<ShoeItem> FindSellShoeItemsByYear(int year)
         {
             return GetShoeItemManager().FindSellShoeItemsByYear(year);
         }
 
-        public IList<ShoeItem> FindSellShoeItemsByMonth(int year, int month)
+        public List<ShoeItem> FindSellShoeItemsByMonth(int year, int month)
         {
             return GetShoeItemManager().FindSellShoeItemsByMonth(year, month);
         }
 
-        public IList<ShoeItem> FindSellShoeItems(string phone)
+        public List<ShoeItem> FindSellShoeItems(string phone)
         {
             return GetShoeItemManager().FindSellShoeItems(phone);
         }

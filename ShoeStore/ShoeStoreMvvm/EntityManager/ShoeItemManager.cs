@@ -14,21 +14,21 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
         {
             get { return context.ShoeItems; }
         }
-        public IList<ShoeItem> FindNoSellShoeItems()
+        public List<ShoeItem> FindNoSellShoeItems()
         {
             return context.ShoeItems
                 .Where(p => p.IsSell == 0)
                 .ToList();
         }
 
-        public IList<ShoeItem> FindSellShoeItems()
+        public List<ShoeItem> FindSellShoeItems()
         {
             return context.ShoeItems
                 .Where(p => p.IsSell == 1)
                 .ToList();
         }
 
-        public IList<ShoeItem> FindSellShoeItemsByYear(int year)
+        public List<ShoeItem> FindSellShoeItemsByYear(int year)
         {
             DateTime minTime = new DateTime(year, 01, 01);
             DateTime maxTime = new DateTime(year + 1, 01, 01);
@@ -39,7 +39,7 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
                           .ToList();
         }
 
-        public IList<ShoeItem> FindSellShoeItemsByMonth(int year, int month)
+        public List<ShoeItem> FindSellShoeItemsByMonth(int year, int month)
         {
             DateTime minTime = new DateTime(year, month, 01);
             DateTime maxTime = new DateTime(year, month + 1, 01);
@@ -50,7 +50,7 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
                          .ToList();
         }
 
-        public IList<ShoeItem> FindSellShoeItems(string phone)
+        public List<ShoeItem> FindSellShoeItems(string phone)
         {
             return context.ShoeItems
                 .Where(p => p.IsSell == 1

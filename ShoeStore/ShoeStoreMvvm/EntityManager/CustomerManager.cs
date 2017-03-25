@@ -13,12 +13,11 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
     /// </summary>
     class CustomerManager : EntityBaseManager<Customer>, IEntityManager<Customer>
     {
-        public IList<Customer> FindCustomersByScoreIntervel(float min, float max)
+        public List<Customer> FindCustomersByScoreIntervel(float min, float max)
         {
             return this.context.Customers.
                 Where(p => p.Score >= min && p.Score <= max).
-                ToList()
-                as IList<Customer>;
+                ToList();
         }
         public Customer FindCustomersByPhone(string phone)
         {

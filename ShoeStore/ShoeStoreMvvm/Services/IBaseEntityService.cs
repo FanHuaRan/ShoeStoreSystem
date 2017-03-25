@@ -8,7 +8,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service
 {
     public interface IBaseEntityService<T> where T:class
     {
-        IList<T> FindAll();
+        List<T> FindAll();
 
         T FindById(Int64 id);
 

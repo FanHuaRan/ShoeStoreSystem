@@ -16,8 +16,8 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
         void Delete(T obj);
         T Insert(T obj);
         T Update(T obj);
-        IList<T> FindAll();
-        IList<T> SimpleCompositeFind(params Func<T, bool>[] delegates);
+        List<T> FindAll();
+        List<T> SimpleCompositeFind(params Func<T, bool>[] delegates);
         void DeleteById(Int64 id);
     }
 }

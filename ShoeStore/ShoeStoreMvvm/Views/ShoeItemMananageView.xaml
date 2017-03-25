@@ -5,107 +5,150 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1300"
-             Background="{StaticResource BackgroundBrush}"
+             Background="Transparent"
              DataContext="{Binding Source={StaticResource Locator}, Path=ShoeItemMananageViewModel}">
     <UserControl.Resources>
         <Style x:Key="ListViewItemStyle" TargetType="{x:Type ListViewItem}">
             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         </Style>
+        <ControlTemplate x:Key="groupBoxTemplate" TargetType="GroupBox">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>
+                        <ContentPresenter></ContentPresenter>
+                    </TextBlock>
+                </StackPanel>
+                <ComboBox  Name="styleCombo" HorizontalContentAlignment="Left"
+                           Height="30"  IsReadOnly="False" ItemsSource="{Binding}"></ComboBox>
+            </StackPanel>
+        </ControlTemplate>
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" MinWidth="200"></ColumnDefinition>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="180"/>
             <ColumnDefinition Width="4.5*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Grid x:Name="searchDealGrid" Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="16*"/>
-                <RowDefinition Height="21*"/>
-                <RowDefinition Height="12*"/>
-                <RowDefinition Height="13*"/>
-                <RowDefinition Height="11*"/>
-                <RowDefinition Height="17*"/>
-                <RowDefinition Height="11*"/>
-                <RowDefinition Height="19*"/>
-            </Grid.RowDefinitions>
-            <GroupBox Grid.Row ="0" Name="GroupBox5" BorderThickness="0">
-                <GroupBox.HeaderTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock  Text="款型:" ></TextBlock>
-                        </StackPanel>
-                    </DataTemplate>
-                </GroupBox.HeaderTemplate>
-                <ComboBox  Name="DepName" HorizontalContentAlignment="Left" Height="30"  IsReadOnly="False"></ComboBox>
-            </GroupBox>
-            <GroupBox Grid.Row ="0"  BorderThickness="0">
-                <GroupBox.HeaderTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock  Text="款型:" ></TextBlock>
-                        </StackPanel>
-                    </DataTemplate>
-                </GroupBox.HeaderTemplate>
-                <ComboBox   HorizontalContentAlignment="Left" Height="30"  IsReadOnly="False"></ComboBox>
-            </GroupBox>
-            <GroupBox Grid.Row ="1"  BorderThickness="0">
-                <GroupBox.HeaderTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock  Text="颜色:" ></TextBlock>
-                        </StackPanel>
-                    </DataTemplate>
-                </GroupBox.HeaderTemplate>
-            </GroupBox>
-            <GroupBox Grid.Row ="2"  BorderThickness="0">
-                <GroupBox.HeaderTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock  Text="尺码:" ></TextBlock>
-                        </StackPanel>
-                    </DataTemplate>
-                </GroupBox.HeaderTemplate>
-            </GroupBox>
-            <GroupBox Grid.Row ="3"  BorderThickness="0">
-                <GroupBox.HeaderTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock  Text="季节:" ></TextBlock>
-                        </StackPanel>
-                    </DataTemplate>
-                </GroupBox.HeaderTemplate>
-            </GroupBox>
-            <GroupBox Grid.Row ="4"  BorderThickness="0">
-                <GroupBox.HeaderTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock  Text="试用性别:" ></TextBlock>
-                        </StackPanel>
-                    </DataTemplate>
-                </GroupBox.HeaderTemplate>
-            </GroupBox>
-            <GroupBox Grid.Row ="4"  BorderThickness="0">
-                <GroupBox.HeaderTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock  Text="零售价格区间:" ></TextBlock>
-                        </StackPanel>
-                    </DataTemplate>
-                </GroupBox.HeaderTemplate>
-            </GroupBox>
-        </Grid>
-        <Grid Grid.Column="1">
+        <StackPanel Grid.Column="1">
+            <Grid Height="600">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition MinHeight="150"/>
+                </Grid.RowDefinitions>
+                <GroupBox Grid.Row ="0" Name="GroupBox5" DataContext=""
+                          BorderThickness="0" Template="{StaticResource groupBoxTemplate}"
+                          Content="样式">
+                    <!--
+                    <GroupBox.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock  Text="款型:" ></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </GroupBox.HeaderTemplate>
+                    <ComboBox  Name="styleCombo" HorizontalContentAlignment="Left" Height="30"  IsReadOnly="False"></ComboBox>
+                    -->
+                    </GroupBox>
+                <GroupBox Grid.Row ="1"  BorderThickness="0">
+                    <GroupBox.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock  Text="颜色:" ></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </GroupBox.HeaderTemplate>
+                    <ComboBox  Name="colorCombo" HorizontalContentAlignment="Left" Height="30"  IsReadOnly="False"></ComboBox>
+                </GroupBox>
+                <GroupBox Grid.Row ="2"  BorderThickness="0">
+                    <GroupBox.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock  Text="尺码:" ></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </GroupBox.HeaderTemplate>
+                    <ComboBox  Name="sizeCombo" HorizontalContentAlignment="Left" Height="30"  IsReadOnly="False"></ComboBox>
+                </GroupBox>
+                <GroupBox Grid.Row ="3"  BorderThickness="0">
+                    <GroupBox.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock  Text="季节:" ></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </GroupBox.HeaderTemplate>
+                    <ComboBox  Name="seasonCombo" HorizontalContentAlignment="Left" Height="30"  IsReadOnly="False"></ComboBox>
+                </GroupBox>
+                <GroupBox Grid.Row ="4"  BorderThickness="0">
+                    <GroupBox.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock  Text="适用性别:" ></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </GroupBox.HeaderTemplate>
+                    <ComboBox  Name="genreCombo" HorizontalContentAlignment="Left" Height="30"  IsReadOnly="False"></ComboBox>
+                </GroupBox>
+                <GroupBox Grid.Row ="5"  BorderThickness="0">
+                    <GroupBox.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock  Text="零售价格区间:" ></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </GroupBox.HeaderTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="5*"/>
+                            <RowDefinition Height="10*"/>
+                            <RowDefinition Height="5*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="14*"/>
+                            <ColumnDefinition Width="70*"/>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="70*"/>
+                            <ColumnDefinition Width="14*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Grid.Row="1" Grid.Column="1"></TextBox>
+                        <Label  Grid.Row="1" Grid.Column="2" Content=" ~"  VerticalAlignment="Center" FontSize="25" ></Label>
+                        <TextBox Grid.Row="1" Grid.Column="3"></TextBox>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Grid.Row ="6"  BorderThickness="0">
+                    <StackPanel>
+                        <RadioButton>所有</RadioButton>
+                        <RadioButton>售出</RadioButton>
+                        <RadioButton>未售出</RadioButton>
+                    </StackPanel>
+                </GroupBox>
+                <Grid Grid.Row="7">
+                    <Button Style="{StaticResource BtStyleGG}">搜 索</Button>
+                </Grid>
+            </Grid>
+        </StackPanel>
+        <Grid Grid.Column="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="27*"/>
                 <ColumnDefinition Width="Auto" MinWidth="50"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="5*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="2*"/>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="56*"/>
+                <RowDefinition Height="500*"/>
+                <RowDefinition Height="29*"/>
             </Grid.RowDefinitions>
-
-            <ListView Grid.Row="1" Grid.Column="0" Margin="0" 
+            <Grid Grid.Row="1">
+                <TextBox>搜索货号</TextBox>
+            </Grid>
+            <ListView Grid.Row="2" Grid.Column="0" Margin="0" 
                       ItemsSource="{Binding ShoeItems}"
                       BorderThickness="1"
                       Background="Transparent"
