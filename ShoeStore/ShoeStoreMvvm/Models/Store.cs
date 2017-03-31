@@ -1,6 +1,7 @@
 ﻿using SimpleMvvmToolkit;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace ShoeStoreMvvm.Models
         private long shoeItemId;
         private int regionId;
         private string moreInfo;
+        private ShoeItem shoeItem;
         public Int64 StoreId
         {
             get { return this.storeId; }
@@ -40,7 +42,12 @@ namespace ShoeStoreMvvm.Models
             get { return this.moreInfo; }
             set { this.moreInfo = value; NotifyPropertyChanged(p => p.MoreInfo); }
         }
-
+        [Required]
+        public virtual ShoeItem ShoeItem
+        {
+            get { return shoeItem; }
+            set { shoeItem = value; }
+        }
         public Store(Int64 storeId,Int64 shoeItemId,Int32 regionId,string more)
         {
             this.StoreId = storeId;

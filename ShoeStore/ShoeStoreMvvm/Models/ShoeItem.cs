@@ -2,6 +2,7 @@
 using SimpleMvvmToolkit;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -60,6 +61,7 @@ namespace ShoeStoreMvvm.Models
             get { return this.shoe; }
             set { this.shoe = value; NotifyPropertyChanged(p => p.Shoe); }
         }
+        [Required]
         public virtual Order Order
         {
             get { return this.order; }

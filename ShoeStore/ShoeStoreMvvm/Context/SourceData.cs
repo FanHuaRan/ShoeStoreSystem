@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShoeStoreMvvm.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -11,7 +12,9 @@ namespace Pers.Fhr.ShoeStoreLib.Context
     {
         protected override void Seed(MyContext context)
         {
-            base.Seed(context);
+            var stock = new Stock(DateTime.Now, 1, "小公司");
+            context.Stocks.Add(stock);
+            context.SaveChanges();
         }
     }
 }

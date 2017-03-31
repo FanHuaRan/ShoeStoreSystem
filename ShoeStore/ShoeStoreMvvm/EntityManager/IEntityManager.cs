@@ -10,7 +10,7 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
     /// 实体访问基本接口
     /// 2016/12/26 fhr
     /// </summary>
-    interface IEntityManager<T> :IDisposable
+    interface IEntityManager<T> : IDisposable
     {
         T FindById(Int64 id);
         void Delete(T obj);
@@ -19,5 +19,8 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
         List<T> FindAll();
         List<T> SimpleCompositeFind(params Func<T, bool>[] delegates);
         void DeleteById(Int64 id);
+        List<T> FindByLinq(Func<T, bool> expression);
+        List<object> FindByWhereAndSelect(Func<T, bool> whereExpression, Func<T, object> selectExpression);
+        List<V> FindBySelect<V>(Func<T, V> selectExpression);
     }
 }

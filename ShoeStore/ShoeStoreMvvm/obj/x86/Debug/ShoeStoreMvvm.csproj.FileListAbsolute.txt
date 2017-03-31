@@ -76,3 +76,5 @@ E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\Views\ShoeItemMa
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\Views\ShoeItemMananageView.g.cs
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\bin\Debug\nunit.framework.dll
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\bin\Debug\nunit.framework.xml
+E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\bin\Debug\log4net.dll
+E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\bin\Debug\log4net.xml

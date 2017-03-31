@@ -69,6 +69,26 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
         {
             return context.Set<T>().Find(id);
         }
+        public List<T> FindByLinq(Func<T, bool> expression)
+        {
+            return context.Set<T>()
+                .Where(expression)
+                .Select(p => p)
+                .ToList();
+        }
+        public List<object> FindByWhereAndSelect(Func<T, bool> whereExpression, Func<T, object> selectExpression)
+        {
+            return context.Set<T>()
+                .Where(whereExpression)
+                .Select(selectExpression)
+                .ToList();
+        }
+        public List<V> FindBySelect<V>(Func<T, V> selectExpression)
+        {
+            return context.Set<T>()
+                .Select(selectExpression)
+                .ToList<V>();
+        }
         /// <summary>
         /// 自定义的组合查询
         /// </summary>

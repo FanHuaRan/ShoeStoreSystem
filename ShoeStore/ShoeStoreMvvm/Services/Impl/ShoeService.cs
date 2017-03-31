@@ -15,9 +15,17 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
         : AbstractEntityBaseClass<Shoe>
         , IShoeService
     {
-        public List<Shoe> FindAllShoes()
+        public ShoeService(ShoeManager shoeManager)
         {
-            return FindAll();
+            this.entityManager = shoeManager;
+        }
+        public List<string> FindShoeTypes()
+        {
+            return this.entityManager.FindBySelect(p => p.ShoeType);
+        }
+        public List<string> FindSeansons()
+        {
+            return this.entityManager.FindBySelect(p => p.Season);
         }
     }
 }

@@ -33,7 +33,8 @@ namespace Pers.Fhr.ShoeStoreLib.Context
 
         public DbSet<Order> Orders { get; set; }
 
-        public MyContext():base("ConnectDB")
+        public MyContext()
+            : base("shoedb")
         {
 
         }

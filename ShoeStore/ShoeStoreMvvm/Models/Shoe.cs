@@ -14,6 +14,7 @@ namespace ShoeStoreMvvm.Models
     /// </summary>
     public class Shoe : ModelBase<Shoe>
     {
+        private long shoeId;
         private long stockId;
         private int thingId;
         private float originMoney;
@@ -23,7 +24,7 @@ namespace ShoeStoreMvvm.Models
         private Stock stock;
         private string shoeType;
         private  List<ShoeItem> shoeItems;
-        public long shoeId { get; set; }
+
         [PrimaryKeyAttribute]
         public Int64 ShoeId
         {
