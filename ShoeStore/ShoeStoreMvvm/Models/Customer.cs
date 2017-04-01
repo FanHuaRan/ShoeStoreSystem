@@ -15,12 +15,12 @@ namespace ShoeStoreMvvm.Models
     public class Customer : ModelBase<Customer>
     {
 
-        private Int64 customerId;
+        private Int32 customerId;
         private string phone;
         private float score;
 
         [PrimaryKeyAttribute]
-        public Int64 CustomerId
+        public Int32 CustomerId
         {
             get { return this.customerId; }
             set { this.customerId = value; NotifyPropertyChanged(p => p.CustomerId); }
@@ -37,7 +37,7 @@ namespace ShoeStoreMvvm.Models
             get { return this.score; }
             set { this.score = value; NotifyPropertyChanged(p => p.Score); }
         }
-        public Customer(Int64 customerId, string phone, float score)
+        public Customer(Int32 customerId, string phone, float score)
         {
             this.CustomerId = customerId;
             this.Phone = phone;

@@ -34,7 +34,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
         {
             float totalPrice=selledShoes.Sum(p=>p.SellPrice).Value;
             Customer customer=GetCustomer(phone);
-            long? customerId=null;
+            Int32? customerId = null;
             if(customer!=null){
                 customerId=customer.CustomerId;
             }

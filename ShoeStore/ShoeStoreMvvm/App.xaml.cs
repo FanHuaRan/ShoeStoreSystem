@@ -19,15 +19,7 @@ namespace ShoeStoreMvvm
             base.OnStartup(e);
             //通用错误处理
             // this.DispatcherUnhandledException += (sender, e1) => e1.Handled = true;
-            //Code First 数据库初始化
-            //MyContext context = new MyContext();
-            //var stock = new Stock(DateTime.Now, 1, "小公司");
-            //context.Stocks.Add(stock);
-            //context.SaveChanges();
-            using (MyContext context = new MyContext())
-            {
-                context.Database.Initialize(true);
-            }
+            //似乎对sqlite不起作用
             System.Data.Entity.Database.SetInitializer<MyContext>(new SourceData());
         }
     }

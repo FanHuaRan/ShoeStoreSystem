@@ -14,18 +14,18 @@ namespace ShoeStoreMvvm.Models
     /// </summary>
     public class Store : ModelBase<Store>
     {
-        private long storeId;
-        private long shoeItemId;
-        private int regionId;
+        private Int32 storeId;
+        private Int32 shoeItemId;
+        private Int32 regionId;
         private string moreInfo;
         private ShoeItem shoeItem;
-        public Int64 StoreId
+        public Int32 StoreId
         {
             get { return this.storeId; }
             set { this.storeId = value; NotifyPropertyChanged(p => p.StoreId); }
         }
 
-        public Int64 ShoeItemId
+        public Int32 ShoeItemId
         {
             get { return this.shoeItemId; }
             set { this.shoeItemId = value; NotifyPropertyChanged(p => p.ShoeItemId); }
@@ -48,14 +48,14 @@ namespace ShoeStoreMvvm.Models
             get { return shoeItem; }
             set { shoeItem = value; }
         }
-        public Store(Int64 storeId,Int64 shoeItemId,Int32 regionId,string more)
+        public Store(Int32 storeId, Int32 shoeItemId, Int32 regionId, string more)
         {
             this.StoreId = storeId;
             this.ShoeItemId = shoeItemId;
             this.RegionId = regionId;
             this.MoreInfo = more;
         }
-        public Store(Int64 shoeId,Int32 regionId,string more)
+        public Store(Int32 shoeId, Int32 regionId, string more)
             : this(-1,shoeId,regionId,more)
         {
 

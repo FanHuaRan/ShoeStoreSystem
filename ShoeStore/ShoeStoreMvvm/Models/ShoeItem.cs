@@ -11,9 +11,9 @@ namespace ShoeStoreMvvm.Models
 {
     public class ShoeItem:ModelBase<ShoeItem>
     {
-        private long shoeItemId;
-        private long shoeId;
-        private long orderId;
+        private Int32 shoeItemId;
+        private Int32 shoeId;
+        private Int32 orderId;
         private byte isSell;
         private string color;
         private float size;
@@ -21,17 +21,17 @@ namespace ShoeStoreMvvm.Models
         private  Shoe shoe;
         private  Order order;
         [PrimaryKeyAttribute]
-        public Int64 ShoeItemId
+        public Int32 ShoeItemId
         {
             get { return this.shoeItemId; }
             set { this.shoeItemId = value; NotifyPropertyChanged(p => p.ShoeItemId); }
         }
-        public Int64 ShoeId
+        public Int32 ShoeId
         {
             get { return this.shoeId; }
             set { this.shoeId = value; NotifyPropertyChanged(p => p.ShoeId); }
         }
-        public Int64 OrderId
+        public Int32 OrderId
         {
             get { return this.orderId; }
             set { this.orderId = value; NotifyPropertyChanged(p => p.OrderId); }

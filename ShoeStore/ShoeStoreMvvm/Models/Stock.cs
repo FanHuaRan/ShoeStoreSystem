@@ -9,11 +9,11 @@ namespace ShoeStoreMvvm.Models
 {
     public class Stock : ModelBase<Stock>
     {
-        private Int64 stockId;
+        private Int32 stockId;
         private DateTime stockTime;
         private int stockCount;
         private string stockCompany;
-        public Int64 StockId
+        public Int32 StockId
         {
             get { return this.stockId; }
             set { this.stockId = value; NotifyPropertyChanged(p=>p.StockId); }
@@ -34,7 +34,7 @@ namespace ShoeStoreMvvm.Models
             get { return this.stockCompany; }
             set { this.stockCompany = value; NotifyPropertyChanged(p => p.StockCompany); }
         }
-        public Stock(Int64 id, DateTime time, int count, string companay)
+        public Stock(Int32 id, DateTime time, int count, string companay)
         {
             this.StockId = id;
             this.StockTime = time;

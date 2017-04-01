@@ -1,144 +1,88 @@
-/*==============================================================*/
-/* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2017/3/11 23:47:24                           */
-/*==============================================================*/
+drop table Customer;
 
+drop table "Order";
 
-drop table if exists Announcement;
+drop table Region;
 
-drop table if exists Authority;
+drop table Shoe;
 
-drop table if exists Good;
+drop table ShoeItem;
 
-drop table if exists GoodCollect;
+drop table Stock;
 
-drop table if exists GoodComment;
+drop table Store;
 
-drop table if exists GoodType;
-
-drop table if exists ShRole;
-
-drop table if exists ShUser;
-
-/*==============================================================*/
-/* Table: Announcement                                          */
-/*==============================================================*/
-create table Announcement
-(
-   AnnouncementId       int not null auto_increment,
-   AnnoContent          varchar(200) not null,
-   AnnoTime             datetime not null,
-   AnnounceTitle        varchar(25) not null,
-   primary key (AnnouncementId)
+create table Customer (
+CustomerId           INTEGER                        not null,
+CustomerName         VARCHAR(20),
+Phone                VARCHAR(15)                    not null,
+Score                FLOAT                          not null,
+primary key (CustomerId)
 );
 
-/*==============================================================*/
-/* Table: Authority                                             */
-/*==============================================================*/
-create table Authority
-(
-   AuthorityId          int not null auto_increment,
-   ShUserId             int not null,
-   ShRoleId             smallint not null,
-   primary key (AuthorityId)
+create table "Order" (
+OrderId              INTEGER                        not null,
+CustomerId           INTEGER,
+SaleTime             DATE                           not null,
+TotalPrice           FLOAT                          not null,
+primary key (OrderId),
+foreign key (CustomerId)
+      references Customer (CustomerId)
 );
 
-/*==============================================================*/
-/* Table: Good                                                  */
-/*==============================================================*/
-create table Good
-(
-   GoodId               int not null auto_increment,
-   ShUserId             int not null,
-   GoodTypeId           int not null,
-   DesTime              timestamp not null,
-   Description          datetime not null,
-   ImageUrl             varchar(30) not null,
-   IsSell               tinyint not null,
-   GoodPrice            float not null,
-   primary key (GoodId)
+create table Region (
+RegionId             INTEGER                        not null,
+RegionName           VARCHAR(50)                    not null,
+RegionAddress        VARCHAR(50)                    not null,
+primary key (RegionId)
 );
 
-/*==============================================================*/
-/* Table: GoodCollect                                           */
-/*==============================================================*/
-create table GoodCollect
-(
-   GoodCollectId        int not null auto_increment,
-   ShUserId             int not null,
-   GoodId               int not null,
-   primary key (GoodCollectId)
+create table Stock (
+StockId              INTEGER                        not null,
+StockTime            DATE                           not null,
+StockCount           INTEGER                        not null,
+StockCompany         VARCHAR(30),
+primary key (StockId)
 );
 
-/*==============================================================*/
-/* Table: GoodComment                                           */
-/*==============================================================*/
-create table GoodComment
-(
-   GoodCommentId        int not null auto_increment,
-   GoodId               int not null,
-   ShUserId             int not null,
-   ComTime              datetime not null,
-   ComContent           varchar(50) not null,
-   primary key (GoodCommentId)
+create table Shoe (
+ShoeId               INTEGER                        not null,
+StockId              INTEGER,
+ThingId              INTEGER                        not null,
+OriginMoney          FLOAT                          not null,
+Price                FLOAT                          not null,
+Gender               SMALLINT                       not null,
+Season               VARCHAR(20)                    not null,
+ShoeType             VARCHAR(20)                    not null,
+primary key (ShoeId),
+foreign key (StockId)
+      references Stock (StockId)
 );
 
-/*==============================================================*/
-/* Table: GoodType                                              */
-/*==============================================================*/
-create table GoodType
-(
-   GoodTypeId           int not null auto_increment,
-   GoodTypeName         varchar(20) not null,
-   primary key (GoodTypeId)
+create table ShoeItem (
+ShoeItemId           INTEGER                        not null,
+OrderId              INTEGER,
+ShoeId               INTEGER,
+IsSell               SMALLINT                       not null,
+Color                VARCHAR(10)                    not null,
+"Size"               SMALLINT                       not null,
+SellPrice            FLOAT                          not null,
+primary key (ShoeItemId),
+foreign key (OrderId)
+      references "Order" (OrderId),
+foreign key (ShoeId)
+      references Shoe (ShoeId)
 );
 
-/*==============================================================*/
-/* Table: ShRole                                                */
-/*==============================================================*/
-create table ShRole
-(
-   ShRoleId             smallint not null auto_increment,
-   ShRoleName           varchar(10) not null,
-   primary key (ShRoleId)
+create table Store (
+StoreId              INTEGER                        not null,
+ShoeItemId           INTEGER,
+RegionId             INTEGER,
+MoreInfo             VARCHAR(50),
+primary key (StoreId),
+foreign key (ShoeItemId)
+      references ShoeItem (ShoeItemId),
+foreign key (RegionId)
+      references Region (RegionId)
 );
-
-/*==============================================================*/
-/* Table: ShUser                                                */
-/*==============================================================*/
-create table ShUser
-(
-   ShUserId             int not null auto_increment,
-   ShUserName           varchar(20) not null,
-   Password             varchar(20) not null,
-   Gender               smallint not null,
-   Introduce            varchar(50) not null,
-   Phone                varchar(15) not null,
-   Address              varchar(30) not null,
-   primary key (ShUserId)
-);
-
-alter table Authority add constraint FK_Reference_1 foreign key (ShUserId)
-      references ShUser (ShUserId) on delete restrict on update restrict;
-
-alter table Authority add constraint FK_Reference_2 foreign key (ShRoleId)
-      references ShRole (ShRoleId) on delete restrict on update restrict;
-
-alter table Good add constraint FK_Reference_5 foreign key (ShUserId)
-      references ShUser (ShUserId) on delete restrict on update restrict;
-
-alter table Good add constraint FK_Reference_6 foreign key (GoodTypeId)
-      references GoodType (GoodTypeId) on delete restrict on update restrict;
-
-alter table GoodCollect add constraint FK_Reference_3 foreign key (ShUserId)
-      references ShUser (ShUserId) on delete restrict on update restrict;
-
-alter table GoodCollect add constraint FK_Reference_4 foreign key (GoodId)
-      references Good (GoodId) on delete restrict on update restrict;
-
-alter table GoodComment add constraint FK_Reference_7 foreign key (GoodId)
-      references Good (GoodId) on delete restrict on update restrict;
-
-alter table GoodComment add constraint FK_Reference_8 foreign key (ShUserId)
-      references ShUser (ShUserId) on delete restrict on update restrict;
 

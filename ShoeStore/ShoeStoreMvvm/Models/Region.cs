@@ -14,7 +14,7 @@ namespace ShoeStoreMvvm.Models
     /// </summary>
    public class Region:ModelBase<Region>
     {
-       private int regionId;
+       private Int32 regionId;
        private string regionName;
        private string regionAddress;
        private  List<Store> stores;

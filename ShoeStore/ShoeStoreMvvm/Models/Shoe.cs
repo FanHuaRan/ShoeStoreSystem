@@ -14,9 +14,9 @@ namespace ShoeStoreMvvm.Models
     /// </summary>
     public class Shoe : ModelBase<Shoe>
     {
-        private long shoeId;
-        private long stockId;
-        private int thingId;
+        private Int32 shoeId;
+        private Int32 stockId;
+        private Int32 thingId;
         private float originMoney;
         private float price;
         private byte gender;
@@ -26,12 +26,12 @@ namespace ShoeStoreMvvm.Models
         private  List<ShoeItem> shoeItems;
 
         [PrimaryKeyAttribute]
-        public Int64 ShoeId
+        public Int32 ShoeId
         {
             get { return this.shoeId; }
             set { this.shoeId = value; NotifyPropertyChanged(p => p.ShoeId); }
         }
-        public Int64 StockId
+        public Int32 StockId
         {
             get { return this.stockId; }
             set { this.stockId = value; NotifyPropertyChanged(p => p.StockId); }
