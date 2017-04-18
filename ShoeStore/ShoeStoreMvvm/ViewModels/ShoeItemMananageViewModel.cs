@@ -21,51 +21,85 @@ namespace ShoeStoreMvvm.ViewModels
     /// </summary>
     public class ShoeItemMananageViewModel : ViewModelBase<ShoeItemMananageViewModel>
     {
-        #region Fields
+        #region Data Fields
         private ObservableCollection<ShoeItem> shoeItems=null;
         private ObservableCollection<string> shoeStyles =null;
         private ObservableCollection<float> shoeSizes =null;
         private ObservableCollection<string> seasons = null;
         private ObservableCollection<string> colors = null;
+        #endregion
+        #region Service Component
         private IShoeItemQueryService shoeItemQueryService = new ShoeItemServiceClass(new ShoeItemManager());
         private IShoeService shoeService = new ShoeService(new ShoeManager());
         #endregion
-        // TODO: Add a member for IXxxServiceAgent
-
         // Default ctor
         public ShoeItemMananageViewModel() {
            
         }
 
-        // TODO: Add events to notify the view or obtain data from the view
-        public event EventHandler<NotificationEventArgs<Exception>> ErrorNotice;
-
         // TODO: Add properties using the mvvmprop code snippet
+        #region Propertys
         public ObservableCollection<ShoeItem> ShoeItems
         {
             get { return this.shoeItems; }
-            set { this.shoeItems = value; NotifyPropertyChanged(p => p.ShoeItems); }
+            set
+            {
+                if (this.shoeItems != value)
+                {
+                    this.shoeItems = value; 
+                    NotifyPropertyChanged(p => p.ShoeItems);
+                }
+            }
         }
         public ObservableCollection<string> ShoeStyles
         {
             get { return this.shoeStyles; }
-            set { this.shoeStyles = value; NotifyPropertyChanged(p => p.ShoeStyles); }
+            set
+            {
+                if (this.shoeStyles != value)
+                {
+                    this.shoeStyles = value;
+                    NotifyPropertyChanged(p => p.ShoeStyles);
+                }
+            }
         }
         public ObservableCollection<float> ShoeSizes
         {
             get { return this.shoeSizes; }
-            set { this.shoeSizes = value; NotifyPropertyChanged(p => p.ShoeSizes); }
+            set
+            {
+                if (this.ShoeSizes != value)
+                {
+                    this.shoeSizes = value;
+                    NotifyPropertyChanged(p => p.ShoeSizes);
+                }
+            }
         }
         public ObservableCollection<string> Seasons
         {
             get { return seasons; }
-            set { seasons = value; NotifyPropertyChanged(p => p.Seasons); }
+            set
+            {
+                if (this.seasons != value)
+                {
+                    this.seasons = value; 
+                    NotifyPropertyChanged(p => p.Seasons);
+                }
+            }
         }
         public ObservableCollection<string> Colors
         {
             get { return colors; }
-            set { colors = value; NotifyPropertyChanged(p => p.Colors); }
+            set
+            {
+                if (this.colors != value)
+                {
+                    colors = value; 
+                    NotifyPropertyChanged(p => p.Colors);
+                }
+            }
         }
+        #endregion
         #region Commands
         public ICommand LoadCommand
         {
@@ -87,7 +121,8 @@ namespace ShoeStoreMvvm.ViewModels
 
         // TODO: Optionally add callback methods for async calls to the service agent
         
-        // Helper method to notify View of an error
+        //错误处理
+        public event EventHandler<NotificationEventArgs<Exception>> ErrorNotice;
         private void NotifyError(string message, Exception error)
         {
             // Notify view of an error

@@ -1,7 +1,0 @@
-E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvmTest\bin\Debug\ShoeStoreMvvmTest.dll
-E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvmTest\bin\Debug\ShoeStoreMvvmTest.pdb
-E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvmTest\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
-E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvmTest\bin\Debug\zh-Hans\Microsoft.QualityTools.Testing.Fakes.resources.dll
-E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvmTest\obj\Debug\ShoeStoreMvvmTest.csprojFakesResolveAssemblyReference.cache
-E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvmTest\obj\Debug\ShoeStoreMvvmTest.dll
-E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvmTest\obj\Debug\ShoeStoreMvvmTest.pdb
