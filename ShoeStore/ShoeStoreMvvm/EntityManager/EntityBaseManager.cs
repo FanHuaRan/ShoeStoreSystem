@@ -91,26 +91,23 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
         }
         /// <summary>
         /// 自定义的组合查询
+        /// 不提倡
         /// </summary>
         /// <param name="delegates"></param>
         /// <returns></returns>
         public List<T> SimpleCompositeFind(params Func<T, bool>[] delegates)
         {
-            return context.Set<T>()
-                .Where(p => isRight(p, delegates))
-                .ToList();
-        }
-
-        private bool isRight(T obj, params Func<T, bool> []delegates)
-        {
-            foreach (var v in delegates)
+            if (delegates.Length == 0)
             {
-                if (!v(obj))
-                {
-                    return false;
-                }
+                return new List<T>();
             }
-            return true;
+            var objects = context.Set<T>().Where(delegates[0]).Select(p => p);
+            for (int i = 1; i < delegates.Length; i++)
+            {
+                var condition = delegates[i];
+                objects = objects.Where(condition).Select(p => p).AsQueryable<T>();
+            }
+            return objects.ToList();
         }
 
         public void Dispose()

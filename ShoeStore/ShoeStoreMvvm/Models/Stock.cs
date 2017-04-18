@@ -1,4 +1,5 @@
-﻿using SimpleMvvmToolkit;
+﻿using Pers.Fhr.ShoeStoreLib.Component;
+using SimpleMvvmToolkit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,26 +14,54 @@ namespace ShoeStoreMvvm.Models
         private DateTime stockTime;
         private int stockCount;
         private string stockCompany;
+       [PrimaryKey]
         public Int32 StockId
         {
             get { return this.stockId; }
-            set { this.stockId = value; NotifyPropertyChanged(p=>p.StockId); }
+            set
+            {
+                if (this.stockId != value)
+                {
+                    this.stockId = value;
+                    NotifyPropertyChanged(p => p.StockId);
+                }
+            }
         }
         public DateTime StockTime
         {
             get { return this.stockTime; }
-            set { this.stockTime = value; NotifyPropertyChanged(p => p.StockTime); }
-
+            set
+            {
+                if (this.stockTime != value)
+                {
+                    this.stockTime = value;
+                    NotifyPropertyChanged(p => p.StockTime);
+                }
+            }
         }
         public int StockCount
         {
             get { return this.stockCount; }
-            set { this.stockCount = value; NotifyPropertyChanged(p => p.StockCount); }
+            set
+            {
+                if (this.stockCount != value)
+                {
+                    this.stockCount = value;
+                    NotifyPropertyChanged(p => p.StockCount);
+                }
+            }
         }
         public string StockCompany
         {
             get { return this.stockCompany; }
-            set { this.stockCompany = value; NotifyPropertyChanged(p => p.StockCompany); }
+            set
+            {
+                if (this.stockCompany != value)
+                {
+                    this.stockCompany = value;
+                    NotifyPropertyChanged(p => p.StockCompany);
+                }
+            }
         }
         public Stock(Int32 id, DateTime time, int count, string companay)
         {

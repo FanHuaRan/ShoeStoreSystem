@@ -23,60 +23,130 @@ namespace ShoeStoreMvvm.Models
         private string season;
         private Stock stock;
         private string shoeType;
-        private  List<ShoeItem> shoeItems;
+        private List<ShoeItem> shoeItems;
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public Int32 ShoeId
         {
             get { return this.shoeId; }
-            set { this.shoeId = value; NotifyPropertyChanged(p => p.ShoeId); }
+            set
+            {
+                if (this.shoeId != value)
+                {
+                    this.shoeId = value;
+                    NotifyPropertyChanged(p => p.ShoeId);
+                }
+            }
         }
         public Int32 StockId
         {
             get { return this.stockId; }
-            set { this.stockId = value; NotifyPropertyChanged(p => p.StockId); }
+            set
+            {
+                if (this.stockId != value)
+                {
+                    this.stockId = value;
+                    NotifyPropertyChanged(p => p.StockId);
+                }
+            }
         }
         public Int32 ThingId
         {
             get { return this.thingId; }
-            set { this.thingId = value; NotifyPropertyChanged(p => p.ThingId); }
+            set
+            {
+                if (this.thingId != value)
+                {
+                    this.thingId = value;
+                    NotifyPropertyChanged(p => p.ThingId);
+                }
+            }
         }
         //成本价
         public float OriginMoney
         {
             get { return this.originMoney; }
-            set { this.originMoney = value; NotifyPropertyChanged(p => p.OriginMoney); }
+            set
+            {
+                if (this.originMoney != value)
+                {
+                    this.originMoney = value;
+                    NotifyPropertyChanged(p => p.OriginMoney);
+                }
+            }
         }
         //零售价
         public float Price
         {
             get { return this.price; }
-            set { this.price = value; NotifyPropertyChanged(p => p.Price); }
+            set
+            {
+                if (this.price != value)
+                {
+                    this.price = value;
+                    NotifyPropertyChanged(p => p.Price);
+                }
+            }
         }
         public byte Gender
         {
             get { return this.gender; }
-            set { this.gender = value; NotifyPropertyChanged(p => p.Gender); }
+            set
+            {
+                if (this.gender != value)
+                {
+                    this.gender = value;
+                    NotifyPropertyChanged(p => p.Gender);
+                }
+            }
         }
-        public  string Season
+        public string Season
         {
             get { return this.season; }
-            set { this.season = value; NotifyPropertyChanged(p => p.Season); }
+            set
+            {
+                if (this.season != value)
+                {
+                    this.season = value;
+                    NotifyPropertyChanged(p => p.Season);
+                }
+            }
         }
         public string ShoeType
         {
             get { return this.shoeType; }
-            set { this.shoeType = value; NotifyPropertyChanged(p => p.ShoeType); }
+            set
+            {
+                if (this.shoeType != value)
+                {
+                    this.shoeType = value;
+                    NotifyPropertyChanged(p => p.ShoeType);
+                }
+            }
         }
         public virtual Stock Stock
         {
             get { return this.stock; }
-            set { this.stock = value; NotifyPropertyChanged(p => p.Stock); }
+            set
+            {
+                if (this.stock != value)
+                {
+                    this.stock = value;
+                    NotifyPropertyChanged(p => p.Stock);
+                }
+            }
         }
         public virtual List<ShoeItem> ShoeItems
         {
             get { return this.shoeItems; }
-            set { this.shoeItems = value; NotifyPropertyChanged(p => p.ShoeItems); }
+            set
+            {
+                if (this.shoeItems != value)
+                {
+                    this.shoeItems = value;
+                    NotifyPropertyChanged(p => p.ShoeItems);
+                }
+            }
         }
     }
 }

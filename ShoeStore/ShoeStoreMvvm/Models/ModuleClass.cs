@@ -26,12 +26,26 @@ namespace ShoeStoreMvvm.Models
         public string ModuleImage
         {
             get { return this.moduleImage; }
-            set { this.moduleImage = value; NotifyPropertyChanged(p => p.ModuleImage); }
+            set
+            {
+                if (this.moduleImage != value)
+                {
+                    this.moduleImage = value;
+                    NotifyPropertyChanged(p => p.ModuleImage);
+                }
+            }
         }
         public Type Type
         {
             get { return this.type; }
-            set { this.type = value; NotifyPropertyChanged(p => p.Type); }
+            set
+            {
+                if (this.type != value)
+                {
+                    this.type = value;
+                    NotifyPropertyChanged(p => p.Type);
+                }
+            }
         }
     }
 }

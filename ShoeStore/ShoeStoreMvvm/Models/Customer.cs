@@ -19,23 +19,44 @@ namespace ShoeStoreMvvm.Models
         private string phone;
         private float score;
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public Int32 CustomerId
         {
             get { return this.customerId; }
-            set { this.customerId = value; NotifyPropertyChanged(p => p.CustomerId); }
+            set
+            {
+                if (this.customerId != value)
+                {
+                    this.customerId = value; 
+                    NotifyPropertyChanged(p => p.CustomerId);
+                }
+            }
         }
 
 
         public string Phone
         {
             get { return this.phone; }
-            set { this.phone = value; NotifyPropertyChanged(p => p.Phone); }
+            set
+            {
+                if (this.phone != value)
+                {
+                    this.phone = value;
+                    NotifyPropertyChanged(p => p.Phone);
+                }
+            }
         }
         public float Score
         {
             get { return this.score; }
-            set { this.score = value; NotifyPropertyChanged(p => p.Score); }
+            set
+            {
+                if (this.score != value)
+                {
+                    this.score = value;
+                    NotifyPropertyChanged(p => p.Score);
+                }
+            }
         }
         public Customer(Int32 customerId, string phone, float score)
         {
