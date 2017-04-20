@@ -17,6 +17,10 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
     class EntityBaseManager<T> :IEntityManager<T> where T : class
     {
         protected readonly MyContext context = ContextFactory.GetContext();
+        public MyContext Context
+        {
+            get { return this.context; }
+        }
         public void Delete(T obj)
         {
             context.Set<T>().Remove(obj);

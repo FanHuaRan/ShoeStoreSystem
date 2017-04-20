@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pers.Fhr.ShoeStoreLib.Context;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
     /// </summary>
     interface IEntityManager<T> : IDisposable
     {
+        MyContext Context { get; }
         T FindById(Int64 id);
         void Delete(T obj);
         T Insert(T obj);

@@ -27,9 +27,15 @@ namespace ShoeStoreMvvm.ViewModels
         private ObservableCollection<float> shoeSizes =null;
         private ObservableCollection<string> seasons = null;
         private ObservableCollection<string> colors = null;
+        private string selectShoeStyle = null;
+        private float? selectShoeSize = null;
+        private string selectSeason = null;
+        private string selectColor = null;
         #endregion
+
         #region Service Component
         private IShoeItemQueryService shoeItemQueryService = new ShoeItemServiceClass(new ShoeItemManager());
+        private IShoeItemService shoeItemService = new ShoeItemServiceClass(new ShoeItemManager());
         private IShoeService shoeService = new ShoeService(new ShoeManager());
         #endregion
         // Default ctor
@@ -99,6 +105,54 @@ namespace ShoeStoreMvvm.ViewModels
                 }
             }
         }
+        public string SelectShoeStyle
+        {
+            get { return selectShoeStyle; }
+            set
+            {
+                if (this.SelectShoeStyle != value)
+                {
+                    selectShoeStyle = value;
+                    NotifyPropertyChanged(p => p.SelectShoeStyle);
+                }
+            }
+        }
+        public float? SelectShoeSize
+        {
+            get { return selectShoeSize; }
+            set
+            {
+                if (this.SelectShoeSize != value)
+                {
+                    selectShoeSize = value;
+                    NotifyPropertyChanged(p => p.SelectShoeSize);
+                }
+            }
+        }
+        public string SelectSeason
+        {
+            get { return selectSeason; }
+            set
+            {
+                if (this.SelectSeason != value)
+                {
+                    selectSeason = value;
+                    NotifyPropertyChanged(p => p.SelectSeason);
+                }
+            }
+        }
+        public string SelectColor
+        {
+            get { return selectColor; }
+            set
+            {
+                if (this.selectColor != value)
+                {
+                    selectColor = value;
+                    NotifyPropertyChanged(p => p.SelectColor);
+                }
+            }
+        }
         #endregion
         #region Commands
         public ICommand LoadCommand
@@ -107,10 +161,10 @@ namespace ShoeStoreMvvm.ViewModels
             {
                 return new DelegateCommand(() =>
                 {
-                    List<ShoeItem> tempShoeItems = shoeItemQueryService.FindAllShoeItems();
+                    var tempShoeItems = shoeItemQueryService.FindAllShoeItems();
                     this.ShoeItems = new ObservableCollection<ShoeItem>(tempShoeItems);
-                    this.ShoeSizes = new ObservableCollection<float>(tempShoeItems.Select(p => p.Size).Distinct());
-                    this.Colors = new ObservableCollection<string>(tempShoeItems.Select(p => p.Color).Distinct());
+                    this.ShoeSizes = new ObservableCollection<float>(shoeItemService.FindShoeItemSizes(tempShoeItems));
+                    this.Colors = new ObservableCollection<string>(shoeItemService.FindShoeItemColors(tempShoeItems));
                     this.ShoeStyles = new ObservableCollection<string>(shoeService.FindShoeTypes());
                     this.Seasons = new ObservableCollection<string>(this.shoeService.FindSeansons());
                 });

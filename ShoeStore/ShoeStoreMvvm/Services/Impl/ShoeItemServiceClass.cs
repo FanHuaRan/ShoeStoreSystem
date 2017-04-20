@@ -60,5 +60,26 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
         {
             return GetShoeItemManager().FindSellShoeItems(phone);
         }
+
+        public IEnumerable<float> FindShoeItemSizes(IEnumerable<ShoeItem> shoeItems)
+        {
+            return shoeItems.Select(p => p.Size).Distinct();
+        }
+        public IEnumerable<float> FindShoeItemSizes()
+        {
+            return this.entityManager.Context.ShoeItems
+                                             .Select(p => p.Size)
+                                             .Distinct();
+        }
+        public IEnumerable<string> FindShoeItemColors(IEnumerable<ShoeItem> shoeItems)
+        {
+            return shoeItems.Select(p => p.Color).Distinct();
+        }
+        public IEnumerable<string> FindShoeItemColors()
+        {
+            return this.entityManager.Context.ShoeItems
+                                             .Select(p => p.Color)
+                                             .Distinct();
+        }
     }
 }
