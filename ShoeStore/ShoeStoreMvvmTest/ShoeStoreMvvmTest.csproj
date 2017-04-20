@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CB7B3E5C-A95E-494D-8480-635DB4E12F16}</ProjectGuid>
+    <ProjectGuid>{882A1221-1435-49C0-A527-1864715449D6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ShoeStoreMvvmTest</RootNamespace>
@@ -55,16 +55,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="EntityManager\" />
     <Folder Include="Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ShoeStoreMvvm\ShoeStoreMvvm.csproj">
-      <Project>{8cf77eb6-3593-4010-b4a5-8e33b144b2a4}</Project>
-      <Name>ShoeStoreMvvm</Name>
-    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

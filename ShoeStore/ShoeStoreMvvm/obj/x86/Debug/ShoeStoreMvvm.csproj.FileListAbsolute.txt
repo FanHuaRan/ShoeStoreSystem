@@ -44,9 +44,6 @@ E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\bin\Debug\EntityFramework.SqlS
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\bin\Debug\Microsoft.Expression.Interactions.dll
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\bin\Debug\SimpleMvvmToolkit-Common.dll
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\bin\Debug\SimpleMvvmToolkit-WPF.dll
-E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\bin\Debug\System.Data.SQLite.dll
-E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\bin\Debug\System.Data.SQLite.EF6.dll
-E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\bin\Debug\System.Data.SQLite.Linq.dll
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\bin\Debug\System.Windows.Interactivity.dll
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\bin\Debug\EntityFramework.xml
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\bin\Debug\EntityFramework.SqlServer.xml
@@ -55,7 +52,6 @@ E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\bin\Debug\SimpleMvvmToolkit-Co
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\bin\Debug\SimpleMvvmToolkit-Common.xml
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\bin\Debug\SimpleMvvmToolkit-WPF.pdb
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\bin\Debug\SimpleMvvmToolkit-WPF.xml
-E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\bin\Debug\System.Data.SQLite.xml
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\bin\Debug\System.Windows.Interactivity.xml
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\App.baml
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\MainWindow.baml
@@ -74,7 +70,5 @@ E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\Views\StockView.
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\Views\StoreView.g.cs
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\Views\ShoeItemMananageView.baml
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\obj\x86\Debug\Views\ShoeItemMananageView.g.cs
-E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\bin\Debug\nunit.framework.dll
-E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\bin\Debug\nunit.framework.xml
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\bin\Debug\log4net.dll
 E:\项目\ShoeStoreSystem\ShoeStore\ShoeStoreMvvm\bin\Debug\log4net.xml

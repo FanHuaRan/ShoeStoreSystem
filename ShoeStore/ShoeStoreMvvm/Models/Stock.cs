@@ -14,7 +14,7 @@ namespace ShoeStoreMvvm.Models
         private DateTime stockTime;
         private int stockCount;
         private string stockCompany;
-       [PrimaryKey]
+        [PrimaryKey]
         public Int32 StockId
         {
             get { return this.stockId; }
@@ -62,6 +62,10 @@ namespace ShoeStoreMvvm.Models
                     NotifyPropertyChanged(p => p.StockCompany);
                 }
             }
+        }
+        public Stock()
+        {
+
         }
         public Stock(Int32 id, DateTime time, int count, string companay)
         {

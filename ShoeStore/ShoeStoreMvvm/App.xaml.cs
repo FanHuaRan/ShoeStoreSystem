@@ -20,7 +20,9 @@ namespace ShoeStoreMvvm
             //通用错误处理
             // this.DispatcherUnhandledException += (sender, e1) => e1.Handled = true;
             //似乎对sqlite不起作用
-            System.Data.Entity.Database.SetInitializer<MyContext>(new SourceData());
+           // System.Data.Entity.Database.SetInitializer<MyContext>(new SourceData());
+            MyContext context = new MyContext();
+            var result=context.Stocks.Find(1);
         }
     }
 }
