@@ -15,25 +15,11 @@
         <Style x:Key="ListViewItemStyle" TargetType="{x:Type ListViewItem}">
             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         </Style>
-        <Style x:Key="headerGroupCombox" TargetType="GroupBox">
-            <Setter Property="Width" Value="150px" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate  TargetType="GroupBox">
-                        <StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock>
-                                <ContentPresenter></ContentPresenter>
-                                </TextBlock>
-                            </StackPanel>
-                            <ComboBox  HorizontalContentAlignment="Left" Height="30" 
-                           IsReadOnly="False" ItemsSource="{Binding}"></ComboBox>
-                        </StackPanel>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-       
-        </Style>
+        <DataTemplate DataType="" x:Key="groupHeaderTemplate">
+            <StackPanel>
+                <TextBlock Text="{Binding }"></TextBlock>
+            </StackPanel>
+        </DataTemplate>
     </UserControl.Resources>
     
     <!--绑定load命令-->
@@ -62,23 +48,31 @@
                     <RowDefinition Height="10*"/>
                     <RowDefinition MinHeight="150"/>
                 </Grid.RowDefinitions>
-                
-                <GroupBox Grid.Row ="0"  Style="{DynamicResource headerGroupCombox}"
-                          Content="款型" DataContext="{Binding ShoeStyles}">
-                </GroupBox>
-                
-                <GroupBox Grid.Row ="1"  Style="{DynamicResource headerGroupCombox}"
-                          Content="颜色" DataContext="{Binding Colors}">
-                </GroupBox>
-                
-                <GroupBox Grid.Row ="2"  Style="{DynamicResource headerGroupCombox}"
-                          Content="尺码" DataContext="{Binding ShoeSizes}">
-                </GroupBox>
-                
-                <GroupBox Grid.Row ="3"  Style="{DynamicResource headerGroupCombox}"
-                          Content="适用季节" DataContext="{Binding Seasons}">
+
+                <GroupBox Grid.Row ="0"  Header="款式" HeaderTemplate="{Binding groupHeaderTemplate}">
+                    <ComboBox ItemsSource="{Binding ShoeStyles}" SelectedItem="{Binding SelectShoeStyle}">
+                        
+                    </ComboBox>
                 </GroupBox>
 
+                <GroupBox Grid.Row ="1" Header="颜色" HeaderTemplate="{Binding groupHeaderTemplate}">
+                    <ComboBox ItemsSource="{Binding Colors}" SelectedItem="{Binding SelectColor}">
+
+                    </ComboBox>
+                </GroupBox>
+
+                <GroupBox Grid.Row ="2"  Header="尺寸" HeaderTemplate="{Binding groupHeaderTemplate}">
+                    <ComboBox ItemsSource="{Binding ShoeSizes}" SelectedItem="{Binding SelectShoeSize}">
+
+                    </ComboBox>
+                </GroupBox>
+                
+                <GroupBox Grid.Row ="3"  Header="适用季节" HeaderTemplate="{Binding groupHeaderTemplate}">
+                    <ComboBox ItemsSource="{Binding Seasons}" SelectedItem="{Binding SelectSeason}">
+
+                    </ComboBox>
+                </GroupBox>
+                
                 <GroupBox Grid.Row ="4">
                     <GroupBox.HeaderTemplate>
                         <DataTemplate>
@@ -88,9 +82,9 @@
                         </DataTemplate>
                     </GroupBox.HeaderTemplate>
                     <StackPanel>
-                        <RadioButton>男</RadioButton>
-                        <RadioButton>女</RadioButton>
-                        <RadioButton>通用</RadioButton>
+                        <RadioButton IsChecked="{Binding IsAllMenCheck, Mode=TwoWay}">通用</RadioButton>
+                        <RadioButton IsChecked="{Binding IsMenCheck,Mode=TwoWay}">男</RadioButton>
+                        <RadioButton IsChecked="{Binding IsWoMenCheck, Mode=TwoWay}">女</RadioButton>
                     </StackPanel>
                 </GroupBox>
                 
@@ -115,20 +109,20 @@
                             <ColumnDefinition Width="70*"/>
                             <ColumnDefinition Width="14*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBox Grid.Row="1" Grid.Column="1"></TextBox>
+                        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding MinPrice, Mode=TwoWay}"></TextBox>
                         <Label  Grid.Row="1" Grid.Column="2" Content=" ~"  VerticalAlignment="Center" FontSize="25" ></Label>
-                        <TextBox Grid.Row="1" Grid.Column="3"></TextBox>
+                        <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding MaxPrice, Mode=TwoWay}"></TextBox>
                     </Grid>
                 </GroupBox>
                 <GroupBox Grid.Row ="6"  BorderThickness="0">
                     <StackPanel>
-                        <RadioButton>所有</RadioButton>
-                        <RadioButton>售出</RadioButton>
-                        <RadioButton>未售出</RadioButton>
+                        <RadioButton IsChecked="{Binding IsAllSellCheck, Mode=TwoWay}">所有</RadioButton>
+                        <RadioButton IsChecked="{Binding IsSellCheck,Mode=TwoWay}">售出</RadioButton>
+                        <RadioButton IsChecked="{Binding NoSellCheck, Mode=TwoWay}">未售出</RadioButton>
                     </StackPanel>
                 </GroupBox>
                 <Grid Grid.Row="7">
-                    <Button Style="{StaticResource BtStyleGG}">搜 索</Button>
+                    <Button Style="{StaticResource BtStyleGG}" Command="{Binding SearchCommand}">搜 索</Button>
                 </Grid>
             </Grid>
         </StackPanel>

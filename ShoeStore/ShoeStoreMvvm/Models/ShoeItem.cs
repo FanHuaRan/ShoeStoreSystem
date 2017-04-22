@@ -13,7 +13,7 @@ namespace ShoeStoreMvvm.Models
     {
         private Int32 shoeItemId;
         private Int32 shoeId;
-        private Int32 orderId;
+        private Int32? orderId;
         private byte isSell;
         private string color;
         private float size;
@@ -45,7 +45,7 @@ namespace ShoeStoreMvvm.Models
                 }
             }
         }
-        public Int32 OrderId
+        public Int32? OrderId
         {
             get { return this.orderId; }
             set
@@ -117,7 +117,7 @@ namespace ShoeStoreMvvm.Models
                 }
             }
         }
-        [Required]
+
         public virtual Order Order
         {
             get { return this.order; }

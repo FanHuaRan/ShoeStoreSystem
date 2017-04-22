@@ -20,20 +20,20 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
         }
         public List<ShoeItem> FindAllShoeItems()
         {
-            // return GetShoeItemManager().FindAll();
-            return new List<ShoeItem>(){
-                new ShoeItem(){
-                    ShoeItemId=1,
-                    Size=40,
-                    Color="黑色",
-                    Shoe=new Shoe(){
-                        ShoeType="休闲鞋",
-                        Season="春季",
-                        Gender=1,
-                        Price=9.98f
-                    }
-                }
-            };
+             return GetShoeItemManager().FindAll();
+            //return new List<ShoeItem>(){
+            //    new ShoeItem(){
+            //        ShoeItemId=1,
+            //        Size=40,
+            //        Color="黑色",
+            //        Shoe=new Shoe(){
+            //            ShoeType="休闲鞋",
+            //            Season="春季",
+            //            Gender=1,
+            //            Price=9.98f
+            //        }
+            //    }
+            //};
         }
 
         public List<ShoeItem> FindNoSellShoeItems()

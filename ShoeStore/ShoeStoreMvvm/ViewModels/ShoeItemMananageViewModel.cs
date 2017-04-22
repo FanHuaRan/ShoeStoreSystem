@@ -11,6 +11,7 @@ using Pers.Fhr.ShoeStoreLib.EntityManager;
 using System.Collections.Generic;
 using System.Windows.Input;
 using System.Linq;
+using System.Diagnostics;
 namespace ShoeStoreMvvm.ViewModels
 {
     /// <summary>
@@ -31,6 +32,14 @@ namespace ShoeStoreMvvm.ViewModels
         private float? selectShoeSize = null;
         private string selectSeason = null;
         private string selectColor = null;
+        private bool isMenCheck = false;
+        private bool isWoMenCheck = false;
+        private bool isAllMenCheck = true;
+        private float? minPrice = null;
+        private float? maxPrice = null;
+        private bool isSellCheck = false;
+        private bool noSellCheck = false;
+        private bool isAllSellCheck = true;
         #endregion
 
         #region Service Component
@@ -40,7 +49,6 @@ namespace ShoeStoreMvvm.ViewModels
         #endregion
         // Default ctor
         public ShoeItemMananageViewModel() {
-           
         }
 
         // TODO: Add properties using the mvvmprop code snippet
@@ -153,6 +161,102 @@ namespace ShoeStoreMvvm.ViewModels
                 }
             }
         }
+        public bool IsMenCheck
+        {
+            get { return isMenCheck; }
+            set
+            {
+                if (isMenCheck != value)
+                {
+                    isMenCheck = value;
+                    NotifyPropertyChanged(p => p.IsMenCheck);
+                }
+            }
+        }
+        public bool IsWoMenCheck
+        {
+            get { return isWoMenCheck; }
+            set
+            {
+                if (isWoMenCheck != value)
+                {
+                    isWoMenCheck = value;
+                    NotifyPropertyChanged(p => p.IsWoMenCheck);
+                }
+            }
+        }
+        public bool IsAllMenCheck
+        {
+            get { return isAllMenCheck; }
+            set
+            {
+                if (isAllMenCheck != value)
+                {
+                    isAllMenCheck = value;
+                    NotifyPropertyChanged(p => p.isAllMenCheck);
+                }
+            }
+        }
+        public float? MinPrice
+        {
+            get { return minPrice; }
+            set
+            {
+                if (minPrice != value)
+                {
+                    minPrice = value;
+                    NotifyPropertyChanged(p => p.MinPrice);
+                }
+            }
+        }
+        public float? MaxPrice
+        {
+            get { return maxPrice; }
+            set
+            {
+                if (maxPrice != value)
+                {
+                    maxPrice = value;
+                    NotifyPropertyChanged(p => p.MaxPrice);
+                }
+            }
+        }
+        public bool IsSellCheck
+        {
+            get { return isSellCheck; }
+            set
+            {
+                if (isSellCheck != value)
+                {
+                    isSellCheck = value;
+                    NotifyPropertyChanged(p => p.IsSellCheck);
+                }
+            }
+        }
+        public bool NoSellCheck
+        {
+            get { return noSellCheck; }
+            set
+            {
+                if (noSellCheck != value)
+                {
+                    noSellCheck = value;
+                    NotifyPropertyChanged(p => p.NoSellCheck);
+                }
+            }
+        }
+        public bool IsAllSellCheck
+        {
+            get { return isAllSellCheck; }
+            set
+            {
+                if (isAllSellCheck != value)
+                {
+                    isAllSellCheck = value;
+                    NotifyPropertyChanged(p => p.IsAllSellCheck);
+                }
+            }
+        }
         #endregion
         #region Commands
         public ICommand LoadCommand
@@ -161,12 +265,25 @@ namespace ShoeStoreMvvm.ViewModels
             {
                 return new DelegateCommand(() =>
                 {
-                    var tempShoeItems = shoeItemQueryService.FindAllShoeItems();
-                    this.ShoeItems = new ObservableCollection<ShoeItem>(tempShoeItems);
-                    this.ShoeSizes = new ObservableCollection<float>(shoeItemService.FindShoeItemSizes(tempShoeItems));
-                    this.Colors = new ObservableCollection<string>(shoeItemService.FindShoeItemColors(tempShoeItems));
+                    this.ShoeItems = new ObservableCollection<ShoeItem>(shoeItemQueryService.FindAllShoeItems());
+                    this.ShoeSizes = new ObservableCollection<float>(shoeItemService.FindShoeItemSizes());
+                    this.Colors = new ObservableCollection<string>(shoeItemService.FindShoeItemColors());
                     this.ShoeStyles = new ObservableCollection<string>(shoeService.FindShoeTypes());
-                    this.Seasons = new ObservableCollection<string>(this.shoeService.FindSeansons());
+                    this.Seasons = new ObservableCollection<string>(this.shoeService.FindSeasons());
+                });
+            }
+        }
+        public ICommand SearchCommand
+        {
+            get
+            {
+                return new DelegateCommand(() =>
+                {
+                    var conditions = new List<Func<ShoeItem, bool>>();
+                    if (!string.IsNullOrEmpty(SelectShoeStyle))
+                    {
+                        conditions.Add(p => p.Shoe.ShoeType == SelectShoeStyle);
+                    }
                 });
             }
         }

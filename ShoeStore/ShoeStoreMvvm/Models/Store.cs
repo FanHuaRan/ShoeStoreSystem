@@ -71,7 +71,7 @@ namespace ShoeStoreMvvm.Models
                 }
             }
         }
-        [Required]
+
         public virtual ShoeItem ShoeItem
         {
             get { return shoeItem; }

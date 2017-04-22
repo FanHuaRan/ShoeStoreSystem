@@ -21,13 +21,13 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
         {
             get { return this.context; }
         }
-        public void Delete(T obj)
+        public virtual void Delete(T obj)
         {
             context.Set<T>().Remove(obj);
             context.SaveChanges(); 
         }
 
-        public T Insert(T obj)
+        public virtual T Insert(T obj)
         {
             try
             {
@@ -41,10 +41,10 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
             }
         }
 
-        public T Update(T obj)
+        public virtual T Update(T obj)
         {
-           object key= ObjectRefletUtil.GetMainKeyValue(obj);
-           T oldObj = context.Set<T>().Find(key);
+            var key = ObjectRefletUtil.GetMainKeyValue(obj);
+            var oldObj = context.Set<T>().Find(key);
             if (oldObj == null)
             {
                 return null;
@@ -55,39 +55,39 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
             return oldObj;
         }
 
-        public  List<T> FindAll()
+        public virtual List<T> FindAll()
         {
             return context.Set<T>().Select(p => p).ToList<T>();
         }
 
-        public void DeleteById(long id)
+        public virtual void DeleteById(long id)
         {
-            T model = FindById(id);
+            var model = FindById(id);
             if (model != null)
             {
                 context.Set<T>().Remove(model);
                 context.SaveChanges();
             }  
         }
-        public T FindById(long id)
+        public virtual T FindById(long id)
         {
             return context.Set<T>().Find(id);
         }
-        public List<T> FindByLinq(Func<T, bool> expression)
+        public virtual List<T> FindByLinq(Func<T, bool> expression)
         {
             return context.Set<T>()
                 .Where(expression)
                 .Select(p => p)
                 .ToList();
         }
-        public List<object> FindByWhereAndSelect(Func<T, bool> whereExpression, Func<T, object> selectExpression)
+        public virtual List<object> FindByWhereAndSelect(Func<T, bool> whereExpression, Func<T, object> selectExpression)
         {
             return context.Set<T>()
                 .Where(whereExpression)
                 .Select(selectExpression)
                 .ToList();
         }
-        public List<V> FindBySelect<V>(Func<T, V> selectExpression)
+        public virtual List<V> FindBySelect<V>(Func<T, V> selectExpression)
         {
             return context.Set<T>()
                 .Select(selectExpression)
@@ -99,7 +99,7 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
         /// </summary>
         /// <param name="delegates"></param>
         /// <returns></returns>
-        public List<T> SimpleCompositeFind(params Func<T, bool>[] delegates)
+        public virtual List<T> SimpleCompositeFind(params Func<T, bool>[] delegates)
         {
             if (delegates.Length == 0)
             {

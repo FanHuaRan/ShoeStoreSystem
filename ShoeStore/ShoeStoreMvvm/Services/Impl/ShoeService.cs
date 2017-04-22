@@ -23,7 +23,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
         {
             return this.entityManager.FindBySelect(p => p.ShoeType);
         }
-        public List<string> FindSeansons()
+        public List<string> FindSeasons()
         {
             return this.entityManager.FindBySelect(p => p.Season);
         }
