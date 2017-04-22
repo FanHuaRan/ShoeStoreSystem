@@ -19,11 +19,11 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
         {
             this.entityManager = shoeManager;
         }
-        public List<string> FindShoeTypes()
+        public IEnumerable<string> FindShoeTypes()
         {
             return this.entityManager.FindBySelect(p => p.ShoeType);
         }
-        public List<string> FindSeasons()
+        public IEnumerable<string> FindSeasons()
         {
             return this.entityManager.FindBySelect(p => p.Season);
         }

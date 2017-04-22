@@ -12,7 +12,6 @@ namespace Pers.Fhr.ShoeStoreLib.Context
     /// <summary>
     /// 实体上下文类 
     /// 非线程安全
-    /// 目前不会涉及多线程 暂时使用单例
     /// 2017/2/4 fhr
     /// </summary>
     class MyContext : DbContext

@@ -12,7 +12,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service
         where T:class
     {
         protected IEntityManager<T> entityManager = null;
-        public List<T> FindAll()
+        public IEnumerable<T> FindAll()
         {
             return entityManager.FindAll();
         }

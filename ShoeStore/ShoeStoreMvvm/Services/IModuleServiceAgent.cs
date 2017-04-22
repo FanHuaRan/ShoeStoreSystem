@@ -10,6 +10,6 @@ namespace ShoeStoreMvvm.Services
 {
     public interface IModuleServiceAgent
     {
-        ObservableCollection<ModuleClass> GetModuleList();
+        IEnumerable<ModuleClass> GetModuleList();
     }
 }

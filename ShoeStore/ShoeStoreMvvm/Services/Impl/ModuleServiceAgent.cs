@@ -11,7 +11,7 @@ namespace ShoeStoreMvvm.Services.Impl
 {
     public class ModuleServiceAgent:IModuleServiceAgent
     {
-        public ObservableCollection<ModuleClass> GetModuleList()
+        public IEnumerable<ModuleClass> GetModuleList()
         {
             var moduleList = new ObservableCollection<ModuleClass>()
             {

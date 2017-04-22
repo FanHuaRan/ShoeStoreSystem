@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace Pers.Fhr.ShoeStoreLib.Context
 {
+    /// <summary>
+    /// EF数据库种子
+    /// 2016/2/4 fhr
+    /// </summary>
      class SourceData :DropCreateDatabaseIfModelChanges<MyContext>
     {
         protected override void Seed(MyContext context)

@@ -53,6 +53,6 @@ namespace Pers.Fhr.ShoeStoreLib.Service
         /// </summary>
         /// <param name="Shoes"></param>
         /// <returns></returns>
-        float CountSellMoney(List<ShoeItem> shoeItems);
+        float CountSellMoney(IEnumerable<ShoeItem> shoeItems);
     }
 }

@@ -96,5 +96,9 @@ namespace ShoeStoreMvvm.Models
         {
 
         }
+        public Store()
+        {
+
+        }
     }
 }

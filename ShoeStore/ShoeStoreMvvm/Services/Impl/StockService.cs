@@ -28,14 +28,14 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
         /// <param name="StockCompanyName"></param>
         /// <param name="shoeItems"></param>
         /// <returns></returns>
-        public Stock Stock(DateTime dateTime, string StockCompanyName, IList<ShoeItem> shoeItems)
+        public Stock Stock(DateTime dateTime, string StockCompanyName, IEnumerable<ShoeItem> shoeItems)
         {
-            Stock tempStock = new Stock(dateTime, shoeItems.Count,StockCompanyName);
+            Stock tempStock = new Stock(dateTime, shoeItems.Count(),StockCompanyName);
            Stock stock = this.Update(tempStock);
            //DealShoes(shoeItems, stock);
            return stock;
         }
-        private void DealShoes(IList<Shoe> shoes,Stock stock)
+        private void DealShoes(IEnumerable<Shoe> shoes, Stock stock)
         {
             foreach (var shoe in shoes)
             {

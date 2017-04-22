@@ -12,6 +12,10 @@ namespace Pers.Fhr.ShoeStoreLib.Context
     /// </summary>
     class ContextFactory
     {
+        /// <summary>
+        /// 为了线程安全、不适用单例模式
+        /// </summary>
+        /// <returns></returns>
         public static MyContext GetContext()
         {
             return new MyContext();

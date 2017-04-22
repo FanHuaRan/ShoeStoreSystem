@@ -96,5 +96,9 @@ namespace ShoeStoreMvvm.Models
             this.SaleTime = saleTime;
             this.TotalPrice = totalPrice;
         }
+        public Order()
+        {
+
+        }
     }
 }

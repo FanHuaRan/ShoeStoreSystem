@@ -72,7 +72,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
                       .Sum(p => p.SellPrice)??0;
         }
 
-        public float CountSellMoney(List<ShoeItem> shoeItems)
+        public float CountSellMoney(IEnumerable<ShoeItem> shoeItems)
         {
             return shoeItems.Sum(p => p.SellPrice).Value;
         }

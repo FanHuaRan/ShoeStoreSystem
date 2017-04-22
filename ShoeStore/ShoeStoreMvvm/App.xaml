@@ -9,7 +9,9 @@
                                    x:Key="Locator" />
         <SolidColorBrush x:Key="BackgroundBrush" Color="#EFEFEF"/>
         <!--性别转换器-->
-        <local:GenderCoverter x:Key="genderCoverter"/>
+        <local:GenderConverter x:Key="genderCoverter"/>
+        <!--售卖状态转换器-->
+        <local:ShoeItemSellStateConverter x:Key="sellStateConverter"/>
         <!--窗体按钮样式-->
         <Style x:Key="MBtStyleG" TargetType="{x:Type Button}">
             <Setter Property="Background" Value="#26272B"></Setter>

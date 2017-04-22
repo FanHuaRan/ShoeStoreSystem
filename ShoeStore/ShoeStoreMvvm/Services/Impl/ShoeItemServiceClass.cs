@@ -18,7 +18,7 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
         {
             return this.entityManager as ShoeItemManager;
         }
-        public List<ShoeItem> FindAllShoeItems()
+        public IEnumerable<ShoeItem> FindAllShoeItems()
         {
              return GetShoeItemManager().FindAll();
             //return new List<ShoeItem>(){
@@ -36,27 +36,27 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
             //};
         }
 
-        public List<ShoeItem> FindNoSellShoeItems()
+        public IEnumerable<ShoeItem> FindNoSellShoeItems()
         {
             return GetShoeItemManager().FindNoSellShoeItems();
         }
 
-        public List<ShoeItem> FindSellShoeItems()
+        public IEnumerable<ShoeItem> FindSellShoeItems()
         {
             return GetShoeItemManager().FindSellShoeItems();
         }
 
-        public List<ShoeItem> FindSellShoeItemsByYear(int year)
+        public IEnumerable<ShoeItem> FindSellShoeItemsByYear(int year)
         {
             return GetShoeItemManager().FindSellShoeItemsByYear(year);
         }
 
-        public List<ShoeItem> FindSellShoeItemsByMonth(int year, int month)
+        public IEnumerable<ShoeItem> FindSellShoeItemsByMonth(int year, int month)
         {
             return GetShoeItemManager().FindSellShoeItemsByMonth(year, month);
         }
 
-        public List<ShoeItem> FindSellShoeItems(string phone)
+        public IEnumerable<ShoeItem> FindSellShoeItems(string phone)
         {
             return GetShoeItemManager().FindSellShoeItems(phone);
         }
@@ -65,21 +65,29 @@ namespace Pers.Fhr.ShoeStoreLib.Service.Impl
         {
             return shoeItems.Select(p => p.Size).Distinct();
         }
+       
         public IEnumerable<float> FindShoeItemSizes()
         {
             return this.entityManager.Context.ShoeItems
                                              .Select(p => p.Size)
                                              .Distinct();
         }
+       
         public IEnumerable<string> FindShoeItemColors(IEnumerable<ShoeItem> shoeItems)
         {
             return shoeItems.Select(p => p.Color).Distinct();
         }
+     
         public IEnumerable<string> FindShoeItemColors()
         {
             return this.entityManager.Context.ShoeItems
                                              .Select(p => p.Color)
                                              .Distinct();
+        }
+
+        public IEnumerable<ShoeItem> FindShoeItems(List<Func<ShoeItem, bool>> conditions)
+        {
+            return GetShoeItemManager().SimpleCompositeFind(conditions.ToArray());
         }
     }
 }

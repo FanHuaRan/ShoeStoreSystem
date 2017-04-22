@@ -81,5 +81,9 @@ namespace ShoeStoreMvvm.Models
         {
            
         }
+        public Region()
+        {
+
+        }
     }
 }

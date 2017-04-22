@@ -12,34 +12,40 @@ namespace Pers.Fhr.ShoeStoreLib.Service
         /// 查看所有鞋子
         /// </summary>
         /// <returns></returns>
-        List<ShoeItem> FindAllShoeItems();
+        IEnumerable<ShoeItem> FindAllShoeItems();
         /// <summary>
         /// 查看没有售出的鞋子
         /// </summary>
         /// <returns></returns>
-        List<ShoeItem> FindNoSellShoeItems();
+        IEnumerable<ShoeItem> FindNoSellShoeItems();
         /// <summary>
         /// 查看已售出的鞋子
         /// </summary>
         /// <returns></returns>
-        List<ShoeItem> FindSellShoeItems();
+        IEnumerable<ShoeItem> FindSellShoeItems();
         /// <summary>
         /// 根据年来查看已售出的鞋子
         /// </summary>
         /// <param name="year"></param>
         /// <returns></returns>
-        List<ShoeItem> FindSellShoeItemsByYear(int year);
+        IEnumerable<ShoeItem> FindSellShoeItemsByYear(int year);
         /// <summary>
         /// 根据月来查看已售出的鞋子
         /// </summary>
         /// <param name="year"></param>
         /// <param name="month"></param>
         /// <returns></returns>
-        List<ShoeItem> FindSellShoeItemsByMonth(int year, int month);
+        IEnumerable<ShoeItem> FindSellShoeItemsByMonth(int year, int month);
         /// <summary>
         /// 查看某人买的鞋子
         /// </summary>
         /// <returns></returns>
-        List<ShoeItem> FindSellShoeItems(string phone);
+        IEnumerable<ShoeItem> FindSellShoeItems(string phone);
+        /// <summary>
+        /// 动态查询
+        /// </summary>
+        /// <param name="conditions"></param>
+        /// <returns></returns>
+        IEnumerable<ShoeItem> FindShoeItems(List<Func<ShoeItem, bool>> conditions);
     }
 }

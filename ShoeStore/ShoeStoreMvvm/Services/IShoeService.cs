@@ -12,8 +12,16 @@ namespace Pers.Fhr.ShoeStoreLib.Service
     /// </summary>
     public interface IShoeService:IBaseEntityService<Shoe>
     {
-        List<string> FindShoeTypes();
-        List<string> FindSeasons();
+        /// <summary>
+        /// 查询所有的鞋子样式
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<string> FindShoeTypes();
+        /// <summary>
+        /// 查询鞋子适用的所有季节
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<string> FindSeasons();
         /*
         /// <summary>
         /// 录入鞋信息

@@ -14,68 +14,75 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
         {
             get { return context.ShoeItems; }
         }
-        public List<ShoeItem> FindNoSellShoeItems()
+        public IEnumerable<ShoeItem> FindNoSellShoeItems()
         {
             return context.ShoeItems
+                .Include(p => p.Shoe)
+                .Include(p=>p.Order)
                 .Where(p => p.IsSell == 0)
-                .Include(p => p.Shoe)
                 .ToList();
         }
 
-        public List<ShoeItem> FindSellShoeItems()
+        public IEnumerable<ShoeItem> FindSellShoeItems()
         {
             return context.ShoeItems
-                .Where(p => p.IsSell == 1)
                 .Include(p => p.Shoe)
+                .Include(p => p.Order)
+                .Where(p => p.IsSell == 1)
                 .ToList();
         }
 
-        public List<ShoeItem> FindSellShoeItemsByYear(int year)
+        public IEnumerable<ShoeItem> FindSellShoeItemsByYear(int year)
         {
             var minTime = new DateTime(year, 01, 01);
             var maxTime = new DateTime(year + 1, 01, 01);
             return context.ShoeItems
+                            .Include(p => p.Shoe)
+                            .Include(p => p.Order)
                            .Where(p => p.IsSell == 1
                            && p.Order.SaleTime >= minTime
                            && p.Order.SaleTime < maxTime)
-                          .Include(p => p.Shoe)
                           .ToList();
         }
 
-        public List<ShoeItem> FindSellShoeItemsByMonth(int year, int month)
+        public IEnumerable<ShoeItem> FindSellShoeItemsByMonth(int year, int month)
         {
             var minTime = new DateTime(year, month, 01);
             var maxTime = new DateTime(year, month + 1, 01);
             return context.ShoeItems
-                          .Where(p => p.IsSell == 1
-                          && p.Order.SaleTime >= minTime
-                          && p.Order.SaleTime < maxTime)
-                         .Include(p => p.Shoe)
+                          .Include(p => p.Shoe)
+                          .Include(p => p.Order)
+                          .Where(p => p.IsSell == 1&& p.Order.SaleTime >= minTime && p.Order.SaleTime < maxTime)
                          .ToList();
         }
 
-        public List<ShoeItem> FindSellShoeItems(string phone)
+        public IEnumerable<ShoeItem> FindSellShoeItems(string phone)
         {
             return context.ShoeItems
-                .Where(p => p.IsSell == 1
-                && p.Order.Customer.Phone == phone)
                 .Include(p => p.Shoe)
+                .Include(p => p.Order)
+                .Where(p => p.IsSell == 1&& p.Order.Customer.Phone == phone)
                 .ToList();
         }
-        public override List<ShoeItem> FindAll()
+        public override IEnumerable<ShoeItem> FindAll()
         {
             return context.Set<ShoeItem>()
-                .Include(p=>p.Shoe)
+                .Include(p => p.Shoe)
+                .Include(p => p.Order)
                 .Select(p => p)
                 .ToList<ShoeItem>();
         }
-        public override List<ShoeItem> SimpleCompositeFind(params Func<ShoeItem, bool>[] delegates)
+        public override IEnumerable<ShoeItem> SimpleCompositeFind(params Func<ShoeItem, bool>[] delegates)
         {
             if (delegates.Length == 0)
             {
                 return new List<ShoeItem>();
             }
-            var objects = context.Set<ShoeItem>().Include(p=>p.Shoe).Where(delegates[0]).Select(p => p);
+            var objects = context.Set<ShoeItem>()
+                .Include(p=>p.Shoe)
+                .Include(p=>p.Order)
+                .Where(delegates[0])
+                .Select(p => p);
             for (int i = 1; i < delegates.Length; i++)
             {
                 var condition = delegates[i];

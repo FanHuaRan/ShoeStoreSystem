@@ -284,12 +284,71 @@ namespace ShoeStoreMvvm.ViewModels
                     {
                         conditions.Add(p => p.Shoe.ShoeType == SelectShoeStyle);
                     }
+                    if (!string.IsNullOrEmpty(SelectColor))
+                    {
+                        conditions.Add(p => p.Color == SelectColor);
+                    }
+                    if (SelectShoeSize!=null)
+                    {
+                        conditions.Add(p => p.Size == SelectShoeSize);
+                    }
+                    if (MinPrice != null)
+                    {
+                        conditions.Add(p => p.Shoe.Price >= MinPrice);
+                    }
+                    if (MaxPrice != null)
+                    {
+                        conditions.Add(p => p.Shoe.Price <= MaxPrice);
+                    }
+                    var genderCondition = getGenderCondtion();
+                    if (genderCondition != null)
+                    {
+                        conditions.Add(genderCondition);
+                    }
+                    var stateCondtion = getSellStateCondtion();
+                    if (stateCondtion != null)
+                    {
+                        conditions.Add(stateCondtion);
+                    }
+                    this.ShoeItems = new ObservableCollection<ShoeItem>(shoeItemQueryService.FindShoeItems(conditions));
                 });
             }
         }
         #endregion
         // TODO: Add methods that will be called by the view
-
+        
+        //获取查询鞋子的适用性别条件
+        private Func<ShoeItem, bool> getGenderCondtion()
+        {
+            if (IsAllMenCheck)
+            {
+                return p=>p.Shoe.Gender==3;
+            }
+            if (isMenCheck)
+            {
+                return p => p.Shoe.Gender == 1;
+            }
+            else
+            {
+                return p => p.Shoe.Gender == 2;
+            }
+        }
+        //获取查询鞋子的销售状态条件
+        private Func<ShoeItem, bool> getSellStateCondtion()
+        {
+            if (isAllSellCheck)
+            {
+                return p => p.IsSell == 1 || p.IsSell == 0;
+            }
+            if (isSellCheck)
+            {
+                return p => p.IsSell == 1;
+            }
+            else
+            {
+                return p => p.IsSell == 0;
+            }
+        }
         // TODO: Optionally add callback methods for async calls to the service agent
         
         //错误处理

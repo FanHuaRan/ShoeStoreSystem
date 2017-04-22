@@ -148,5 +148,9 @@ namespace ShoeStoreMvvm.Models
                 }
             }
         }
+        public Shoe()
+        {
+
+        }
     }
 }

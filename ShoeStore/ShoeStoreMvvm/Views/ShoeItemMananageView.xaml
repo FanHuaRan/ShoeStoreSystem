@@ -164,6 +164,7 @@
                         <GridViewColumn Header="适用性别" DisplayMemberBinding="{Binding Path=Shoe.Gender,Converter={StaticResource genderCoverter}}" Width="75"/>
                         <GridViewColumn Header="季节" DisplayMemberBinding="{Binding Path=Shoe.Season}" Width="75"/>
                         <GridViewColumn Header="零售价" DisplayMemberBinding="{Binding Path=Shoe.Price}" Width="75"/>
+                        <GridViewColumn Header="销售状态" DisplayMemberBinding="{Binding Path=IsSell,Converter={StaticResource sellStateConverter}}" Width="75"/>
                         <GridViewColumn Header="详细" Width="80">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>

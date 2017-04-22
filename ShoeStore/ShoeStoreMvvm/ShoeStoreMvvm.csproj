@@ -96,7 +96,8 @@
     <Compile Include="Context\ContextFactory.cs" />
     <Compile Include="Context\MyContext.cs" />
     <Compile Include="Context\SourceData.cs" />
-    <Compile Include="Converters\GenderCoverter.cs" />
+    <Compile Include="Converters\GenderConverter.cs" />
+    <Compile Include="Converters\ShoeItemSellStateConverter.cs" />
     <Compile Include="EntityManager\CustomerManager.cs" />
     <Compile Include="EntityManager\EntityBaseManager.cs" />
     <Compile Include="EntityManager\IEntityManager.cs" />

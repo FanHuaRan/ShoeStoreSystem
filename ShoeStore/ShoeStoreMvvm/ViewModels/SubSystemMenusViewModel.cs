@@ -28,7 +28,7 @@ namespace ShoeStoreMvvm.ViewModels
         public SubSystemMenusViewModel(IModuleServiceAgent moduleServiceAgent)
         {
             this.moduleServiceAgent = moduleServiceAgent;
-            this.ModuleList = moduleServiceAgent.GetModuleList();
+            this.ModuleList = moduleServiceAgent.GetModuleList() as ObservableCollection<ModuleClass>;
         }
         #region Propertys
         public ObservableCollection<ModuleClass> ModuleList
@@ -48,9 +48,10 @@ namespace ShoeStoreMvvm.ViewModels
                     {
                         return;
                     }
-                    var module = listbox.SelectedItem as ModuleClass;
-                   var userControl= Activator.CreateInstance( module.Type) as UserControl;
+                   var module = listbox.SelectedItem as ModuleClass;
+                   var userControl= Activator.CreateInstance(module.Type) as UserControl;
                    ChangeView(userControl);
+                   listbox.SelectedItem = null;
                 });
             }
         }

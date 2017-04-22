@@ -12,6 +12,8 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
 {
     /// <summary>
     /// 实体访问泛型基类
+    /// 大部分都为虚方法、因为EF的延迟加载策略，
+    /// 所以说这儿很多方法都应该要准许重写
     /// 2016/12/26 fhr
     /// </summary>
     class EntityBaseManager<T> :IEntityManager<T> where T : class
@@ -26,7 +28,15 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
             context.Set<T>().Remove(obj);
             context.SaveChanges(); 
         }
-
+        public virtual void DeleteById(long id)
+        {
+            var model = FindById(id);
+            if (model != null)
+            {
+                context.Set<T>().Remove(model);
+                context.SaveChanges();
+            }
+        }
         public virtual T Insert(T obj)
         {
             try
@@ -55,39 +65,43 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
             return oldObj;
         }
 
-        public virtual List<T> FindAll()
+        public virtual T Update(T obj, Func<T, object> getPkHandler)
+        {
+            var key = getPkHandler.Invoke(obj);
+            var oldObj = context.Set<T>().Find(key);
+            if (oldObj == null)
+            {
+                return null;
+            }
+            context.Entry<T>(oldObj).State = EntityState.Modified;
+            context.SaveChanges();
+            return oldObj;
+        }
+
+        public virtual IEnumerable<T> FindAll()
         {
             return context.Set<T>().Select(p => p).ToList<T>();
         }
 
-        public virtual void DeleteById(long id)
-        {
-            var model = FindById(id);
-            if (model != null)
-            {
-                context.Set<T>().Remove(model);
-                context.SaveChanges();
-            }  
-        }
         public virtual T FindById(long id)
         {
             return context.Set<T>().Find(id);
         }
-        public virtual List<T> FindByLinq(Func<T, bool> expression)
+        public virtual IEnumerable<T> FindByLinq(Func<T, bool> expression)
         {
             return context.Set<T>()
                 .Where(expression)
                 .Select(p => p)
                 .ToList();
         }
-        public virtual List<object> FindByWhereAndSelect(Func<T, bool> whereExpression, Func<T, object> selectExpression)
+        public virtual IEnumerable<object> FindByWhereAndSelect(Func<T, bool> whereExpression, Func<T, object> selectExpression)
         {
             return context.Set<T>()
                 .Where(whereExpression)
                 .Select(selectExpression)
                 .ToList();
         }
-        public virtual List<V> FindBySelect<V>(Func<T, V> selectExpression)
+        public virtual IEnumerable<V> FindBySelect<V>(Func<T, V> selectExpression)
         {
             return context.Set<T>()
                 .Select(selectExpression)
@@ -99,7 +113,7 @@ namespace Pers.Fhr.ShoeStoreLib.EntityManager
         /// </summary>
         /// <param name="delegates"></param>
         /// <returns></returns>
-        public virtual List<T> SimpleCompositeFind(params Func<T, bool>[] delegates)
+        public virtual IEnumerable<T> SimpleCompositeFind(params Func<T, bool>[] delegates)
         {
             if (delegates.Length == 0)
             {

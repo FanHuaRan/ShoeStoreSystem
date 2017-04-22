@@ -7,6 +7,10 @@ using System.Windows.Input;
 
 namespace ShoeStoreMvvm.Commands
 {
+    /// <summary>
+    /// 自定义并且扩展一个命令
+    /// 2017/04/23
+    /// </summary>
     public class RelayCommand:ICommand
     {
         private readonly Action<object> _execute;
